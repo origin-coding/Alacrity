@@ -21,17 +21,14 @@ jobs:
           release-type: node
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Echo tag name
-        if: ${{ steps.release.outputs.release_created }}
-        run: |
-          echo "${{ steps.release.outputs.tag_name }}"
-          echo "RELEASE_CREATED=${{ steps.release.outputs.release_created }}" >> $GITHUB_ENV
-          echo "TAG_NAME=${{ steps.release.outputs.release_created }}" >> $GITHUB_ENV
+    outputs:
+      release-created: ${{ steps.release.outputs.release_created }}
+      tag-name: ${{ steps.release.outputs.tag_name }}
 
   build-alacrity:
     needs: create-release
 
-    if: $RELEASE_CREATED
+    if: ${{ needs.create-release.outputs.release-created }}
 
     strategy:
       fail-fast: false
@@ -42,4 +39,4 @@ jobs:
 
     steps:
       - name: Echo tag name
-        run: echo "$RELEASE_CREATED"
+        run: echo "Build Alacrity ${{ needs.create-release.outputs.tag-name }}"
