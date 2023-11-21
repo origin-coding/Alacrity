@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/origin-coding/Alacrity/compare/v1.0.0...v1.1.0) (2023-11-21)
+
+
+### Features
+
+* update workflow ([6f35a7a](https://github.com/origin-coding/Alacrity/commit/6f35a7ab5b7b7cff1fb89a1b2af70ea5d2984c5a))
+
 ## 1.0.0 (2023-11-21)
 
 
