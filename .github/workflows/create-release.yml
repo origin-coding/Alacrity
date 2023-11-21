@@ -29,6 +29,8 @@ jobs:
           echo "TAG_NAME=${{ steps.release.outputs.release_created }}" >> $GITHUB_ENV
 
   build-alacrity:
+    needs: create-release
+
     if: $RELEASE_CREATED
 
     strategy:
