@@ -1,0 +1,25 @@
+name: Build Alacrity
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build-alacrity:
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Echo tag name
+        run: echo $GITHUB_REF
