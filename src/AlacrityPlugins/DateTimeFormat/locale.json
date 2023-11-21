@@ -1,0 +1,10 @@
+{
+  "en": {
+    "component": "Component",
+    "note": "Note"
+  },
+  "zhHans": {
+    "component": "组成部分",
+    "note": "备注"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "en": {
+    "selectFile": "Select file",
+    "selectImage": "Select image",
+    "invalid": "Invalid Base64 value!"
+  },
+  "zhHans": {
+    "selectFile": "选择文件",
+    "selectImage": "选择图片",
+    "invalid": "无效的Base64加密值！"
+  }
+}

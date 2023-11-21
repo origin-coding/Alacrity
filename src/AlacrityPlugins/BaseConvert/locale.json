@@ -1,0 +1,18 @@
+{
+  "en": {
+    "bin": "Binary",
+    "oct": "Octal",
+    "dec": "Decimal",
+    "hex": "Hexadecimal",
+    "inputBase": "Base of input number:",
+    "outputBase": "Base of output number:"
+  },
+  "zhHans": {
+    "bin": "二进制",
+    "oct": "八进制",
+    "dec": "十进制",
+    "hex": "十六进制",
+    "inputBase": "输入数字的进制：",
+    "outputBase": "输出数字的进制"
+  }
+}

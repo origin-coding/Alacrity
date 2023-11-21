@@ -1,0 +1,14 @@
+{
+  "en": {
+    "code": "Code",
+    "brief": "Brief",
+    "description": "Detailed description",
+    "category": "Category"
+  },
+  "zhHans": {
+    "code": "状态码",
+    "brief": "简述",
+    "description": "详细描述",
+    "category": "类别"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "en": {
+    "extension": "Extension",
+    "description": "Description",
+    "mime": "MIME Type",
+    "category": "Category"
+  },
+  "zhHans": {
+    "extension": "扩展名",
+    "description": "描述",
+    "mime": "MIME类型",
+    "category": "类别"
+  }
+}

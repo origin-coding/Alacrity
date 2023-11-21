@@ -1,0 +1,18 @@
+{
+  "Name": "FloatConvert",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "A tool for converting single/double precision float numbers.",
+  "Categories": ["Converter"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Float Convert",
+      "zhHans": "浮点数转换"
+    },
+    "Description": {
+      "en": "Convert float number to binary/hexadecimal form.",
+      "zhHans": "将浮点数转换为二进制/十六进制格式。"
+    }
+  }
+}

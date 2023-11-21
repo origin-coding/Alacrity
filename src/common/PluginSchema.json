@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Plugin schema",
+  "description": "Json schema definition for Alacrity plugin.",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "description": "Plugin name."
+    },
+    "Author": {
+      "type": "string",
+      "description": "Plugin author name."
+    },
+    "Description": {
+      "type": "string",
+      "description": "Plugin description."
+    },
+    "Version": {
+      "type": "string",
+      "description": "Plugin version."
+    },
+    "Email": {
+      "type": "string",
+      "description": "Email address of plugin author."
+    },
+    "Categories": {
+      "type": "array",
+      "description": "Plugin category.",
+      "items": {
+        "enum": [
+          "Encrypt",
+          "Hash",
+          "Format",
+          "CheatSheet",
+          "CodeSnippet",
+          "Generator",
+          "Validator",
+          "Converter",
+          "Parser"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "MultiLanguage": {
+      "type": "boolean",
+      "description": "Whether this plugin supports multi-language.",
+      "default": false
+    },
+    "Locale": {
+      "type": "object",
+      "propertyNames": {
+        "enum": ["Name", "Description"]
+      },
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["en", "zhHans"]
+          },
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": ["Name", "Description"]
+    }
+  },
+  "if": {
+    "properties": {
+      "MultiLanguage": {
+        "const": true
+      }
+    },
+    "required": ["MultiLanguage"]
+  },
+  "then": {
+    "required": ["Locale"]
+  },
+  "required": ["Name", "Author", "Description", "Version", "Categories"],
+  "additionalProperties": false
+}

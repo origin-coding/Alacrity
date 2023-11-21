@@ -1,0 +1,18 @@
+{
+  "Name": "RequestHeaders",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "A tool for getting response headers.",
+  "Categories": [],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Request Headers",
+      "zhHans": "查看响应头"
+    },
+    "Description": {
+      "en": "View HTTP response headers.",
+      "zhHans": "查看HTTP响应头。 "
+    }
+  }
+}

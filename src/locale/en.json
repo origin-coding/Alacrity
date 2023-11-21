@@ -1,0 +1,45 @@
+{
+  "$vuetify": {
+    "dataFooter": {
+      "itemsPerPageText": "Items per page:",
+      "itemsPerPageAll": "All",
+      "pageText": "{0}-{1} of {2}",
+      "firstPage": "First page",
+      "lastPage": "Last page",
+      "prevPage": "Previous page",
+      "nextPage": "Next page"
+    },
+    "input": {
+      "clear": "Clear"
+    },
+    "open": "Open",
+    "close": "Close",
+    "noDataText": "Please select"
+  },
+  "search": "Search plugins",
+  "category": {
+    "all": "All Utils",
+    "favorite": "Favorites",
+    "encrypt": "Encrypt Utils",
+    "hash": "Hash Utils",
+    "cheat-sheet": "Cheat Sheets",
+    "code-snippet": "Code Snippets",
+    "formatter": "Formatters",
+    "generator": "Generators",
+    "validator": "Validators",
+    "converter": "Converters",
+    "parser": "Parsers"
+  },
+  "plugin": {
+    "copy": "Copy",
+    "copied": "Copied to clipboard.",
+    "download": "Download",
+    "clear": "Clear",
+    "search": "Search",
+    "generate": "Generate"
+  },
+  "10": "10",
+  "25": "25",
+  "50": "50",
+  "100": "100"
+}

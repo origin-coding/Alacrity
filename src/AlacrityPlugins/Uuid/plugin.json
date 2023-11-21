@@ -1,0 +1,18 @@
+{
+  "Name": "Uuid",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "A simple tool for UUID generation/validation.",
+  "Categories": ["Generator", "Validator"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "UUID Utils",
+      "zhHans": "UUID工具"
+    },
+    "Description": {
+      "en": "Generating and validating random UUIDs.",
+      "zhHans": "随机生成和验证UUID。"
+    }
+  }
+}

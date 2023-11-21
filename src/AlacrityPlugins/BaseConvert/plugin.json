@@ -1,0 +1,18 @@
+{
+  "Name": "BaseConvert",
+  "Author": "Alacrity",
+  "Version": "0.0.0",
+  "Description": "A tool for converting number base.",
+  "Categories": ["Converter"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Base Convert",
+      "zhHans": "进制转换"
+    },
+    "Description": {
+      "en": "A digital base conversion tool.",
+      "zhHans": "用于进行数字进制转换的工具。"
+    }
+  }
+}

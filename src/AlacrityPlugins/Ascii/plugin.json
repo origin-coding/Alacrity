@@ -1,0 +1,18 @@
+{
+  "Name": "Ascii",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "Information of ASCII codes.",
+  "Categories": ["CheatSheet"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "ASCII Codes Info",
+      "zhHans": "ASCII码信息汇总"
+    },
+    "Description": {
+      "en": "List all ASCII codes' information.",
+      "zhHans": "列出ASCII码的常用信息。"
+    }
+  }
+}

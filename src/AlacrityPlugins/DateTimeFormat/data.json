@@ -1,0 +1,314 @@
+[
+  {
+    "component": {
+      "en": "Year, 4 digits",
+      "zhHans": "年，四位数字"
+    },
+    "iso8601": "YYYY",
+    "golang": "2006",
+    "python": "%Y",
+    "dayjs": "YYYY"
+  },
+  {
+    "component": {
+      "en": "Month, 2 digits",
+      "zhHans": "月，两位数字"
+    },
+    "iso8601": "MM",
+    "golang": "01",
+    "python": "%m",
+    "dayjs": "MM"
+  },
+  {
+    "component": {
+      "en": "Day, 2 digits",
+      "zhHans": "日，两位数字"
+    },
+    "iso8601": "DD",
+    "golang": "02",
+    "python": "%d",
+    "dayjs": "DD"
+  },
+  {
+    "component": {
+      "en": "Hour, twenty-four hour clock, 2 digits",
+      "zhHans": "时，二十四小时制，两位数字"
+    },
+    "iso8601": "hh",
+    "golang": "15",
+    "python": "%H",
+    "dayjs": "HH"
+  },
+  {
+    "component": {
+      "en": "Minute, 2 digits",
+      "zhHans": "分，两位数字"
+    },
+    "iso8601": "mm",
+    "golang": "04",
+    "python": "%M",
+    "dayjs": "mm"
+  },
+  {
+    "component": {
+      "en": "Second, 2 digits",
+      "zhHans": "秒，两位数字"
+    },
+    "iso8601": "ss",
+    "golang": "05",
+    "python": "%S",
+    "dayjs": "ss"
+  },
+  {
+    "component": {
+      "en": "Millisecond, 3 digits",
+      "zhHans": "毫秒，三位数字"
+    },
+    "iso8601": "sss",
+    "golang": "-",
+    "python": "-",
+    "dayjs": "SSS"
+  },
+  {
+    "component": {
+      "en": "Year, 2 digits",
+      "zhHans": "年，两位数字"
+    },
+    "iso8601": "-",
+    "golang": "06",
+    "python": "%y",
+    "dayjs": "YY"
+  },
+  {
+    "component": {
+      "en": "Month, 1 or 2 digits",
+      "zhHans": "月，一位或两位数字"
+    },
+    "iso8601": "-",
+    "golang": "1",
+    "python": "-",
+    "dayjs": "M"
+  },
+  {
+    "component": {
+      "en": "Month, abbreviation",
+      "zhHans": "月，缩写"
+    },
+    "iso8601": "-",
+    "golang": "Jan",
+    "python": "%b",
+    "dayjs": "MMM",
+    "note": {
+      "en": "Python's months vary by locale",
+      "zhHans": "Python的月份随区域设置而不同"
+    }
+  },
+  {
+    "component": {
+      "en": "Month, full name",
+      "zhHans": "月，全称"
+    },
+    "iso8601": "-",
+    "golang": "January",
+    "python": "%B",
+    "dayjs": "MMMM",
+    "note": {
+      "en": "Python's months vary by locale",
+      "zhHans": "Python的月份随区域设置而不同"
+    }
+  },
+  {
+    "component": {
+      "en": "Day, 1 or 2 digits",
+      "zhHans": "日，一位或两位数字"
+    },
+    "iso8601": "-",
+    "golang": "2",
+    "python": "-",
+    "dayjs": "D"
+  },
+  {
+    "component": {
+      "en": "Day, pad with spaces",
+      "zhHans": "日，填充空格"
+    },
+    "iso8601": "-",
+    "golang": "_2",
+    "python": "-",
+    "dayjs": "-"
+  },
+  {
+    "component": {
+      "en": "Day of week, abbreviation",
+      "zhHans": "星期几，缩写"
+    },
+    "iso8601": "-",
+    "golang": "Mon",
+    "python": "%a",
+    "dayjs": "ddd",
+    "note": {
+      "en": "Python's days of week vary by locale",
+      "zhHans": "Python的星期几随区域设置而不同"
+    }
+  },
+  {
+    "component": {
+      "en": "Day of week, full name",
+      "zhHans": "星期几，全称"
+    },
+    "iso8601": "-",
+    "golang": "Monday",
+    "python": "%A",
+    "dayjs": "dddd",
+    "note": {
+      "en": "Python's days of week vary by locale",
+      "zhHans": "Python的星期几随区域设置而不同"
+    }
+  },
+  {
+    "component": {
+      "en": "Day of week, 1 digit",
+      "zhHans": "星期几，一位数字"
+    },
+    "iso8601": "D",
+    "golang": "-",
+    "python": "%w",
+    "dayjs": "d",
+    "note": {
+      "en": "ISO 8601 specifies Sunday as 7, while the other two specify Sunday as 0",
+      "zhHans": "ISO 8601规定周日为7，而Python和Day.js规定周日为0"
+    }
+  },
+  {
+    "component": {
+      "en": "Day of week, the shortest form",
+      "zhHans": "星期几，最简写"
+    },
+    "iso8601": "-",
+    "golang": "-",
+    "python": "-",
+    "dayjs": "dd"
+  },
+  {
+    "component": {
+      "en": "Day of year, 3 digits",
+      "zhHans": "一年的第几天，三位数字"
+    },
+    "iso8601": "DDD",
+    "golang": "002",
+    "python": "%j",
+    "dayjs": "-"
+  },
+  {
+    "component": {
+      "en": "Day of year, pad with spaces",
+      "zhHans": "一年的第几天，填充空格"
+    },
+    "iso8601": "-",
+    "golang": "__2",
+    "python": "-",
+    "dayjs": "-"
+  },
+  {
+    "component": {
+      "en": "Week of year, 2 digits",
+      "zhHans": "一年的第几周，2位数字"
+    },
+    "iso8601": "ww",
+    "golang": "-",
+    "python": "%U / %W",
+    "dayjs": "ww",
+    "note": {
+      "en": "%U: Sunday as the first day; %W： Monday as the first day; ww requires plugin support",
+      "zhHans": "%U：周日为第一天；%W周一为第一天；ww需要插件支持"
+    }
+  },
+  {
+    "component": {
+      "en": "Hour, twelve hour clock, 2 digits",
+      "zhHans": "时，十二小时制，两位数字"
+    },
+    "iso8601": "-",
+    "golang": "03",
+    "python": "%I",
+    "dayjs": "hh"
+  },
+  {
+    "component": {
+      "en": "Hour, twenty-four hour clock, 1 or 2 digits",
+      "zhHans": "时，二十四小时制，一位或两位数字"
+    },
+    "iso8601": "-",
+    "golang": "-",
+    "python": "-",
+    "dayjs": "H"
+  },
+  {
+    "component": {
+      "en": "Hour, twelve hour clock, 1 or 2 digits",
+      "zhHans": "时，十二小时制，一位或两位数字"
+    },
+    "iso8601": "-",
+    "golang": "3",
+    "python": "-",
+    "dayjs": "h"
+  },
+  {
+    "component": {
+      "en": "AM/PM",
+      "zhHans": "上午下午"
+    },
+    "iso8601": "-",
+    "golang": "PM",
+    "python": "%p",
+    "dayjs": "A / a",
+    "note": {
+      "en": "A: uppercase; a: lowercase",
+      "zhHans": "A：大写；a：小写"
+    }
+  },
+  {
+    "component": {
+      "en": "Minute, 1 or 2 digits",
+      "zhHans": "分，一位或两位数字"
+    },
+    "iso8601": "-",
+    "golang": "4",
+    "python": "-",
+    "dayjs": "m"
+  },
+  {
+    "component": {
+      "en": "Second, 1 or 2 digits",
+      "zhHans": "秒，一位或两位数字"
+    },
+    "iso8601": "-",
+    "golang": "5",
+    "python": "-",
+    "dayjs": "s"
+  },
+  {
+    "component": {
+      "en": "Millisecond, 6 digits",
+      "zhHans": "毫秒，六位数字"
+    },
+    "iso8601": "-",
+    "golang": "-",
+    "python": "%f",
+    "dayjs": "-"
+  },
+  {
+    "component": {
+      "en": "Timezone, alphabetical",
+      "zhHans": "时区，字母格式"
+    },
+    "iso8601": "Z",
+    "golang": "Z",
+    "python": "%z / %Z",
+    "dayjs": "Z / ZZ",
+    "note": {
+      "en": "%z: ±HHMM; %Z: timezone name; Z: ±hh:mm; ZZ: ±hhmm",
+      "zhHans": "%z: ±HHMM; %Z: timezone name; Z: ±hh:mm; ZZ: ±hhmm"
+    }
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "Name": "Faker",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "A tool for generating fake data.",
+  "Categories": ["Generator"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Faker",
+      "zhHans": "Faker工具"
+    },
+    "Description": {
+      "en": "Generate fake data in CSV form.",
+      "zhHans": "以CSV格式生成模拟数据。"
+    }
+  }
+}

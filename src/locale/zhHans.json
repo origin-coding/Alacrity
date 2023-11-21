@@ -1,0 +1,45 @@
+{
+  "$vuetify": {
+    "dataFooter": {
+      "itemsPerPageText": "每页数量：",
+      "itemsPerPageAll": "全部",
+      "pageText": "{0}-{1} 共计 {2}",
+      "firstPage": "第一页",
+      "lastPage": "最后一页",
+      "prevPage": "上一页",
+      "nextPage": "下一页"
+    },
+    "input": {
+      "clear": "清空"
+    },
+    "open": "打开",
+    "close": "关闭",
+    "noDataText": "请选择"
+  },
+  "search": "搜索插件",
+  "category": {
+    "all": "全部工具",
+    "favorite": "收藏夹",
+    "encrypt": "加密工具",
+    "hash": "哈希工具",
+    "cheat-sheet": "备忘单",
+    "code-snippet": "代码片段",
+    "formatter": "格式化工具",
+    "generator": "生成工具",
+    "validator": "验证工具",
+    "converter": "转换工具",
+    "parser": "解析工具"
+  },
+  "plugin": {
+    "copy": "复制",
+    "copied": "已复制到剪切板。",
+    "download": "下载",
+    "clear": "清空",
+    "search": "搜索",
+    "generate": "生成"
+  },
+  "10": "10",
+  "25": "25",
+  "50": "50",
+  "100": "100"
+}

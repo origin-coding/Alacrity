@@ -1,0 +1,18 @@
+{
+  "Name": "StatusCode",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "Http response status code cheat sheet.",
+  "Categories": ["CheatSheet"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "HTTP Status Code",
+      "zhHans": "HTTP响应代码"
+    },
+    "Description": {
+      "en": "Common-used HTTP response status codes.",
+      "zhHans": "查看常用HTTP响应代码。"
+    }
+  }
+}

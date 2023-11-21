@@ -1,0 +1,569 @@
+[
+  {
+    "code": "100",
+    "brief": "Continue",
+    "description": {
+      "en": "This interim response indicates that the client should continue the request or ignore the response if the request is already finished.",
+      "zhHans": "这个临时响应表明，迄今为止的所有内容都是可行的，客户端应该继续请求，如果已经完成，则忽略它。"
+    },
+    "category": "Information responses"
+  },
+  {
+    "code": "101",
+    "brief": "Switching Protocols",
+    "description": {
+      "en": "This code is sent in response to an Upgrade request header from the client and indicates the protocol the server is switching to.",
+      "zhHans": "该代码是响应客户端的 Upgrade 请求头发送的，指明服务器即将切换的协议。"
+    },
+    "category": "Information responses"
+  },
+  {
+    "code": "102",
+    "brief": "Processing (WebDAV)",
+    "description": {
+      "en": "This code indicates that the server has received and is processing the request, but no response is available yet.",
+      "zhHans": "此代码表示服务器已收到并正在处理该请求，但当前没有响应可用。"
+    },
+    "category": "Information responses"
+  },
+  {
+    "code": "103",
+    "brief": "Early Hints",
+    "description": {
+      "en": "This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response.",
+      "zhHans": "此状态代码主要用于与 Link 链接头一起使用，以允许用户代理在服务器准备响应阶段时开始预加载 preloading 资源。"
+    },
+    "category": "Information responses"
+  },
+  {
+    "code": "200",
+    "brief": "OK",
+    "description": {
+      "en": "The request succeeded. The result meaning of \"success\" depends on the HTTP method:\n\n  GET: The resource has been fetched and transmitted in the message body.\n  HEAD: The representation headers are included in the response without any message body.\n  PUT or POST: The resource describing the result of the action is transmitted in the message body.\n  TRACE: The message body contains the request message as received by the server.",
+      "zhHans": "请求成功。成功的含义取决于 HTTP 方法：\n\n  GET: 资源已被提取并在消息正文中传输。\n  HEAD: 实体标头位于消息正文中。\n  PUT or POST: 描述动作结果的资源在消息体中传输。\n  TRACE: 消息正文包含服务器收到的请求消息。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "201",
+    "brief": "Created",
+    "description": {
+      "en": "The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests.",
+      "zhHans": "该请求已成功，并因此创建了一个新的资源。这通常是在 POST 请求，或是某些 PUT 请求之后返回的响应。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "202",
+    "brief": "Accepted",
+    "description": {
+      "en": "The request has been received but not yet acted upon. It is noncommittal, since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing.",
+      "zhHans": "\"请求已经接收到，但还未响应，没有结果。意味着不会有一个异步的响应去表明当前请求的结果，预期另外的进程和服务去处理请求，或者批处理。\""
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "203",
+    "brief": "Non-Authoritative Information",
+    "description": {
+      "en": "This response code means the returned metadata is not exactly the same as is available from the origin server, but is collected from a local or a third-party copy. This is mostly used for mirrors or backups of another resource. Except for that specific case, the 200 OK response is preferred to this status.",
+      "zhHans": "服务器已成功处理了请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或者第三方的拷贝。当前的信息可能是原始版本的子集或者超集。例如，包含资源的元数据可能导致原始服务器知道元信息的超集。使用此状态码不是必须的，而且只有在响应不使用此状态码便会返回200 OK的情况下才是合适的。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "204",
+    "brief": "No Content",
+    "description": {
+      "en": "There is no content to send for this request, but the headers may be useful. The user agent may update its cached headers for this resource with the new ones.",
+      "zhHans": "对于该请求没有的内容可发送，但头部字段可能有用。用户代理可能会用此时请求头部信息来更新原来资源的头部缓存字段。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "205",
+    "brief": "Reset Content",
+    "description": {
+      "en": "Tells the user agent to reset the document which sent this request.",
+      "zhHans": "告诉用户代理重置发送此请求的文档。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "206",
+    "brief": "Partial Content",
+    "description": {
+      "en": "This response code is used when the Range header is sent from the client to request only part of a resource.",
+      "zhHans": "当从客户端发送Range范围标头以只请求资源的一部分时，将使用此响应代码。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "207",
+    "brief": "Multi-Status (WebDAV)",
+    "description": {
+      "en": "Conveys information about multiple resources, for situations where multiple status codes might be appropriate.",
+      "zhHans": "对于多个状态代码都可能合适的情况，传输有关多个资源的信息。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "208",
+    "brief": "Already Reported (WebDAV)",
+    "description": {
+      "en": "Used inside a <dav:propstat> response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.",
+      "zhHans": "在 DAV 里面使用 <dav:propstat> 响应元素以避免重复枚举多个绑定的内部成员到同一个集合。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "226",
+    "brief": "IM Used (HTTP Delta encoding)",
+    "description": {
+      "en": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.",
+      "zhHans": "服务器已经完成了对资源的GET请求，并且响应是对当前实例应用的一个或多个实例操作结果的表示。"
+    },
+    "category": "Successful responses"
+  },
+  {
+    "code": "300",
+    "brief": "Multiple Choices",
+    "description": {
+      "en": "The request has more than one possible response. The user agent or user should choose one of them. (There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick.)",
+      "zhHans": "请求拥有多个可能的响应。用户代理或者用户应当从中选择一个。（没有标准化的方法来选择其中一个响应，但是建议使用指向可能性的 HTML 链接，以便用户可以选择。）"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "301",
+    "brief": "Moved Permanently",
+    "description": {
+      "en": "The URL of the requested resource has been changed permanently. The new URL is given in the response.",
+      "zhHans": "请求资源的 URL 已永久更改。在响应中给出了新的 URL。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "302",
+    "brief": "Found",
+    "description": {
+      "en": "This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests.",
+      "zhHans": "此响应代码表示所请求资源的 URI 已 暂时 更改。未来可能会对 URI 进行进一步的改变。因此，客户机应该在将来的请求中使用这个相同的 URI。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "303",
+    "brief": "See Other",
+    "description": {
+      "en": "The server sent this response to direct the client to get the requested resource at another URI with a GET request.",
+      "zhHans": "服务器发送此响应，以指示客户端通过一个 GET 请求在另一个 URI 中获取所请求的资源。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "304",
+    "brief": "Not Modified",
+    "description": {
+      "en": "This is used for caching purposes. It tells the client that the response has not been modified, so the client can continue to use the same cached version of the response.",
+      "zhHans": "这是用于缓存的目的。它告诉客户端响应还没有被修改，因此客户端可以继续使用相同的缓存版本的响应。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "305",
+    "brief": "Use Proxy (Deprecated)",
+    "description": {
+      "en": "This response code is no longer used; it is just reserved. It was used in a previous version of the HTTP/1.1 specification.",
+      "zhHans": "在 HTTP 规范中定义，以指示请求的响应必须被代理访问。由于对代理的带内配置的安全考虑，它已被弃用。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "306",
+    "brief": "unused",
+    "description": {
+      "en": "This response code is no longer used; it is just reserved. It was used in a previous version of the HTTP/1.1 specification.",
+      "zhHans": "此响应代码不再使用；它只是保留。它曾在 HTTP/1.1 规范的早期版本中使用过。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "307",
+    "brief": "Temporary Redirect",
+    "description": {
+      "en": "The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request. This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request.",
+      "zhHans": "服务器发送此响应，以指示客户端使用在前一个请求中使用的相同方法在另一个 URI 上获取所请求的资源。这与 302 Found HTTP 响应代码具有相同的语义，但用户代理 不能 更改所使用的 HTTP 方法：如果在第一个请求中使用了 POST，则在第二个请求中必须使用 POST"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "308",
+    "brief": "Permanent Redirect",
+    "description": {
+      "en": "This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header. This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request.",
+      "zhHans": "这意味着资源现在永久位于由Location: HTTP Response 标头指定的另一个 URI。这与 301 Moved Permanently HTTP 响应代码具有相同的语义，但用户代理不能更改所使用的 HTTP 方法：如果在第一个请求中使用 POST，则必须在第二个请求中使用 POST。"
+    },
+    "category": "Redirection messages"
+  },
+  {
+    "code": "400",
+    "brief": "Bad Request",
+    "description": {
+      "en": "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
+      "zhHans": "由于被认为是客户端错误（例如，错误的请求语法、无效的请求消息帧或欺骗性的请求路由），服务器无法或不会处理请求。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "401",
+    "brief": "Unauthorized",
+    "description": {
+      "en": "Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.",
+      "zhHans": "虽然 HTTP 标准指定了\"unauthorized\"，但从语义上来说，这个响应意味着\"unauthenticated\"。也就是说，客户端必须对自身进行身份验证才能获得请求的响应。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "402",
+    "brief": "Payment Required (Experimental)",
+    "description": {
+      "en": "This response code is reserved for future use. The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.",
+      "zhHans": "此响应代码保留供将来使用。创建此代码的最初目的是将其用于数字支付系统，但是此状态代码很少使用，并且不存在标准约定。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "403",
+    "brief": "Forbidden",
+    "description": {
+      "en": "The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.",
+      "zhHans": "客户端没有访问内容的权限；也就是说，它是未经授权的，因此服务器拒绝提供请求的资源。与 401 Unauthorized 不同，服务器知道客户端的身份。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "404",
+    "brief": "Not Found",
+    "description": {
+      "en": "The server cannot find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web.",
+      "zhHans": "服务器找不到请求的资源。在浏览器中，这意味着无法识别 URL。在 API 中，这也可能意味着端点有效，但资源本身不存在。服务器也可以发送此响应，而不是 403 Forbidden，以向未经授权的客户端隐藏资源的存在。这个响应代码可能是最广为人知的，因为它经常出现在网络上。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "405",
+    "brief": "Method Not Allowed",
+    "description": {
+      "en": "The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource.",
+      "zhHans": "服务器知道请求方法，但目标资源不支持该方法。例如，API 可能不允许调用DELETE来删除资源。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "406",
+    "brief": "Not Acceptable",
+    "description": {
+      "en": "This response is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.",
+      "zhHans": "当 web 服务器在执行服务端驱动型内容协商机制后，没有发现任何符合用户代理给定标准的内容时，就会发送此响应。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "407",
+    "brief": "Proxy Authentication Required",
+    "description": {
+      "en": "This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.",
+      "zhHans": "类似于 401 Unauthorized 但是认证需要由代理完成。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "408",
+    "brief": "Request Timeout",
+    "description": {
+      "en": "This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to speed up surfing. Also note that some servers merely shut down the connection without sending this message.",
+      "zhHans": "此响应由一些服务器在空闲连接上发送，即使客户端之前没有任何请求。这意味着服务器想关闭这个未使用的连接。由于一些浏览器，如 Chrome、Firefox 27+ 或 IE9，使用 HTTP 预连接机制来加速冲浪，所以这种响应被使用得更多。还要注意的是，有些服务器只是关闭了连接而没有发送此消息。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "409",
+    "brief": "Conflict",
+    "description": {
+      "en": "This response is sent when a request conflicts with the current state of the server.",
+      "zhHans": "当请求与服务器的当前状态冲突时，将发送此响应。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "410",
+    "brief": "Gone",
+    "description": {
+      "en": "This response is sent when the requested content has been permanently deleted from server, with no forwarding address. Clients are expected to remove their caches and links to the resource. The HTTP specification intends this status code to be used for \"limited-time, promotional services\". APIs should not feel compelled to indicate resources that have been deleted with this status code.",
+      "zhHans": "当请求的内容已从服务器中永久删除且没有转发地址时，将发送此响应。客户端需要删除缓存和指向资源的链接。HTTP 规范打算将此状态代码用于“有限时间的促销服务”。API 不应被迫指出已使用此状态代码删除的资源。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "411",
+    "brief": "Length Required",
+    "description": {
+      "en": "Server rejected the request because the Content-Length header field is not defined and the server requires it.",
+      "zhHans": "服务端拒绝该请求因为 Content-Length 头部字段未定义但是服务端需要它。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "412",
+    "brief": "Precondition Failed",
+    "description": {
+      "en": "The client has indicated preconditions in its headers which the server does not meet.",
+      "zhHans": "客户端在其头文件中指出了服务器不满足的先决条件。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "413",
+    "brief": "Payload Too Large",
+    "description": {
+      "en": "Request entity is larger than limits defined by server. The server might close the connection or return an Retry-After header field.",
+      "zhHans": "请求实体大于服务器定义的限制。服务器可能会关闭连接，或在标头字段后返回重试 Retry-After。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "414",
+    "brief": "URI Too Long",
+    "description": {
+      "en": "The URI requested by the client is longer than the server is willing to interpret.",
+      "zhHans": "客户端请求的 URI 比服务器愿意接收的长度长。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "415",
+    "brief": "Unsupported Media Type",
+    "description": {
+      "en": "The media format of the requested data is not supported by the server, so the server is rejecting the request.",
+      "zhHans": "服务器不支持请求数据的媒体格式，因此服务器拒绝请求。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "416",
+    "brief": "Range Not Satisfiable",
+    "description": {
+      "en": "The range specified by the Range header field in the request cannot be fulfilled. It's possible that the range is outside the size of the target URI's data.",
+      "zhHans": "无法满足请求中 Range 标头字段指定的范围。该范围可能超出了目标 URI 数据的大小。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "417",
+    "brief": "Expectation Failed",
+    "description": {
+      "en": "This response code means the expectation indicated by the Expect request header field cannot be met by the server.",
+      "zhHans": "此响应代码表示服务器无法满足 Expect 请求标头字段所指示的期望。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "418",
+    "brief": "I'm a teapot",
+    "description": {
+      "en": "The server refuses the attempt to brew coffee with a teapot.",
+      "zhHans": "服务端拒绝用茶壶煮咖啡。笑话，典故来源茶壶冲泡咖啡。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "421",
+    "brief": "Misdirected Request",
+    "description": {
+      "en": "The request was directed at a server that is not able to produce a response. This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI.",
+      "zhHans": "请求被定向到无法生成响应的服务器。这可以由未配置为针对请求 URI 中包含的方案和权限组合生成响应的服务器发送。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "422",
+    "brief": "Unprocessable Entity (WebDAV)",
+    "description": {
+      "en": "The request was well-formed but was unable to be followed due to semantic errors.",
+      "zhHans": "请求格式正确，但由于语义错误而无法遵循。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "423",
+    "brief": "Locked (WebDAV)",
+    "description": {
+      "en": "The resource that is being accessed is locked.",
+      "zhHans": "正在访问的资源已锁定。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "424",
+    "brief": "Failed Dependency (WebDAV)",
+    "description": {
+      "en": "The request failed due to failure of a previous request.",
+      "zhHans": "由于前一个请求失败，请求失败。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "425",
+    "brief": "Too Early (Experimental)",
+    "description": {
+      "en": "Indicates that the server is unwilling to risk processing a request that might be replayed.",
+      "zhHans": "表示服务器不愿意冒险处理可能被重播的请求。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "426",
+    "brief": "Upgrade Required",
+    "description": {
+      "en": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. The server sends an Upgrade header in a 426 response to indicate the required protocol(s).",
+      "zhHans": "服务器拒绝使用当前协议执行请求，但在客户端升级到其他协议后可能愿意这样做。 服务端发送带有Upgrade 字段的 426 响应 来表明它所需的协议（们）。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "428",
+    "brief": "Precondition Required",
+    "description": {
+      "en": "The origin server requires the request to be conditional. This response is intended to prevent the 'lost update' problem, where a client GETs a resource's state, modifies it and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.",
+      "zhHans": "源服务器要求请求是有条件的。此响应旨在防止'丢失更新'问题，即当第三方修改服务器上的状态时，客户端 GET 获取资源的状态，对其进行修改并将其 PUT 放回服务器，从而导致冲突。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "429",
+    "brief": "Too Many Requests",
+    "description": {
+      "en": "The user has sent too many requests in a given amount of time (\"rate limiting\").",
+      "zhHans": "用户在给定的时间内发送了太多请求（\"限制请求速率\"）。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "431",
+    "brief": "Request Header Fields Too Large",
+    "description": {
+      "en": "The server is unwilling to process the request because its header fields are too large. The request may be resubmitted after reducing the size of the request header fields.",
+      "zhHans": "服务器不愿意处理请求，因为其头字段太大。在减小请求头字段的大小后，可以重新提交请求。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "451",
+    "brief": "Unavailable For Legal Reasons",
+    "description": {
+      "en": "The user agent requested a resource that cannot legally be provided, such as a web page censored by a government.",
+      "zhHans": "用户代理请求了无法合法提供的资源，例如政府审查的网页。"
+    },
+    "category": "Client error responses"
+  },
+  {
+    "code": "500",
+    "brief": "Internal Server Error",
+    "description": {
+      "en": "The server has encountered a situation it does not know how to handle.",
+      "zhHans": "服务器遇到了不知道如何处理的情况。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "501",
+    "brief": "Not Implemented",
+    "description": {
+      "en": "The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD.",
+      "zhHans": "服务器不支持请求方法，因此无法处理。服务器需要支持的唯二方法（因此不能返回此代码）是 GET and HEAD。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "502",
+    "brief": "Bad Gateway",
+    "description": {
+      "en": "This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
+      "zhHans": "此错误响应表明服务器作为网关需要得到一个处理这个请求的响应，但是得到一个错误的响应。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "503",
+    "brief": "Service Unavailable",
+    "description": {
+      "en": "The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This response should be used for temporary conditions and the Retry-After HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached.",
+      "zhHans": "服务器没有准备好处理请求。常见原因是服务器因维护或重载而停机。请注意，与此响应一起，应发送解释问题的用户友好页面。这个响应应该用于临时条件和如果可能的话，HTTP 标头 Retry-After 字段应该包含恢复服务之前的估计时间。网站管理员还必须注意与此响应一起发送的与缓存相关的标头，因为这些临时条件响应通常不应被缓存。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "504",
+    "brief": "Gateway Timeout",
+    "description": {
+      "en": "This error response is given when the server is acting as a gateway and cannot get a response in time.",
+      "zhHans": "当服务器充当网关且无法及时获得响应时，会给出此错误响应。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "505",
+    "brief": "HTTP Version Not Supported",
+    "description": {
+      "en": "The HTTP version used in the request is not supported by the server.",
+      "zhHans": "服务器不支持请求中使用的 HTTP 版本。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "506",
+    "brief": "Variant Also Negotiates",
+    "description": {
+      "en": "The server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.",
+      "zhHans": "服务器存在内部配置错误：所选的变体资源被配置为参与透明内容协商本身，因此不是协商过程中的适当终点。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "507",
+    "brief": "Insufficient Storage (WebDAV)",
+    "description": {
+      "en": "The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.",
+      "zhHans": "无法在资源上执行该方法，因为服务器无法存储成功完成请求所需的表示。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "508",
+    "brief": "Loop Detected (WebDAV)",
+    "description": {
+      "en": "The server detected an infinite loop while processing the request.",
+      "zhHans": "服务器在处理请求时检测到无限循环。"
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "510",
+    "brief": "Not Extended",
+    "description": {
+      "zhHans": "服务器需要对请求进行进一步扩展才能完成请求。",
+      "en": "Further extensions to the request are required for the server to fulfill it."
+    },
+    "category": "Server error responses"
+  },
+  {
+    "code": "511",
+    "brief": "Network Authentication Required",
+    "description": {
+      "en": "Indicates that the client needs to authenticate to gain network access.",
+      "zhHans": "指示客户端需要进行身份验证才能获得网络访问权限。"
+    },
+    "category": "Server error responses"
+  }
+]

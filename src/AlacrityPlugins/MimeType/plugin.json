@@ -1,0 +1,18 @@
+{
+  "Name": "MimeType",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "Common-used MIME types.",
+  "Categories": ["CheatSheet"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "MIME Types",
+      "zhHans": "常用MIME类型"
+    },
+    "Description": {
+      "en": "Common-used MIME types.",
+      "zhHans": "常用MIME类型介绍。 "
+    }
+  }
+}

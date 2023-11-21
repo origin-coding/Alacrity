@@ -1,0 +1,18 @@
+{
+  "Name": "QrCode",
+  "Author": "Alacrity",
+  "Description": "A set of QR Code generation tools.",
+  "Version": "0.1.0",
+  "Categories": ["Generator"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "QR Code Generation",
+      "zhHans": "二维码生成"
+    },
+    "Description": {
+      "en": "Generate multiple types of QR code and export to image.",
+      "zhHans": "生成常用二维码并保存为图片。"
+    }
+  }
+}

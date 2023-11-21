@@ -1,0 +1,18 @@
+{
+  "Name": "HashUtils",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "A tool to hash content and file with multiple algorithms.",
+  "Categories": ["Hash"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Hash Utils",
+      "zhHans": "哈希工具"
+    },
+    "Description": {
+      "en": "Hash text/binary data with multiple hash algorithms.",
+      "zhHans": "使用多种哈希算法对文本数据或二进制数据进行哈希。"
+    }
+  }
+}

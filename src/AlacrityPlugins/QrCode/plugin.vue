@@ -1,0 +1,134 @@
+<script setup lang="ts">
+import QRCode from "qrcode";
+import { DefineComponent, Ref, ref, watch } from "vue";
+import { save } from "@tauri-apps/api/dialog";
+import { writeBinaryFile, writeTextFile } from "@tauri-apps/api/fs";
+import { useQRCode } from "@vueuse/integrations/useQRCode";
+
+import TextForm from "./components/TextForm.vue";
+import UrlForm from "./components/UrlForm.vue";
+import WiFiForm from "./components/WiFiForm.vue";
+import MessageForm from "./components/MessageForm.vue";
+import EmailForm from "./components/EmailForm.vue";
+import VCardForm from "./components/VCardForm.vue";
+
+// I18n
+import { useI18n } from "vue-i18n";
+import messages from "./locale.json";
+const { t, locale } = useI18n({ messages });
+
+const text = ref("Hello, world!");
+
+const qrcode = useQRCode(text, {
+  scale: 75,
+  type: "image/webp",
+});
+
+const forms: Ref<
+  Array<{
+    name: string;
+    title: string;
+    component: DefineComponent<{}, {}, any>;
+  }>
+> = ref([
+  { name: "text-form", title: t("tab.text"), component: TextForm },
+  { name: "url-form", title: t("tab.link"), component: UrlForm },
+  { name: "wifi-form", title: "WiFi", component: WiFiForm },
+  { name: "message-form", title: t("tab.message"), component: MessageForm },
+  { name: "email-form", title: t("tab.email"), component: EmailForm },
+  { name: "vcard-form", title: t("tab.contact"), component: VCardForm },
+]);
+
+watch(locale, () => {
+  for (let [index, key] of [
+    "text",
+    "link",
+    "wifi",
+    "message",
+    "email",
+    "contact",
+  ].entries()) {
+    forms.value[index].title = t(`tab.${key}`);
+  }
+});
+
+const currentForm = ref("text-form");
+
+function saveJpegPng(type: "jpeg" | "png") {
+  save({
+    filters: [{ name: "Image", extensions: [type] }],
+  }).then((filepath) => {
+    if (filepath === null) {
+      return;
+    }
+    QRCode.toCanvas(text.value, { scale: 75, width: 300 }).then((el) => {
+      // We call "toBlob" method for 1:get the arrayBuffer; 2: convert image's type.
+      el.toBlob((b) => {
+        b!.arrayBuffer().then((buffer) => {
+          writeBinaryFile(filepath, buffer).then();
+        });
+      }, `image/${type}`);
+    });
+  });
+}
+
+function sageSvg() {
+  save({
+    filters: [{ name: "Image", extensions: ["svg"] }],
+  }).then((filepath) => {
+    if (filepath === null) {
+      return;
+    }
+    QRCode.toString(text.value, { scale: 75, width: 300 }).then((string) => {
+      writeTextFile(filepath, string).then();
+    });
+  });
+}
+</script>
+
+<template>
+  <v-container>
+    <v-row>
+      <v-col cols="5">
+        <v-container>
+          <v-tabs v-model="currentForm" density="compact">
+            <v-tab v-for="form in forms" :value="form.name">
+              {{ form.title }}
+            </v-tab>
+          </v-tabs>
+          <v-card-text>
+            <v-window v-model="currentForm">
+              <v-window-item v-for="form in forms" :value="form.name">
+                <component
+                  :is="form.component"
+                  @generate="(value: string) => (text = value)"
+                ></component>
+              </v-window-item>
+            </v-window>
+          </v-card-text>
+        </v-container>
+      </v-col>
+      <v-col cols="4">
+        <v-container class="d-flex justify-center">
+          <v-img
+            :src="qrcode"
+            alt="Generated QR Code."
+            height="300"
+            width="300"
+          >
+          </v-img>
+        </v-container>
+        <v-container class="d-flex justify-center align-center">
+          <div class="mr-2">{{ t("plugin.download") }}</div>
+          <v-btn-group variant="outlined" :divided="true">
+            <v-btn @click="saveJpegPng('jpeg')">Jpg</v-btn>
+            <v-btn @click="saveJpegPng('png')">Png</v-btn>
+            <v-btn @click="sageSvg">Svg</v-btn>
+          </v-btn-group>
+        </v-container>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<style scoped></style>

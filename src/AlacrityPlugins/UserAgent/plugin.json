@@ -1,0 +1,18 @@
+{
+  "Name": "UserAgent",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "A tool for parsing user agent.",
+  "Categories": ["Parser"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "User Agent",
+      "zhHans": "用户代理解析"
+    },
+    "Description": {
+      "en": "A tool for parsing user agent.",
+      "zhHans": "解析用户代理信息。"
+    }
+  }
+}
