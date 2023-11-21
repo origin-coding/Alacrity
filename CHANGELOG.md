@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.11](https://github.com/origin-coding/Alacrity/compare/v1.1.10...v1.1.11) (2023-11-21)
+
+
+### Bug Fixes
+
+* update GitHub actions workflow ([b9477e4](https://github.com/origin-coding/Alacrity/commit/b9477e4e224b70c9e4a90cfc013d1c8aa79aab54))
+
 ## [1.1.10](https://github.com/origin-coding/Alacrity/compare/v1.1.9...v1.1.10) (2023-11-21)
 
 
