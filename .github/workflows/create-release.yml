@@ -29,6 +29,8 @@ jobs:
     needs: create-release
 
     if: ${{ needs.create-release.outputs.release-created }}
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     strategy:
       fail-fast: false
@@ -39,4 +41,35 @@ jobs:
 
     steps:
       - name: Echo tag name
-        run: echo "Build Alacrity ${{ needs.create-release.outputs.tag-name }}"
+        run: echo "Build Alacrity ${{ needs.create-release.outputs.tag-name }} for platform ${{ matrix.platform }}."
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies(Ubuntu only)
+        if: matrix.platform == "ubuntu-20.04"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev librsvg2-dev
+
+      - name: Rust setup
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: "./src-tauri -> target"
+
+      - name: Sync node version and setup cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "yarn"
+
+      - name: Install frontend dependencies
+        run: yarn install
+
+      - name: Build Alacrity
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
