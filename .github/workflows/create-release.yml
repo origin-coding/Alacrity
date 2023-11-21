@@ -85,8 +85,9 @@ jobs:
         if: matrix.platform == 'macos-latest'
         run: |
           echo ${{ steps.build.outputs.artifactPaths }}
+          gh release upload ${{ needs.create-release.outputs.tag-name }} ./src-tauri/target/release/bundle/macos/*.app
           gh release upload ${{ needs.create-release.outputs.tag-name }} ./src-tauri/target/release/bundle/dmg/*.dmg
-      #          gh release upload ${{ needs.create-release.outputs.tag-name }} ./src-tauri/target/release/bundle/macos/*.app
+
       - name: Upload artifacts(Windows)
         if: matrix.platform == 'windows-latest'
         run: |
