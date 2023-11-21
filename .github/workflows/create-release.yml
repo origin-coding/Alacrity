@@ -15,7 +15,12 @@ jobs:
 
     steps:
       - name: Create release
+        id: release
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Echo tag name
+        if: ${{ steps.release.outputs.release_created }}
+        run: echo "${{ steps.release.outputs.tag_name }}"
