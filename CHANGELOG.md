@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.15](https://github.com/origin-coding/Alacrity/compare/v1.1.14...v1.1.15) (2023-11-22)
+
+
+### Bug Fixes
+
+* fix build options ([073421f](https://github.com/origin-coding/Alacrity/commit/073421f882f4ea2f46ebc4456a3196c3f90e056e))
+
 ## [1.1.14](https://github.com/origin-coding/Alacrity/compare/v1.1.13...v1.1.14) (2023-11-22)
 
 
