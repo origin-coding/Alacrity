@@ -9,8 +9,7 @@
     "preview": "vite preview",
     "tauri dev": "tauri dev",
     "tauri build": "tauri build",
-    "commit": "cz",
-    "release": "standard-version"
+    "commit": "cz"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.5.1",
@@ -52,7 +51,6 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-vue": "^9.18.1",
     "prettier": "3.1.0",
-    "standard-version": "^9.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-vuetify": "^1.0.2",
