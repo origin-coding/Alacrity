@@ -93,10 +93,10 @@ jobs:
         if: matrix.platform == 'windows-latest'
         run: |
           echo ${{ steps.build.outputs.artifactPaths }}
-          $env:MSI_FILE_PATH="${{ github.workspace }}/src-tauri/target/release/bundle/msi/*.msi"
-          $env:NSIS_FILE_PATH="${{ github.workspace }}/src-tauri/target/release/bundle/msi/*.msi"
-          echo $env:MSI_FILE_path
-          echo $env:NSIS_FILE_path
+          $env:MSI_FILE_PATH="${{ github.workspace }}\src-tauri\target\release\bundle\msi\*.msi"
+          $env:NSIS_FILE_PATH="${{ github.workspace }}\src-tauri\target\release\bundle\msi\*.msi"
+          echo $env:MSI_FILE_PATH
+          echo $env:NSIS_FILE_PATH
 
-#          gh release upload ${{ needs.create-release.outputs.tag-name }} $MSI_FILE_PATH
-#          gh release upload ${{ needs.create-release.outputs.tag-name }} ./src-tauri/target/release/bundle/nsis/*.exe
+          gh release upload ${{ needs.create-release.outputs.tag-name }} $env:MSI_FILE_PATH
+          gh release upload ${{ needs.create-release.outputs.tag-name }} $env:NSIS_FILE_PATH
