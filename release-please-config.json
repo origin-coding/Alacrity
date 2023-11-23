@@ -8,11 +8,12 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false,
+      "changelog-type": "github",
       "extra-files": [
         {
           "type": "toml",
           "path": "src-tauri/Cargo.toml",
-          "jsonPath": "$.version"
+          "jsonpath": "$.version"
         }
       ]
     }
