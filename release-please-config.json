@@ -9,10 +9,11 @@
       "draft": false,
       "prerelease": false,
       "changelog-type": "github",
+      "component": "src-tauri",
       "extra-files": [
         {
           "type": "toml",
-          "path": "src-tauri/Cargo.toml",
+          "path": "Cargo.toml",
           "jsonpath": "$.version"
         }
       ]
