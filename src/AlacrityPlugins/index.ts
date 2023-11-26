@@ -14,6 +14,7 @@ import TimeStamp from "./TimeStamp";
 import IpCalculator from "./IpCalculator";
 import Ascii from "./Ascii";
 import DateTimeFormat from "./DateTimeFormat";
+import JsCompress from "./JsCompress";
 
 export {
   Base64,
@@ -32,4 +33,5 @@ export {
   IpCalculator,
   Ascii,
   DateTimeFormat,
+  JsCompress,
 };
