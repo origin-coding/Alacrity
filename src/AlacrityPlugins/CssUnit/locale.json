@@ -1,0 +1,12 @@
+{
+  "en": {
+    "unit": "Unit",
+    "name": "Name/meaning",
+    "to": "Equivalent/relative to"
+  },
+  "zhHans": {
+    "unit": "单位",
+    "name": "名称/含义",
+    "to": "等于/相当于"
+  }
+}
