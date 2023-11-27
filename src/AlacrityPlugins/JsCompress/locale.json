@@ -1,0 +1,14 @@
+{
+  "en": {
+    "compress": "Compress",
+    "mangle": "Mangle",
+    "format": "Format",
+    "selectFile": "Select File"
+  },
+  "zhHans": {
+    "compress": "压缩",
+    "mangle": "混淆",
+    "format": "格式化",
+    "selectFile": "选择文件"
+  }
+}

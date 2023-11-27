@@ -6,10 +6,14 @@ import * as prettier from "prettier/standalone";
 import * as parserBabel from "prettier/plugins/babel";
 import * as parserEstree from "prettier/plugins/estree";
 import { open } from "@tauri-apps/api/dialog";
-
-import "@/common";
 import { writeText } from "@tauri-apps/api/clipboard";
 import { readTextFile } from "@tauri-apps/api/fs";
+import { useI18n } from "vue-i18n";
+
+import "@/common";
+import messages from "./locale.json";
+
+const { t } = useI18n({ messages });
 
 const inputEditor: Ref<monaco.editor.IStandaloneCodeEditor | null> = ref(null);
 const outputEditor: Ref<monaco.editor.IStandaloneCodeEditor | null> = ref(null);
@@ -111,12 +115,12 @@ async function selectFile() {
 <template>
   <v-container>
     <v-row>
-      <v-btn class="mr-2" @click="compress(false)">压缩</v-btn>
-      <v-btn class="mr-2" @click="compress(true)">混淆</v-btn>
-      <v-btn class="mr-2" @click="format">格式化</v-btn>
-      <v-btn class="mr-2" @click="copy">复制</v-btn>
-      <v-btn class="mr-2" @click="clear">清空</v-btn>
-      <v-btn @click="selectFile">选择文件</v-btn>
+      <v-btn class="mr-2" @click="compress(false)">{{ t("compress") }}</v-btn>
+      <v-btn class="mr-2" @click="compress(true)">{{ t("mangle") }}</v-btn>
+      <v-btn class="mr-2" @click="format">{{ t("format") }}</v-btn>
+      <v-btn class="mr-2" @click="copy">{{ t("plugin.copy") }}</v-btn>
+      <v-btn class="mr-2" @click="clear">{{ t("plugin.clear") }}</v-btn>
+      <v-btn @click="selectFile">{{ t("selectFile") }}</v-btn>
     </v-row>
 
     <v-row>
@@ -132,7 +136,7 @@ async function selectFile() {
       </v-col>
     </v-row>
   </v-container>
-  <v-snackbar v-model="copied">123123</v-snackbar>
+  <v-snackbar v-model="copied">{{ t("plugin.copied") }}</v-snackbar>
 </template>
 
 <style scoped>
