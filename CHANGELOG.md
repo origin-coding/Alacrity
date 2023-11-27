@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/origin-coding/Alacrity/compare/v1.1.15...v1.2.0) (2023-11-27)
+
+
+### Features
+
+* **plugin:** add new plugin CssUnit, listing common used CSS length units ([1fed356](https://github.com/origin-coding/Alacrity/commit/1fed3566b72b6de9459726c244e52933f2c35084))
+* **plugin:** add new plugin JsCompress ([cb3e40c](https://github.com/origin-coding/Alacrity/commit/cb3e40c93054396922475ee72dce25a768fe9225))
+
+
+### Bug Fixes
+
+* fix build options ([3b9b986](https://github.com/origin-coding/Alacrity/commit/3b9b98621ff03ceb209f74f1ee5289fde251ba43))
+* fix release-please config error ([db14006](https://github.com/origin-coding/Alacrity/commit/db140064d31ed4063aa8efaa96df4b9aa2e1b2ba))
+
 ## [1.1.15](https://github.com/origin-coding/Alacrity/compare/v1.1.14...v1.1.15) (2023-11-22)
 
 
