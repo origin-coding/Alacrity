@@ -3,5 +3,16 @@
   "Author": "Alacrity",
   "Description": "Generate random text",
   "Version": "1.0.0",
-  "Categories": ["Generator"]
+  "Categories": ["Generator"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Lorem Ipsum",
+      "zhHans": "随机文本生成"
+    },
+    "Description": {
+      "en": "Generate random text",
+      "zhHans": "生成随机文本"
+    }
+  }
 }
