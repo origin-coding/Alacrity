@@ -1,0 +1,34 @@
+{
+  "en": {
+    "option": {
+      "paragraphs": "Paragraphs",
+      "paragraph": "Paragraph",
+      "sentences": "Sentences",
+      "sentence": "Sentence",
+      "lines": "Lines",
+      "words": "Words",
+      "word": "Word",
+      "slug": "Slug"
+    },
+    "generate": {
+      "type": "Type",
+      "count": "Count"
+    }
+  },
+  "zhHans": {
+    "option": {
+      "paragraphs": "多个段落",
+      "paragraph": "段落",
+      "sentences": "多个句子",
+      "sentence": "句子",
+      "lines": "多行",
+      "words": "多个单词",
+      "word": "单词",
+      "slug": "Slug"
+    },
+    "generate": {
+      "type": "类型",
+      "count": "数量"
+    }
+  }
+}

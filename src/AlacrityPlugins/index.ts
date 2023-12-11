@@ -16,6 +16,7 @@ import Ascii from "./Ascii";
 import DateTimeFormat from "./DateTimeFormat";
 import JsCompress from "./JsCompress";
 import CssUnit from "./CssUnit";
+import LoremIpsum from "./LoremIpsum";
 
 export {
   Base64,
@@ -36,4 +37,5 @@ export {
   DateTimeFormat,
   JsCompress,
   CssUnit,
+  LoremIpsum,
 };

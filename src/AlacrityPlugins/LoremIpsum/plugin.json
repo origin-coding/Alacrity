@@ -1,0 +1,7 @@
+{
+  "Name": "LoremIpsum",
+  "Author": "Alacrity",
+  "Description": "Generate random text",
+  "Version": "1.0.0",
+  "Categories": ["Generator"]
+}
