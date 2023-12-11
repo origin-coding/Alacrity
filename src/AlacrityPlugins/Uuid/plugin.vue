@@ -42,15 +42,14 @@ const btnDisabled = computed(() => {
 });
 
 // Download functions.
-function download() {
-  save({
+async function download() {
+  const filepath = await save({
     filters: [{ name: "Text", extensions: ["txt"] }],
-  }).then((filepath) => {
-    if (filepath === null) {
-      return;
-    }
-    writeTextFile(filepath, generated.value).then();
   });
+
+  if (filepath !== null) {
+    await writeTextFile(filepath, generated.value);
+  }
 }
 
 async function copy() {

@@ -82,15 +82,14 @@ async function copy() {
   copied.value = true;
 }
 
-function download() {
-  save({ filters: [{ name: "CSV Files", extensions: ["csv"] }] }).then(
-    (filepath) => {
-      if (filepath === null) {
-        return;
-      }
-      writeTextFile(filepath, result.value).then();
-    },
-  );
+async function download() {
+  const filepath = await save({
+    filters: [{ name: "CSV Files", extensions: ["csv"] }],
+  });
+
+  if (filepath !== null) {
+    await writeTextFile(filepath, result.value);
+  }
 }
 
 const labels = reactive({
