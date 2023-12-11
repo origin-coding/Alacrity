@@ -50,16 +50,16 @@ function generate() {
           ? config.name === "all"
             ? faker.value.person.fullName()
             : config.name === "male"
-            ? faker.value.person.fullName({ sex: "male" as SexType })
-            : faker.value.person.fullName({ sex: "female" as SexType })
+              ? faker.value.person.fullName({ sex: "male" as SexType })
+              : faker.value.person.fullName({ sex: "female" as SexType })
           : "",
         config.columns.date
           ? dayjs(
               config.date === "all"
                 ? faker.value.date.anytime()
                 : config.date === "past"
-                ? faker.value.date.past()
-                : faker.value.date.future(),
+                  ? faker.value.date.past()
+                  : faker.value.date.future(),
             ).format("YYYY-MM-DD")
           : "",
         config.columns.account ? faker.value.internet.userName() : "",
@@ -77,8 +77,8 @@ function generate() {
 }
 
 const copied = ref(false);
-function copy() {
-  writeText(result.value).then();
+async function copy() {
+  await writeText(result.value);
   copied.value = true;
 }
 
@@ -141,7 +141,9 @@ const options = reactive({
             </v-checkbox-btn>
           </template>
           <template v-slot:append>
-            <v-btn @click="generate" class="mr-3">{{ t("plugin.generate") }}</v-btn>
+            <v-btn @click="generate" class="mr-3">{{
+              t("plugin.generate")
+            }}</v-btn>
             <v-btn @click="copy" class="mr-3">{{ t("plugin.copy") }}</v-btn>
             <v-btn @click="download">{{ t("plugin.download") }}</v-btn>
           </template>

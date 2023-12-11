@@ -24,8 +24,9 @@ const encoded = computed(() => {
 
 // Whether successfully copied result.
 const copied = ref(false);
-function copy() {
-  writeText(encoded.value).then();
+
+async function copy() {
+  await writeText(encoded.value);
   copied.value = true;
 }
 

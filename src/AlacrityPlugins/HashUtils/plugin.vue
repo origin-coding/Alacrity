@@ -77,8 +77,8 @@ function clearInput() {
 
 const copied = ref(false);
 
-function copy() {
-  writeText(hashResult.value).then();
+async function copy() {
+  await writeText(hashResult.value);
   copied.value = true;
 }
 </script>
@@ -88,7 +88,9 @@ function copy() {
     <v-container class="mb-3">
       <v-row>
         <v-btn class="mr-2" @click="selectFile"> {{ t("select") }} </v-btn>
-        <v-btn class="mr-2" @click="clearInput"> {{ t("plugin.clear") }} </v-btn>
+        <v-btn class="mr-2" @click="clearInput">
+          {{ t("plugin.clear") }}
+        </v-btn>
         <v-menu :open-on-hover="true">
           <template v-slot:activator="{ props }">
             <v-btn v-bind="props" append-icon="mdi-chevron-down">
@@ -120,7 +122,9 @@ function copy() {
     <v-container class="mb-3">
       <v-row>
         <v-btn class="mr-2" @click="copy"> {{ t("plugin.copy") }} </v-btn>
-        <v-btn class="mr-2" @click="clearInput"> {{ t("plugin.clear") }} </v-btn>
+        <v-btn class="mr-2" @click="clearInput">
+          {{ t("plugin.clear") }}
+        </v-btn>
       </v-row>
     </v-container>
     <v-textarea v-model="hashResult" rows="12" :readonly="true"></v-textarea>

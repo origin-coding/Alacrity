@@ -52,8 +52,9 @@ function download() {
     writeTextFile(filepath, generated.value).then();
   });
 }
-function copy() {
-  writeText(generated.value).then();
+
+async function copy() {
+  await writeText(generated.value);
   copied.value = true;
 }
 </script>

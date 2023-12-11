@@ -34,8 +34,9 @@ function getHeaders() {
 }
 
 const copied = ref(false);
-function copyHeaders() {
-  writeText(headers.value).then();
+
+async function copy() {
+  await writeText(headers.value);
   copied.value = true;
 }
 </script>
@@ -54,7 +55,7 @@ function copyHeaders() {
           <v-btn @click="getHeaders" :disabled="url === ''" class="mr-2">
             {{ t("getHeaders") }}
           </v-btn>
-          <v-btn @click="copyHeaders">{{ t("plugin.copy") }}</v-btn>
+          <v-btn @click="copy">{{ t("plugin.copy") }}</v-btn>
         </template>
       </v-select>
     </v-row>
