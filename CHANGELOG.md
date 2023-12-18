@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.3.0...alacrity-v1.4.0) (2023-12-18)
+
+
+### Features
+
+* **plugin:** add plugin CaseConverter, for converting text cases ([3bbe5d6](https://github.com/origin-coding/Alacrity/commit/3bbe5d68848c28c53f2974243fe2ffddff21009c))
+
+
+### Bug Fixes
+
+* **i18n:** fix missing/wrong i18n messages ([32e9b20](https://github.com/origin-coding/Alacrity/commit/32e9b20ce645ff8fc311f996443612ee0f3ec114))
+
 ## [1.3.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.2.0...alacrity-v1.3.0) (2023-12-11)
 
 
