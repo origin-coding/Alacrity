@@ -17,6 +17,7 @@ import DateTimeFormat from "./DateTimeFormat";
 import JsCompress from "./JsCompress";
 import CssUnit from "./CssUnit";
 import LoremIpsum from "./LoremIpsum";
+import CaseConverter from "./CaseConverter";
 
 export {
   Base64,
@@ -38,4 +39,5 @@ export {
   JsCompress,
   CssUnit,
   LoremIpsum,
+  CaseConverter,
 };
