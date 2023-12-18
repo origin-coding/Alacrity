@@ -11,8 +11,8 @@
       "zhHans": "随机文本生成"
     },
     "Description": {
-      "en": "Generate random text",
-      "zhHans": "生成随机文本"
+      "en": "Generate random texts.",
+      "zhHans": "生成随机文本。"
     }
   }
 }
