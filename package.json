@@ -12,7 +12,7 @@
     "commit": "cz"
   },
   "dependencies": {
-    "@tauri-apps/api": "^1.5.2",
+    "@tauri-apps/api": "1.5.1",
     "@vueuse/core": "^10.7.0",
     "@vueuse/integrations": "^10.7.0",
     "@web-types/vuetify": "^2.0.15-1",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
     "@mdi/font": "^7.3.67",
-    "@tauri-apps/cli": "^1.5.8",
+    "@tauri-apps/cli": "1.5.7",
     "@types/change-case": "^2.3.1",
     "@types/crypto-js": "^4.2.1",
     "@types/node": "^20.10.5",
