@@ -12,7 +12,7 @@
     "commit": "cz"
   },
   "dependencies": {
-    "@tauri-apps/api": "^1.5.2",
+    "@tauri-apps/api": "^1.5.3",
     "@vueuse/core": "^10.7.0",
     "@vueuse/integrations": "^10.7.0",
     "@web-types/vuetify": "^2.0.15-1",
@@ -30,16 +30,16 @@
     "terser": "^5.26.0",
     "ua-parser-js": "^1.0.37",
     "uuid": "^9.0.1",
-    "vue": "^3.3.12",
+    "vue": "^3.3.13",
     "vue-i18n": "9.8.0",
     "vue-router": "4.2.5",
-    "vuetify": "^3.4.7",
+    "vuetify": "^3.4.8",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
     "@mdi/font": "^7.3.67",
-    "@tauri-apps/cli": "^1.5.8",
+    "@tauri-apps/cli": "^1.5.9",
     "@types/change-case": "^2.3.1",
     "@types/crypto-js": "^4.2.1",
     "@types/node": "^20.10.5",
@@ -53,13 +53,13 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "^5.1.1",
     "eslint-plugin-vue": "^9.19.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-vuetify": "^2.0.1",
     "vue-cli-plugin-vuetify": "~2.5.2",
-    "vue-tsc": "^1.8.25"
+    "vue-tsc": "^1.8.26"
   },
   "config": {
     "commitizen": {
