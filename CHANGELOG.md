@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.4.0...alacrity-v1.5.0) (2023-12-24)
+
+
+### Features
+
+* **icon:** customize icon to replace tauri's icon ([c942a52](https://github.com/origin-coding/Alacrity/commit/c942a52f1f5567f7ad61515c4c67f189c45a8a09))
+
 ## [1.4.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.3.0...alacrity-v1.4.0) (2023-12-18)
 
 
