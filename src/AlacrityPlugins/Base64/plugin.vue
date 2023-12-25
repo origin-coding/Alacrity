@@ -9,6 +9,7 @@ import { base64Decode, base64Encode } from "@/AlacrityPlugins/Base64/util";
 // I18n
 import { useI18n } from "vue-i18n";
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const textContent = ref<string>("");
@@ -48,29 +49,24 @@ watch(textEncoded, (newValue: string) => {
 });
 
 // Open a file and encode its content.
-function selectTextFile() {
-  open({ multiple: false }).then((selected) => {
-    if (selected !== null) {
-      readTextFile(selected as string)
-        .then((content) => {
-          textContent.value = content;
-        })
-        .catch(() => {
-          errorAlert.value = true;
-        });
-    }
-  });
+async function selectTextFile() {
+  const file = await open({ multiple: false });
+
+  if (file === null) {
+    return;
+  }
+
+  textContent.value = await readTextFile(file as string);
 }
 
-function selectBinaryFile() {
-  open({ multiple: false }).then((selected) => {
-    if (selected === null) {
-      return;
-    }
-    readBinaryFile(selected as string).then((content) => {
-      binaryContent.value = content;
-    });
-  });
+async function selectBinaryFile() {
+  const file = await open({ multiple: false });
+
+  if (file === null) {
+    return;
+  }
+
+  binaryContent.value = await readBinaryFile(file as string);
 }
 
 function clearInput() {
@@ -89,7 +85,9 @@ function clearInput() {
         <v-btn class="mr-2" @click="selectBinaryFile">
           {{ t("selectImage") }}
         </v-btn>
-        <v-btn class="mr-2" @click="clearInput"> {{ t("plugin.clear") }} </v-btn>
+        <v-btn class="mr-2" @click="clearInput">
+          {{ t("plugin.clear") }}
+        </v-btn>
       </v-row>
     </v-container>
     <v-textarea v-model="textContent"></v-textarea>
@@ -99,7 +97,9 @@ function clearInput() {
     <v-container class="mb-3">
       <v-row>
         <v-btn class="mr-2" @click="copy"> {{ t("plugin.copy") }} </v-btn>
-        <v-btn class="mr-2" @click="clearInput"> {{ t("plugin.clear") }} </v-btn>
+        <v-btn class="mr-2" @click="clearInput">
+          {{ t("plugin.clear") }}
+        </v-btn>
       </v-row>
     </v-container>
     <v-textarea

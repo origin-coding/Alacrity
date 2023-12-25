@@ -12,11 +12,11 @@ import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n({ useScope: "global" });
 
-function toggleFavorite(plugin: Plugin) {
+async function toggleFavorite(plugin: Plugin) {
   if (favorites.inFavorites(plugin)) {
-    favorites.removeFromFavorites(plugin);
+    await favorites.removeFromFavorites(plugin);
   } else {
-    favorites.addToFavorites(plugin);
+    await favorites.addToFavorites(plugin);
   }
 }
 </script>

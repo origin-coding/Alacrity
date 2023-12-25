@@ -13,31 +13,34 @@ const useFavorites = defineStore("favorites", () => {
       favorites.value.has(`${plugin.Name}-${plugin.Author}`);
   });
 
-  function initFavorites() {
+  async function initFavorites() {
     const store = new Store(CONFIG_FILE_PATH);
-    store.get<Array<string>>(KEY_FAVORITES).then((res) => {
-      if (res === null) {
-        return;
-      }
-      res.forEach((favorite) => favorites.value.add(favorite));
-    });
-    store.save().then();
+
+    const favoritesConfig = await store.get<Array<string>>(KEY_FAVORITES);
+    if (favoritesConfig === null) {
+      return;
+    }
+
+    favoritesConfig.forEach((favorite) => favorites.value.add(favorite));
+
+    await store.save();
   }
 
-  function saveFavorites() {
+  async function saveFavorites() {
     const store = new Store(CONFIG_FILE_PATH);
-    store.set(KEY_FAVORITES, Array.from(favorites.value)).then();
-    store.save().then();
+
+    await store.set(KEY_FAVORITES, Array.from(favorites.value));
+    await store.save();
   }
 
-  function addToFavorites(plugin: Plugin) {
+  async function addToFavorites(plugin: Plugin) {
     favorites.value.add(`${plugin.Name}-${plugin.Author}`);
-    saveFavorites();
+    await saveFavorites();
   }
 
-  function removeFromFavorites(plugin: Plugin) {
+  async function removeFromFavorites(plugin: Plugin) {
     favorites.value.delete(`${plugin.Name}-${plugin.Author}`);
-    saveFavorites();
+    await saveFavorites();
   }
 
   return { inFavorites, initFavorites, addToFavorites, removeFromFavorites };

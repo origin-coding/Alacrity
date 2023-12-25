@@ -54,35 +54,33 @@ watch(locale, () => {
 
 const currentForm = ref("text-form");
 
-function saveJpegPng(type: "jpeg" | "png") {
-  save({
-    filters: [{ name: "Image", extensions: [type] }],
-  }).then((filepath) => {
-    if (filepath === null) {
-      return;
-    }
-    QRCode.toCanvas(text.value, { scale: 75, width: 300 }).then((el) => {
-      // We call "toBlob" method for 1:get the arrayBuffer; 2: convert image's type.
-      el.toBlob((b) => {
-        b!.arrayBuffer().then((buffer) => {
-          writeBinaryFile(filepath, buffer).then();
-        });
-      }, `image/${type}`);
-    });
+async function saveJpegPng(fileType: "jpeg" | "png") {
+  const filepath = await save({
+    filters: [{ name: "Image", extensions: [fileType] }],
   });
+
+  if (filepath === null) {
+    return;
+  }
+
+  const element = await QRCode.toCanvas(text.value, { scale: 75, width: 300 });
+  element.toBlob(async (binaryContent) => {
+    const buffer = await binaryContent!.arrayBuffer();
+    await writeBinaryFile(filepath, buffer);
+  }, `image/${fileType}`);
 }
 
-function sageSvg() {
-  save({
+async function sageSvg() {
+  const filepath = await save({
     filters: [{ name: "Image", extensions: ["svg"] }],
-  }).then((filepath) => {
-    if (filepath === null) {
-      return;
-    }
-    QRCode.toString(text.value, { scale: 75, width: 300 }).then((string) => {
-      writeTextFile(filepath, string).then();
-    });
   });
+
+  if (filepath === null) {
+    return;
+  }
+
+  const content = await QRCode.toString(text.value, { scale: 75, width: 300 });
+  await writeTextFile(filepath, content);
 }
 </script>
 

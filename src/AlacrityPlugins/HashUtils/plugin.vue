@@ -59,15 +59,15 @@ function uint8ArrayToWordArray(uint8Array: Uint8Array): lib.WordArray {
   return lib.WordArray.create(words, uint8Array.length);
 }
 
-function selectFile() {
-  open({ multiple: false }).then((selected) => {
-    if (selected === null) {
-      return;
-    }
-    readBinaryFile(selected as string).then((content) => {
-      fileInput.value = uint8ArrayToWordArray(content);
-    });
-  });
+async function selectFile() {
+  const file = await open({ multiple: false });
+
+  if (file === null) {
+    return;
+  }
+
+  const content = await readBinaryFile(file as string);
+  fileInput.value = uint8ArrayToWordArray(content);
 }
 
 function clearInput() {

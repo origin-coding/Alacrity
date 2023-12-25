@@ -37,37 +37,37 @@ const breadcrumbItems = computed(() => {
   return items;
 });
 
-function toggleTheme() {
+async function toggleTheme() {
   theme.global.name.value =
     theme.global.name.value === "darkTheme" ? "lightTheme" : "darkTheme";
-  store.value.set(KEY_THEME, theme.global.name.value).then();
-  store.value.save().then();
+
+  await store.value.set(KEY_THEME, theme.global.name.value);
+  await store.value.save();
 }
 
-function openRepository() {
-  open("https://github.com/origin-coding/Alacrity").then();
+async function openRepository() {
+  await open("https://github.com/origin-coding/Alacrity");
 }
 
 const { t, locale } = useI18n({ useScope: "global" });
 const localeMapping = { en: "English", zhHans: "简体中文" };
-function setLocale(newLocale: string) {
+
+async function setLocale(newLocale: string) {
   locale.value = newLocale;
-  store.value.set(KEY_LOCALE, locale.value).then();
-  store.value.save().then();
+  await store.value.set(KEY_LOCALE, locale.value);
+  await store.value.save();
 }
 
-onMounted(() => {
+onMounted(async () => {
   // Init locale configuration.
-  store.value.get<string>(KEY_LOCALE).then((res) => {
-    locale.value = res || "zhHans";
-  });
+  const localeConfig = await store.value.get<string>(KEY_LOCALE);
+  locale.value = localeConfig || "zhHans";
 
   // Init theme.
-  store.value.get<string>(KEY_THEME).then((res) => {
-    theme.global.name.value = res;
-  });
+  const themeConfig = await store.value.get<string>(KEY_THEME);
+  theme.global.name.value = themeConfig || "lightTheme";
 
-  store.value.save().then();
+  await store.value.save();
 });
 </script>
 
