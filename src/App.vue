@@ -119,10 +119,10 @@ onMounted(() => {
           </v-list>
         </v-menu>
       </v-btn>
-      <v-btn icon @click="toggleTheme">
+      <v-btn :icon="true" @click="toggleTheme">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
-      <v-btn icon @click="openRepository">
+      <v-btn :icon="true" @click="openRepository">
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
