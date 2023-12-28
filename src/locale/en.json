@@ -37,7 +37,8 @@
     "clear": "Clear",
     "search": "Search",
     "generate": "Generate",
-    "convert": "Convert"
+    "convert": "Convert",
+    "count": "Count: "
   },
   "10": "10",
   "25": "25",

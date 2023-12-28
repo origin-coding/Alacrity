@@ -6,6 +6,7 @@ import { useI18n } from "vue-i18n";
 
 import messages from "./locale.json";
 import { writeText } from "@tauri-apps/api/clipboard";
+import { useValidateCount } from "@/common";
 
 const { t, locale } = useI18n({ messages });
 
@@ -61,37 +62,44 @@ watch(locale, () => {
 <template>
   <v-container>
     <v-row>
-      <v-select
-        v-model="loremType"
-        :items="loremOptions"
-        class="v-col-2"
-        :label="t('generate.type')"
-      ></v-select>
-      <v-text-field
-        type="number"
-        v-model="count"
-        class="v-col-4"
-        :clearable="false"
-        :label="t('generate.count')"
-      >
-        <template v-slot:append>
-          <v-btn @click="generate" class="mr-2">
-            {{ t("plugin.generate") }}
-          </v-btn>
-          <v-btn @click="copy">{{ t("plugin.copy") }}</v-btn>
-        </template>
-      </v-text-field>
+      <v-col cols="3">
+        <v-select v-model="loremType" :items="loremOptions">
+          <template v-slot:prepend>{{ t("generate.type") }}</template>
+        </v-select>
+      </v-col>
+
+      <v-col cols="4">
+        <v-text-field
+          type="number"
+          v-model="count"
+          :clearable="false"
+          :rules="[useValidateCount()]"
+        >
+          <template v-slot:prepend>
+            {{ t("plugin.count") }}
+          </template>
+
+          <template v-slot:append>
+            <v-btn @click="generate" class="mr-2">
+              {{ t("plugin.generate") }}
+            </v-btn>
+            <v-btn @click="copy">{{ t("plugin.copy") }}</v-btn>
+          </template>
+        </v-text-field>
+      </v-col>
     </v-row>
 
     <v-divider class="mb-8"></v-divider>
 
     <v-row>
-      <v-textarea
-        :model-value="result"
-        :readonly="true"
-        :clearable="false"
-        rows="20"
-      ></v-textarea>
+      <v-col cols="12">
+        <v-textarea
+          :model-value="result"
+          :readonly="true"
+          :clearable="false"
+          rows="20"
+        ></v-textarea>
+      </v-col>
     </v-row>
   </v-container>
 
