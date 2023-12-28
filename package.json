@@ -12,6 +12,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@catppuccin/palette": "^0.2.0",
     "@tauri-apps/api": "^1.5.3",
     "@vueuse/core": "^10.7.0",
     "@vueuse/integrations": "^10.7.0",
