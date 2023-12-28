@@ -42,5 +42,10 @@
   "10": "10",
   "25": "25",
   "50": "50",
-  "100": "100"
+  "100": "100",
+  "validate": {
+    "empty": "Value must not be empty!",
+    "lessThan": "Count must not be less than {0}!",
+    "moreThan": "Count must not be more than {0}!"
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "en": {
+    "whitespace": "(Whitespace)",
+    "count": "Mac Addresses: ",
+    "separator": "Separator: "
+  },
+  "zhHans": {
+    "whitespace": "（空格）",
+    "count": "Mac地址数：",
+    "separator": "分隔符："
+  }
+}

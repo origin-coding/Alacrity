@@ -21,3 +21,5 @@ export type { locales };
 export type { LocalizedMessages } from "./locale";
 
 import "./monaco";
+
+export { useValidateCount } from "./validator";
