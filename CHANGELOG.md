@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.6.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.5.0...alacrity-v1.6.0) (2023-12-28)
+
+
+### Features
+
+* **plugin:** add plugin MacGenerator, for generating random Mac addresses ([5fcabb2](https://github.com/origin-coding/Alacrity/commit/5fcabb2db1c2cca682e4a4057637ea401d064c02))
+* **theme:** change theme color using catppuccin ([054790f](https://github.com/origin-coding/Alacrity/commit/054790f179537a0c6bd6d3e9a2cf9a16e9f4d08b))
+* **theme:** make side bar and navigation bar rounded ([4f01d1e](https://github.com/origin-coding/Alacrity/commit/4f01d1efdc965d13be149799c79cc548b6503626))
+
+
+### Bug Fixes
+
+* **display:** fix "With Title" option's display error in English locale ([46482ab](https://github.com/origin-coding/Alacrity/commit/46482ab0c050bd461d791795ba7ea61defa34600))
+
 ## [1.5.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.4.0...alacrity-v1.5.0) (2023-12-24)
 
 
