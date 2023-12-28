@@ -77,8 +77,8 @@ function clearInput() {
 
 <template>
   <v-container>
-    <v-container class="mb-3">
-      <v-row>
+    <v-row>
+      <v-col cols="5">
         <v-btn class="mr-2" @click="selectTextFile">
           {{ t("selectFile") }}
         </v-btn>
@@ -88,26 +88,37 @@ function clearInput() {
         <v-btn class="mr-2" @click="clearInput">
           {{ t("plugin.clear") }}
         </v-btn>
-      </v-row>
-    </v-container>
-    <v-textarea v-model="textContent"></v-textarea>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col cols="12">
+        <v-textarea v-model="textContent"></v-textarea>
+      </v-col>
+    </v-row>
 
     <v-divider class="ma-6"></v-divider>
 
-    <v-container class="mb-3">
-      <v-row>
+    <v-row>
+      <v-col cols="2">
         <v-btn class="mr-2" @click="copy"> {{ t("plugin.copy") }} </v-btn>
         <v-btn class="mr-2" @click="clearInput">
           {{ t("plugin.clear") }}
         </v-btn>
-      </v-row>
-    </v-container>
-    <v-textarea
-      :model-value="encoded"
-      @update:modelValue="(value) => (textEncoded = value)"
-      rows="12"
-    ></v-textarea>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col cols="12">
+        <v-textarea
+          :model-value="encoded"
+          @update:modelValue="(value) => (textEncoded = value)"
+          rows="12"
+        ></v-textarea>
+      </v-col>
+    </v-row>
   </v-container>
+
   <v-snackbar v-model="errorAlert" color="error">{{ t("invalid") }}</v-snackbar>
   <v-snackbar v-model="copied"> {{ t("plugin.copied") }} </v-snackbar>
 </template>
