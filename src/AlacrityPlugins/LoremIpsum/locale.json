@@ -11,8 +11,7 @@
       "slug": "Slug"
     },
     "generate": {
-      "type": "Type",
-      "count": "Count"
+      "type": "Type: "
     }
   },
   "zhHans": {
@@ -27,8 +26,7 @@
       "slug": "Slug"
     },
     "generate": {
-      "type": "类型",
-      "count": "数量"
+      "type": "类型："
     }
   }
 }
