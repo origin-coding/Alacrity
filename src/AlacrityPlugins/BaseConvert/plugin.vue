@@ -24,29 +24,55 @@ const output = computed(() =>
 
 <template>
   <v-container>
-    <v-radio-group v-model="inputBase" :inline="true" :label="t('inputBase')">
-      <v-radio
-        v-for="option in baseOptions"
-        :key="option.key"
-        :value="option.value"
-        :label="t(option.key)"
-      ></v-radio>
-    </v-radio-group>
-    <v-text-field v-model="input" class="v-col-6"></v-text-field>
+    <v-row>
+      <v-col>
+        <div class="text-h6">{{ t("inputBase") }}</div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <v-radio-group v-model="inputBase" :inline="true">
+          <v-radio
+            v-for="option in baseOptions"
+            :key="option.key"
+            :value="option.value"
+            :label="t(option.key)"
+          ></v-radio>
+        </v-radio-group>
+      </v-col>
+    </v-row>
 
-    <div class="v-col-6">
-      <v-divider class="ma-4"></v-divider>
-    </div>
+    <v-row>
+      <v-col cols="8">
+        <v-text-field v-model="input"></v-text-field>
+      </v-col>
+    </v-row>
 
-    <v-radio-group v-model="outputBase" :inline="true" :label="t('outputBase')">
-      <v-radio
-        v-for="option in baseOptions"
-        :key="option.key"
-        :value="option.value"
-        :label="t(option.key)"
-      ></v-radio>
-    </v-radio-group>
-    <v-text-field :model-value="output" class="v-col-6"></v-text-field>
+    <v-divider class="ma-6"></v-divider>
+
+    <v-row>
+      <v-col>
+        <div class="text-h6">{{ t("outputBase") }}</div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <v-radio-group v-model="outputBase" :inline="true">
+          <v-radio
+            v-for="option in baseOptions"
+            :key="option.key"
+            :value="option.value"
+            :label="t(option.key)"
+          ></v-radio>
+        </v-radio-group>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col cols="8">
+        <v-text-field :model-value="output"></v-text-field>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

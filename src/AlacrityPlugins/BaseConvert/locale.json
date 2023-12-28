@@ -13,6 +13,6 @@
     "dec": "十进制",
     "hex": "十六进制",
     "inputBase": "输入数字的进制：",
-    "outputBase": "输出数字的进制"
+    "outputBase": "输出数字的进制："
   }
 }
