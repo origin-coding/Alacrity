@@ -1,12 +1,12 @@
 {
   "en": {
     "select": "Select file",
-    "algorithm": "Hash algorithm",
+    "algorithm": "Algorithm: ",
     "upper": "Uppercase"
   },
   "zhHans": {
     "select": "选择文件",
-    "algorithm": "Hash算法",
+    "algorithm": "哈希算法：",
     "upper": "大写"
   }
 }

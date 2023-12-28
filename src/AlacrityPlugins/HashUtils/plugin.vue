@@ -21,18 +21,18 @@ watch(formInput, (_) => {
 // We use MD5 as a default.
 const hashAlg = ref<typeof CryptoJs.SHA1>(CryptoJs.MD5);
 const hashAlgOptions = [
-  { title: "MD5", alg: CryptoJs.MD5 },
-  { title: "SHA1", alg: CryptoJs.SHA1 },
-  { title: "SHA224", alg: CryptoJs.SHA224 },
-  { title: "SHA256", alg: CryptoJs.SHA256 },
-  { title: "SHA384", alg: CryptoJs.SHA384 },
-  { title: "SHA512", alg: CryptoJs.SHA512 },
-  { title: "SHA3", alg: CryptoJs.SHA3 },
+  { title: "MD5", value: CryptoJs.MD5 },
+  { title: "SHA1", value: CryptoJs.SHA1 },
+  { title: "SHA224", value: CryptoJs.SHA224 },
+  { title: "SHA256", value: CryptoJs.SHA256 },
+  { title: "SHA384", value: CryptoJs.SHA384 },
+  { title: "SHA512", value: CryptoJs.SHA512 },
+  { title: "SHA3", value: CryptoJs.SHA3 },
 ];
 
 const uppercase = ref(true);
 
-const hashResult = computed(() => {
+const result = computed(() => {
   return fileInput.value === null
     ? hash(formInput.value)
     : hash(fileInput.value);
@@ -78,57 +78,49 @@ function clearInput() {
 const copied = ref(false);
 
 async function copy() {
-  await writeText(hashResult.value);
+  await writeText(result.value);
   copied.value = true;
 }
 </script>
 
 <template>
   <v-container>
-    <v-container class="mb-3">
-      <v-row>
-        <v-btn class="mr-2" @click="selectFile"> {{ t("select") }} </v-btn>
-        <v-btn class="mr-2" @click="clearInput">
-          {{ t("plugin.clear") }}
-        </v-btn>
-        <v-menu :open-on-hover="true">
-          <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" append-icon="mdi-chevron-down">
-              {{ t("algorithm") }}
-            </v-btn>
+    <v-row>
+      <v-col cols="4">
+        <v-select v-model="hashAlg" :items="hashAlgOptions">
+          <template v-slot:prepend> {{ t("algorithm") }} </template>
+          <template v-slot:append>
+            <v-checkbox-btn
+              v-model="uppercase"
+              :label="t('upper')"
+            ></v-checkbox-btn>
           </template>
-          <v-list>
-            <v-list-item
-              v-for="(option, index) in hashAlgOptions"
-              :key="index"
-              :value="option.alg"
-            >
-              <v-list-item-title @click="hashAlg = option.alg">
-                {{ option.title }}
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <v-checkbox-btn
-          :label="t('upper')"
-          v-model="uppercase"
-        ></v-checkbox-btn>
-      </v-row>
-    </v-container>
-    <v-textarea v-model="formInput"></v-textarea>
-
-    <v-divider class="ma-6"></v-divider>
-
-    <v-container class="mb-3">
-      <v-row>
+        </v-select>
+      </v-col>
+      <v-col cols="3">
+        <v-btn class="mr-2" @click="selectFile"> {{ t("select") }} </v-btn>
         <v-btn class="mr-2" @click="copy"> {{ t("plugin.copy") }} </v-btn>
         <v-btn class="mr-2" @click="clearInput">
           {{ t("plugin.clear") }}
         </v-btn>
-      </v-row>
-    </v-container>
-    <v-textarea v-model="hashResult" rows="12" :readonly="true"></v-textarea>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col cols="12">
+        <v-textarea v-model="formInput"></v-textarea>
+      </v-col>
+    </v-row>
+
+    <v-divider class="ma-6"></v-divider>
+
+    <v-row>
+      <v-col cols="12">
+        <v-textarea v-model="result" rows="12" :readonly="true"></v-textarea>
+      </v-col>
+    </v-row>
   </v-container>
+
   <v-snackbar v-model="copied">{{ t("plugin.copied") }}</v-snackbar>
 </template>
 
