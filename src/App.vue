@@ -72,7 +72,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <v-app>
+  <v-app class="text-custom_text">
     <v-navigation-drawer :expand-on-hover="true" :rail="!expandDrawer">
       <v-list>
         <v-list-item

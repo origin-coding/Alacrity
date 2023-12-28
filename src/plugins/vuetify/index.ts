@@ -1,6 +1,7 @@
 //Styles
 import "@mdi/font/css/materialdesignicons.min.css";
 import "vuetify/styles";
+import { variants } from "@catppuccin/palette";
 
 // Components and configs.
 import { createVuetify, ThemeDefinition } from "vuetify";
@@ -15,28 +16,30 @@ import i18n from "../i18n";
 const lightTheme: typeof ThemeDefinition = {
   dark: false,
   colors: {
-    background: "#FAFAFA" /* grey-lighten-5 */,
-    surface: "#FAFAFA" /* grey-lighten-5 */,
-    primary: "#2196F3" /* blue */,
-    secondary: "#00BFA5" /* teal-accent-4 */,
-    error: "#F44336" /* red */,
-    info: "#00B0FF" /* light-blue-accent-3 */,
-    success: "#4CAF50" /* green */,
-    warning: "#FF6D00" /* orange-accent-4 */,
+    background: variants.latte.base.hex,
+    surface: variants.latte.base.hex,
+    primary: variants.latte.blue.hex,
+    secondary: variants.latte.green.hex,
+    error: variants.latte.red.hex,
+    info: variants.latte.sky.hex,
+    success: variants.latte.mauve.hex,
+    warning: variants.latte.peach.hex,
+    custom_text: variants.latte.text.hex,
   },
 };
 
 const darkTheme: typeof ThemeDefinition = {
   dark: true,
   colors: {
-    background: "#212121" /* grey-darken-4 */,
-    surface: "#212121" /* grey-darken-4 */,
-    primary: "#448AFF" /* blue-accent-2 */,
-    secondary: "#26A69A" /* teal-lighten-1 */,
-    error: "#EF5350" /* red-lighten-1 */,
-    info: "#039BE5" /* light-blue-darken-1 */,
-    success: "#66BB6A" /* green-lighten-1 */,
-    warning: "#FF6E40" /* deep-orange-accent-2 */,
+    background: variants.mocha.base.hex,
+    surface: variants.mocha.base.hex,
+    primary: variants.mocha.blue.hex,
+    secondary: variants.mocha.green.hex,
+    error: variants.mocha.red.hex,
+    info: variants.mocha.sky.hex,
+    success: variants.mocha.mauve.hex,
+    warning: variants.mocha.peach.hex,
+    custom_text: variants.mocha.text.hex,
   },
 };
 
