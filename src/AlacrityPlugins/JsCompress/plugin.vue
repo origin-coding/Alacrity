@@ -115,12 +115,14 @@ async function selectFile() {
 <template>
   <v-container>
     <v-row>
-      <v-btn class="mr-2" @click="compress(false)">{{ t("compress") }}</v-btn>
-      <v-btn class="mr-2" @click="compress(true)">{{ t("mangle") }}</v-btn>
-      <v-btn class="mr-2" @click="format">{{ t("format") }}</v-btn>
-      <v-btn class="mr-2" @click="copy">{{ t("plugin.copy") }}</v-btn>
-      <v-btn class="mr-2" @click="clear">{{ t("plugin.clear") }}</v-btn>
-      <v-btn @click="selectFile">{{ t("selectFile") }}</v-btn>
+      <v-col cols="12">
+        <v-btn class="mr-2" @click="compress(false)">{{ t("compress") }}</v-btn>
+        <v-btn class="mr-2" @click="compress(true)">{{ t("mangle") }}</v-btn>
+        <v-btn class="mr-2" @click="format">{{ t("format") }}</v-btn>
+        <v-btn class="mr-2" @click="copy">{{ t("plugin.copy") }}</v-btn>
+        <v-btn class="mr-2" @click="clear">{{ t("plugin.clear") }}</v-btn>
+        <v-btn @click="selectFile">{{ t("selectFile") }}</v-btn>
+      </v-col>
     </v-row>
 
     <v-row>
