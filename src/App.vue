@@ -73,7 +73,11 @@ onMounted(async () => {
 
 <template>
   <v-app class="text-custom_text">
-    <v-navigation-drawer :expand-on-hover="true" :rail="!expandDrawer">
+    <v-navigation-drawer
+      :expand-on-hover="true"
+      :rail="!expandDrawer"
+      class="rounded-lg border-b"
+    >
       <v-list>
         <v-list-item
           v-for="(category, key) in categories"
@@ -83,11 +87,12 @@ onMounted(async () => {
           "
           :prepend-icon="category.icon"
           :title="t(`category.${category.locale}`)"
+          class="border-b rounded"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar :flat="true">
+    <v-app-bar :flat="true" class="rounded-lg border-b">
       <v-app-bar-nav-icon @click="expandDrawer = !expandDrawer">
       </v-app-bar-nav-icon>
       <v-app-bar-title>
