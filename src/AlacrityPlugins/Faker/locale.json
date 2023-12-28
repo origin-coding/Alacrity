@@ -13,7 +13,8 @@
     "female": "Female Names",
     "past": "Past Dates",
     "future": "Future Dates",
-    "title": "With Title"
+    "title": "With Title",
+    "count": "Count: "
   },
   "zhHans": {
     "name": "姓名",
@@ -29,6 +30,7 @@
     "female": "女性名称",
     "past": "过去时间",
     "future": "将来时间",
-    "title": "携带表头"
+    "title": "携带表头",
+    "count": "数量："
   }
 }

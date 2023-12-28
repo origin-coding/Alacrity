@@ -11,6 +11,7 @@ import { useI18n } from "vue-i18n";
 import messages from "./locale.json";
 import { save } from "@tauri-apps/api/dialog";
 import { writeTextFile } from "@tauri-apps/api/fs";
+import { useValidateCount } from "@/common";
 const { t, locale } = useI18n({ messages });
 
 const faker: ComputedRef<Faker> = computed(() => {
@@ -133,21 +134,28 @@ const options = reactive({
 <template>
   <v-container>
     <v-row>
-      <v-sheet>
-        <v-text-field v-model="config.lines" type="number">
-          <template v-slot:prepend>
-            <v-checkbox-btn :label="t('title')" v-model="config.title">
-            </v-checkbox-btn>
-          </template>
+      <v-col cols="2">
+        <v-text-field
+          v-model="config.lines"
+          type="number"
+          :rules="[useValidateCount()]"
+          :clearable="false"
+        >
+          <template v-slot:prepend>{{ t("count") }}</template>
+        </v-text-field>
+      </v-col>
+
+      <v-col cols="4">
+        <v-checkbox :label="t('title')" v-model="config.title">
           <template v-slot:append>
-            <v-btn @click="generate" class="mr-3">{{
-              t("plugin.generate")
-            }}</v-btn>
-            <v-btn @click="copy" class="mr-3">{{ t("plugin.copy") }}</v-btn>
+            <v-btn @click="generate" class="mr-2">
+              {{ t("plugin.generate") }}
+            </v-btn>
+            <v-btn @click="copy" class="mr-2">{{ t("plugin.copy") }}</v-btn>
             <v-btn @click="download">{{ t("plugin.download") }}</v-btn>
           </template>
-        </v-text-field>
-      </v-sheet>
+        </v-checkbox>
+      </v-col>
     </v-row>
 
     <v-row>
