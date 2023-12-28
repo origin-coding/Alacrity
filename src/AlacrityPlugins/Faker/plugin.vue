@@ -141,11 +141,11 @@ const options = reactive({
           :rules="[useValidateCount()]"
           :clearable="false"
         >
-          <template v-slot:prepend>{{ t("count") }}</template>
+          <template v-slot:prepend>{{ t("plugin.count") }}</template>
         </v-text-field>
       </v-col>
 
-      <v-col cols="4">
+      <v-col cols="5">
         <v-checkbox :label="t('title')" v-model="config.title">
           <template v-slot:append>
             <v-btn @click="generate" class="mr-2">
