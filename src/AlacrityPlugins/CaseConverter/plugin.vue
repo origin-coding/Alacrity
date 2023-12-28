@@ -36,15 +36,17 @@ function convertCase() {
 <template>
   <v-container>
     <v-row>
-      <v-select :items="caseOptions" v-model="selectedCase" class="v-col-3">
-        <template v-slot:append>
-          <v-btn @click="convertCase">{{ t("plugin.convert") }}</v-btn>
-        </template>
-      </v-select>
+      <v-col cols="3">
+        <v-select :items="caseOptions" v-model="selectedCase">
+          <template v-slot:append>
+            <v-btn @click="convertCase">{{ t("plugin.convert") }}</v-btn>
+          </template>
+        </v-select>
+      </v-col>
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-textarea v-model="input" :rows="10" height="320vh"> </v-textarea>
+        <v-textarea v-model="input" :rows="10"> </v-textarea>
       </v-col>
     </v-row>
     <v-row>
