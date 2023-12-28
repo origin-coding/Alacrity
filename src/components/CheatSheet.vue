@@ -79,7 +79,7 @@ const allPages = ref(10);
       :search="search"
       v-model:items-per-page="allPages"
       :fixed-header="true"
-      height="74vh"
+      height="73vh"
     ></v-data-table>
   </v-container>
 </template>
