@@ -1,6 +1,10 @@
 import { useI18n } from "vue-i18n";
+import { MaybeRefOrGetter, toValue } from "vue";
 
-function useValidateCount(min: number = 0, max: number = 100) {
+function useValidateCount(
+  min: MaybeRefOrGetter<number> = 0,
+  max: MaybeRefOrGetter<number> = 100,
+) {
   const { t } = useI18n();
 
   function validateCount(countString: string): boolean | string {
@@ -9,10 +13,10 @@ function useValidateCount(min: number = 0, max: number = 100) {
     }
 
     const count = Number(countString);
-    if (count < min) {
+    if (count < toValue(min)) {
       return t("validate.lessThan", [min]);
     }
-    if (count > max) {
+    if (count > toValue(max)) {
       return t("validate.moreThan", [max]);
     }
     return true;
