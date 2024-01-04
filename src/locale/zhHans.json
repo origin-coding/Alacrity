@@ -1,21 +1,4 @@
 {
-  "$vuetify": {
-    "dataFooter": {
-      "itemsPerPageText": "每页数量：",
-      "itemsPerPageAll": "全部",
-      "pageText": "{0}-{1} 共计 {2}",
-      "firstPage": "第一页",
-      "lastPage": "最后一页",
-      "prevPage": "上一页",
-      "nextPage": "下一页"
-    },
-    "input": {
-      "clear": "清空"
-    },
-    "open": "打开",
-    "close": "关闭",
-    "noDataText": "请选择"
-  },
   "search": "搜索插件",
   "category": {
     "all": "全部工具",
@@ -40,13 +23,9 @@
     "convert": "转换",
     "count": "数量："
   },
-  "10": "10",
-  "25": "25",
-  "50": "50",
-  "100": "100",
   "validate": {
     "empty": "该值不能为空！",
-    "lessThan": "数量不能小于0！",
-    "moreThan": "数量不能大于100！"
+    "lessThan": "数量不能小于{0}！",
+    "moreThan": "数量不能大于{0}！"
   }
 }
