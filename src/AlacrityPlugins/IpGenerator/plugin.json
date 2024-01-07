@@ -1,0 +1,18 @@
+{
+  "Name": "IpGenerator",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "Generate Ip v4/v6 addresses.",
+  "Categories": ["Generator"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Ip Generator",
+      "zhHans": "Ip地址生成"
+    },
+    "Description": {
+      "en": "Generate Ip v4/v6 addresses.",
+      "zhHans": "生成Ip v4/v6地址。"
+    }
+  }
+}

@@ -19,8 +19,9 @@ import CssUnit from "./CssUnit";
 import LoremIpsum from "./LoremIpsum";
 import CaseConverter from "./CaseConverter";
 import MacGenerator from "./MacGenerator";
+import IpGenerator from "./IpGenerator";
 
-export { MacGenerator };
+export { MacGenerator, IpGenerator };
 
 export { Base64, HashUtils, QrCode, UUID, RequestHeaders };
 
