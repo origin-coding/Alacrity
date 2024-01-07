@@ -22,4 +22,4 @@ export type { LocalizedMessages } from "./locale";
 
 import "./monaco";
 
-export { useValidateCount } from "./validator";
+export { useValidateCount } from "./validators";
