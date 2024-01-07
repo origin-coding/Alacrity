@@ -13,6 +13,8 @@ const i18n = createI18n({
   // Suppress these warnings in development mode.
   silentTranslationWarn: true,
   silentFallbackWarn: true,
+  fallbackWarn: false,
+  missingWarn: false,
 
   // Messages, including custom global messages and Vuetify's messages.
   messages: {
