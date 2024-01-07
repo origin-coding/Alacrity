@@ -1,0 +1,18 @@
+{
+  "Name": "RandomNumber",
+  "Author": "Alacrity",
+  "Version": "1.0.0",
+  "Description": "Generate random numbers.",
+  "Categories": ["Generator"],
+  "MultiLanguage": true,
+  "Locale": {
+    "Name": {
+      "en": "Random Generator",
+      "zhHans": "随机数生成器"
+    },
+    "Description": {
+      "en": "Generate random numbers.",
+      "zhHans": "生成随机数。"
+    }
+  }
+}

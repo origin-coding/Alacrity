@@ -22,8 +22,9 @@ import MacGenerator from "./MacGenerator";
 import IpGenerator from "./IpGenerator";
 import RsaKeyGen from "./RsaKeyGen";
 import AddLineNumber from "./AddLineNumber";
+import RandomNumber from "./RandomNumber";
 
-export { MacGenerator, IpGenerator, RsaKeyGen, AddLineNumber };
+export { MacGenerator, IpGenerator, RsaKeyGen, AddLineNumber, RandomNumber };
 
 export { Base64, HashUtils, QrCode, UUID, RequestHeaders };
 
