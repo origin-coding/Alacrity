@@ -5,10 +5,12 @@ import { useFuse } from "@vueuse/integrations/useFuse";
 import { Category, Plugin } from "@/common";
 import usePlugins from "./usePlugins";
 import useFavorites from "./useFavorites";
+import { useI18n } from "vue-i18n";
 
 const usePluginFilter = defineStore("pluginFilter", () => {
   const plugins = usePlugins();
   const favorites = useFavorites();
+  const { locale } = useI18n();
 
   const category: Ref<Category> = ref("All");
   const search: Ref<string> = ref("");
@@ -30,7 +32,14 @@ const usePluginFilter = defineStore("pluginFilter", () => {
     // Search with useFuse.
     return useFuse(search.value, filtered, {
       fuseOptions: {
-        keys: ["Name", "Author", "Description", "Categories"],
+        keys: [
+          "Name",
+          "Author",
+          "Description",
+          "Categories",
+          `Locale.Name.${locale.value}`,
+          `Locale.Description.${locale.value}`,
+        ],
         isCaseSensitive: false,
         threshold: undefined,
       },
