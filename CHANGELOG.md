@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.7.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.6.0...alacrity-v1.7.0) (2024-01-07)
+
+
+### Features
+
+* **i18n:** user can search plugin with multiple languages ([84d87fb](https://github.com/origin-coding/Alacrity/commit/84d87fb22ef45d943453f7c510746a4031e29395))
+* **i18n:** user can search plugin with mutiple languages ([0caa4da](https://github.com/origin-coding/Alacrity/commit/0caa4daf20f1187a487758b7be9531a43b9ffac5))
+* **plugin:** add plugin AddLineNumber, for adding line numbers to text ([aabd85b](https://github.com/origin-coding/Alacrity/commit/aabd85b6003ca507e06462d060ca29cd5a71cd6f))
+* **plugin:** add plugin IpGenerator, for generating random IP addresses ([63d23ff](https://github.com/origin-coding/Alacrity/commit/63d23ff12f29f9cfddfd605872662eb0a407caf8))
+* **plugin:** add plugin RandomNumber, for generating random numbers ([93c2866](https://github.com/origin-coding/Alacrity/commit/93c28669868aed04dc217723d559e3ad94f3bda9))
+* **plugin:** add plugin RsaKeyGen, for generating RSA key pairs ([3dfa8a2](https://github.com/origin-coding/Alacrity/commit/3dfa8a2473cca161c6e9d44e8f5cbd77bca06aa6))
+
+
+### Bug Fixes
+
+* **i18n:** add missing i18n message ([8a20f49](https://github.com/origin-coding/Alacrity/commit/8a20f4960452cd46b91f471ac065b26d6da08e4b))
+
 ## [1.6.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.5.0...alacrity-v1.6.0) (2023-12-28)
 
 
