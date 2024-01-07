@@ -5,7 +5,9 @@ import { writeText } from "@tauri-apps/api/clipboard";
 import { useValidateCount } from "@/common";
 import { useI18n } from "vue-i18n";
 
-const { t } = useI18n();
+import messages from "./locale.json";
+
+const { t } = useI18n({ messages });
 
 const count = ref(1);
 const version: Ref<"ip" | "ipv4" | "ipv6"> = ref("ip");
