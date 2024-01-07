@@ -21,8 +21,9 @@ import CaseConverter from "./CaseConverter";
 import MacGenerator from "./MacGenerator";
 import IpGenerator from "./IpGenerator";
 import RsaKeyGen from "./RsaKeyGen";
+import AddLineNumber from "./AddLineNumber";
 
-export { MacGenerator, IpGenerator, RsaKeyGen };
+export { MacGenerator, IpGenerator, RsaKeyGen, AddLineNumber };
 
 export { Base64, HashUtils, QrCode, UUID, RequestHeaders };
 
