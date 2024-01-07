@@ -20,8 +20,9 @@ import LoremIpsum from "./LoremIpsum";
 import CaseConverter from "./CaseConverter";
 import MacGenerator from "./MacGenerator";
 import IpGenerator from "./IpGenerator";
+import RsaKeyGen from "./RsaKeyGen";
 
-export { MacGenerator, IpGenerator };
+export { MacGenerator, IpGenerator, RsaKeyGen };
 
 export { Base64, HashUtils, QrCode, UUID, RequestHeaders };
 

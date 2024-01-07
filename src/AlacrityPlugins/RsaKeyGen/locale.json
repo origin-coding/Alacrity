@@ -1,0 +1,12 @@
+{
+  "en": {
+    "copyPublic": "Copy Public Key",
+    "copyPrivate": "Copy Private Key",
+    "length": "Key Length: "
+  },
+  "zhHans": {
+    "copyPublic": "复制公钥",
+    "copyPrivate": "复制私钥",
+    "length": "密钥长度："
+  }
+}
