@@ -41,11 +41,15 @@
     // We need to use bitwise operators in some cases.
     "no-bitwise": "off",
 
+    // Import/export
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "warn",
     "import/prefer-default-export": "warn",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
 
+    // Unused variables starting with _ can be ignored.
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -70,8 +74,8 @@
         "ignoreRestSiblings": true
       }
     ],
-    "@typescript-eslint/ban-ts-comment": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+
+    // Allow comments like: ts-ignore, ts-nocheck, ts-check and ts-expect-error.
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }
