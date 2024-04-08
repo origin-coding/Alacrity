@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 import { fileURLToPath } from "url";
+import { defineConfig } from "vite";
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 // https://vitejs.dev/config/
 // noinspection JSUnusedGlobalSymbols
@@ -40,7 +40,7 @@ export default defineConfig({
   envPrefix: ["VITE_", "TAURI_"],
   build: {
     // Tauri supports es2021
-    target: process.env.TAURI_PLATFORM == "windows" ? "chrome118" : "safari13",
+    target: process.env.TAURI_PLATFORM === "windows" ? "chrome118" : "safari13",
     // don't minify for debug builds
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     // produce sourcemaps for debug builds
@@ -58,6 +58,7 @@ export default defineConfig({
               .split("/")[0]
               .toString();
           }
+          return id;
         },
         chunkFileNames: (chunkInfo) => {
           const facadeModuleId = chunkInfo.facadeModuleId

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, Ref, ref, watchEffect } from "vue";
-
 // I18n
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const BYTE_OFFSET: number = 0;
@@ -38,7 +39,7 @@ watchEffect(() => {
   });
 
   bin32.value = "";
-  for (let char of hex32.value) {
+  for (const char of hex32.value) {
     bin32.value += parseInt(char, 16).toString(2).padStart(4, "0");
   }
 });
@@ -52,7 +53,7 @@ watchEffect(() => {
   });
 
   bin64.value = "";
-  for (let char of hex64.value) {
+  for (const char of hex64.value) {
     bin64.value += parseInt(char, 16).toString(2).padStart(4, "0");
   }
 });
@@ -69,7 +70,7 @@ watchEffect(() => {
         class="v-col-6"
         :hide-details="true"
       >
-        <template v-slot:prepend>{{ t("dec") }}</template>
+        <template #prepend>{{ t("dec") }}</template>
       </v-text-field>
     </v-row>
 
@@ -77,21 +78,21 @@ watchEffect(() => {
     <div class="text-h6 my-4">{{ t("single") }}</div>
     <v-row>
       <v-text-field :model-value="hex32" class="v-col-3" :clearable="false">
-        <template v-slot:prepend>{{ t("hex") }}</template>
+        <template #prepend>{{ t("hex") }}</template>
       </v-text-field>
       <v-text-field :model-value="bin32" class="v-col-5" :clearable="false">
-        <template v-slot:prepend>{{ t("bin") }}</template>
+        <template #prepend>{{ t("bin") }}</template>
       </v-text-field>
     </v-row>
     <v-row>
       <v-text-field :model-value="bin32Sign" class="v-col-2" :clearable="false">
-        <template v-slot:prepend>{{ t("sign") }}</template>
+        <template #prepend>{{ t("sign") }}</template>
       </v-text-field>
       <v-text-field :model-value="bin32Exp" class="v-col-2" :clearable="false">
-        <template v-slot:prepend>{{ t("exp") }}</template>
+        <template #prepend>{{ t("exp") }}</template>
       </v-text-field>
       <v-text-field :model-value="bin32Man" class="v-col-4" :clearable="false">
-        <template v-slot:prepend>{{ t("man") }}</template>
+        <template #prepend>{{ t("man") }}</template>
       </v-text-field>
     </v-row>
 
@@ -99,21 +100,21 @@ watchEffect(() => {
     <div class="text-h6 my-4">{{ t("double") }}</div>
     <v-row>
       <v-text-field :model-value="hex64" class="v-col-4" :clearable="false">
-        <template v-slot:prepend>{{ t("hex") }}</template>
+        <template #prepend>{{ t("hex") }}</template>
       </v-text-field>
       <v-text-field :model-value="bin64" class="v-col-8" :clearable="false">
-        <template v-slot:prepend>{{ t("bin") }}</template>
+        <template #prepend>{{ t("bin") }}</template>
       </v-text-field>
     </v-row>
     <v-row>
       <v-text-field :model-value="bin64Sign" class="v-col-2" :clearable="false">
-        <template v-slot:prepend>{{ t("sign") }}</template>
+        <template #prepend>{{ t("sign") }}</template>
       </v-text-field>
       <v-text-field :model-value="bin64Exp" class="v-col-3" :clearable="false">
-        <template v-slot:prepend>{{ t("exp") }}</template>
+        <template #prepend>{{ t("exp") }}</template>
       </v-text-field>
       <v-text-field :model-value="bin64Man" class="v-col-7" :clearable="false">
-        <template v-slot:prepend>{{ t("man") }}</template>
+        <template #prepend>{{ t("man") }}</template>
       </v-text-field>
     </v-row>
   </v-container>

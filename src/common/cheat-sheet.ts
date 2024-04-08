@@ -29,4 +29,4 @@ interface CheatSheetHeaderItem {
 type VuetifyHeaders = Array<VuetifyHeaderItem>;
 type CheatSheetHeaders = Array<CheatSheetHeaderItem>;
 
-export type { CheatSheetData, VuetifyHeaders, CheatSheetHeaders };
+export type { CheatSheetData, CheatSheetHeaders, VuetifyHeaders };

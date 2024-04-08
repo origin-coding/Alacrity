@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, Ref } from "vue";
 import { writeText } from "@tauri-apps/api/clipboard";
-import { useI18n } from "vue-i18n";
 import { pki } from "node-forge";
+import { Ref, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import messages from "./locale.json";
 
@@ -44,13 +44,13 @@ async function copyPrivate() {
     <v-row>
       <v-col :cols="locale === 'en' ? 8 : 6">
         <v-select v-model="length" :items="lengthOptions">
-          <template v-slot:prepend>{{ t("length") }}</template>
+          <template #prepend>{{ t("length") }}</template>
 
-          <template v-slot:append>
-            <v-btn @click="generate" class="mr-2">
+          <template #append>
+            <v-btn class="mr-2" @click="generate">
               {{ t("plugin.generate") }}
             </v-btn>
-            <v-btn @click="copyPublic" class="mr-2">
+            <v-btn class="mr-2" @click="copyPublic">
               {{ t("copyPublic") }}
             </v-btn>
             <v-btn @click="copyPrivate">{{ t("copyPrivate") }}</v-btn>

@@ -1,5 +1,5 @@
-import usePlugins from "./usePlugins";
-import usePluginFilter from "./usePluginFilter";
 import useFavorites from "./useFavorites";
+import usePluginFilter from "./usePluginFilter";
+import usePlugins from "./usePlugins";
 
-export { usePlugins, usePluginFilter, useFavorites };
+export { useFavorites, usePluginFilter, usePlugins };

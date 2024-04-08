@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import { UAParser } from "ua-parser-js";
-
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const userAgent = ref("");
@@ -23,46 +24,46 @@ const parser = computed(() => {
     <div class="text-h6 mb-4">{{ t("browser") }}</div>
     <v-row>
       <v-text-field :model-value="parser.getBrowser().name" class="v-col-3">
-        <template v-slot:prepend>{{ t("name") }}</template>
+        <template #prepend>{{ t("name") }}</template>
       </v-text-field>
       <v-text-field :model-value="parser.getBrowser().version" class="v-col-3">
-        <template v-slot:prepend>{{ t("version") }}</template>
+        <template #prepend>{{ t("version") }}</template>
       </v-text-field>
     </v-row>
 
     <div class="text-h6 mb-4">{{ t("engine") }}</div>
     <v-row>
       <v-text-field :model-value="parser.getEngine().name" class="v-col-3">
-        <template v-slot:prepend>{{ t("name") }}</template>
+        <template #prepend>{{ t("name") }}</template>
       </v-text-field>
       <v-text-field :model-value="parser.getEngine().version" class="v-col-3">
-        <template v-slot:prepend>{{ t("version") }}</template>
+        <template #prepend>{{ t("version") }}</template>
       </v-text-field>
     </v-row>
 
     <div class="text-h6 mb-4">{{ t("os") }}</div>
     <v-row>
       <v-text-field :model-value="parser.getOS().name" class="v-col-3">
-        <template v-slot:prepend>{{ t("name") }}</template>
+        <template #prepend>{{ t("name") }}</template>
       </v-text-field>
       <v-text-field :model-value="parser.getOS().version" class="v-col-3">
-        <template v-slot:prepend>{{ t("version") }}</template>
+        <template #prepend>{{ t("version") }}</template>
       </v-text-field>
       <v-text-field :model-value="parser.getCPU().architecture" class="v-col-3">
-        <template v-slot:prepend>{{ t("arch") }}</template>
+        <template #prepend>{{ t("arch") }}</template>
       </v-text-field>
     </v-row>
 
     <div class="text-h6 mb-4">{{ t("device") }}</div>
     <v-row>
       <v-text-field :model-value="parser.getDevice().type" class="v-col-3">
-        <template v-slot:prepend>{{ t("type") }}</template>
+        <template #prepend>{{ t("type") }}</template>
       </v-text-field>
       <v-text-field :model-value="parser.getDevice().vendor" class="v-col-3">
-        <template v-slot:prepend>{{ t("name") }}</template>
+        <template #prepend>{{ t("name") }}</template>
       </v-text-field>
       <v-text-field :model-value="parser.getDevice().model" class="v-col-3">
-        <template v-slot:prepend>{{ t("model") }}</template>
+        <template #prepend>{{ t("model") }}</template>
       </v-text-field>
     </v-row>
   </v-container>

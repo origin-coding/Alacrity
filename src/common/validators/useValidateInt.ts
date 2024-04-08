@@ -14,4 +14,4 @@ function useValidateInt() {
   return validateInt;
 }
 
-export { useValidateInt };
+export default useValidateInt;

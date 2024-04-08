@@ -2,9 +2,10 @@
 import { Ref, ref } from "vue";
 
 import { CheatSheetData, CheatSheetHeaders } from "@/common";
-import messages from "./locale.json";
+import CheatSheet from "@/components";
+
 import dataRaw from "./data.json";
-import { CheatSheet } from "@/components";
+import messages from "./locale.json";
 
 const data: Ref<CheatSheetData> = ref(dataRaw);
 

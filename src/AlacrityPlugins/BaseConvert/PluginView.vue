@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-
 // I18n
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const input = ref("0");

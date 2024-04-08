@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
 import { faker } from "@faker-js/faker";
+import { writeText } from "@tauri-apps/api/clipboard";
+import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
-import messages from "./locale.json";
-import { writeText } from "@tauri-apps/api/clipboard";
 import { useValidateCount } from "@/common";
+
+import messages from "./locale.json";
 
 const { t, locale } = useI18n({ messages });
 
@@ -45,22 +46,22 @@ watch(locale, () => {
     <v-row>
       <v-col cols="3">
         <v-text-field
-          type="number"
           v-model="count"
+          type="number"
           :rules="[useValidateCount()]"
         >
-          <template v-slot:prepend> {{ t("count") }} </template>
+          <template #prepend> {{ t("count") }} </template>
         </v-text-field>
       </v-col>
       <v-col cols="2">
         <v-select v-model="separator" :items="separatorOptions">
-          <template v-slot:prepend> {{ t("separator") }} </template>
+          <template #prepend> {{ t("separator") }} </template>
         </v-select>
       </v-col>
       <v-col cols="4">
-        <v-checkbox label="Uppercase" v-model="uppercase">
-          <template v-slot:append>
-            <v-btn @click="generate" class="mr-2">
+        <v-checkbox v-model="uppercase" label="Uppercase">
+          <template #append>
+            <v-btn class="mr-2" @click="generate">
               {{ t("plugin.generate") }}
             </v-btn>
             <v-btn @click="copy"> {{ t("plugin.copy") }} </v-btn>

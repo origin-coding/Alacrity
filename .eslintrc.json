@@ -1,0 +1,77 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-airbnb-base",
+    "@vue/typescript/recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue-scoped-css/base",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "globals": {
+    "defineProps": "readonly",
+    "defineEmits": "readonly"
+  },
+  "plugins": ["vue", "@typescript-eslint", "simple-import-sort"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
+  // Ignore files in src-tauri.
+  "ignorePatterns": ["/src-tauri/**/*.js"],
+  "rules": {
+    // Js syntax limitation, see: https://github.com/eslint/eslint-visitor-keys/blob/main/lib/visitor-keys.js
+    "no-restricted-syntax": ["error", "WithStatement", "LabeledStatement"],
+    // We need to re-assign properties, so disable it.
+    "no-param-reassign": "off",
+    // It's not necessary to limit shadowing in Vue SFC.
+    "no-shadow": "off",
+    // We need to use bitwise operators in some cases.
+    "no-bitwise": "off",
+
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "warn",
+    "import/prefer-default-export": "warn",
+
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
+}

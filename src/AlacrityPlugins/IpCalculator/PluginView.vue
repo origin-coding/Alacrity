@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, reactive, ref, UnwrapNestedRefs, watch } from "vue";
 import { Address4 } from "ip-address";
-
+import { computed, reactive, ref, UnwrapNestedRefs, watch } from "vue";
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t, locale } = useI18n({ messages });
 
 const input: UnwrapNestedRefs<{
@@ -18,6 +19,7 @@ const ipAddress = ref(new Address4("0.0.0.0/0"));
 
 const availableAddress = computed(() => {
   const addr = ipAddress.value;
+  /* eslint-disable no-underscore-dangle */
   return addr._endAddress() - addr._startAddress() - 1;
 });
 
@@ -35,7 +37,7 @@ function clear() {
 const labels = ref([t("gateway"), t("first"), t("last"), t("broadcast")]);
 
 watch(locale, () => {
-  for (let [index, key] of [
+  for (const [index, key] of [
     "gateway",
     "first",
     "last",
@@ -57,19 +59,19 @@ const labelsAndAddrs = computed(() => {
   ];
 });
 
-function ipRule(input: string): boolean | string {
-  return _rule(input, "ip");
-}
-
-function maskRule(input: string): boolean | string {
-  return _rule(input, "mask");
-}
-
-function _rule(input: string, type: "ip" | "mask"): boolean | string {
+function rule(input: string, type: "ip" | "mask"): boolean | string {
   const num = Number(input);
   const min = 0;
   const max = type === "ip" ? 255 : 32;
   return (num >= min && num <= max) || t("invalid");
+}
+
+function ipRule(input: string): boolean | string {
+  return rule(input, "ip");
+}
+
+function maskRule(input: string): boolean | string {
+  return rule(input, "mask");
 }
 </script>
 
@@ -80,7 +82,7 @@ function _rule(input: string, type: "ip" | "mask"): boolean | string {
     </v-row>
     <v-row>
       <!--suppress JSUnusedLocalSymbols -->
-      <v-col v-for="(_, index) in input.addresses" cols="2">
+      <v-col v-for="(_, index) in input.addresses" :key="index" cols="2">
         <v-text-field
           v-model="input.addresses[index]"
           :clearable="false"
@@ -95,9 +97,9 @@ function _rule(input: string, type: "ip" | "mask"): boolean | string {
           :clearable="false"
           :rules="[maskRule]"
         >
-          <template v-slot:prepend> / </template>
-          <template v-slot:append>
-            <v-btn @click="calculate" class="mr-2">{{ t("calculate") }}</v-btn>
+          <template #prepend> / </template>
+          <template #append>
+            <v-btn class="mr-2" @click="calculate">{{ t("calculate") }}</v-btn>
             <v-btn @click="clear">{{ t("clear") }}</v-btn>
           </template>
         </v-text-field>
@@ -122,7 +124,7 @@ function _rule(input: string, type: "ip" | "mask"): boolean | string {
         </v-text-field>
       </v-col>
     </v-row>
-    <v-row v-for="item in labelsAndAddrs">
+    <v-row v-for="item in labelsAndAddrs" :key="item.label">
       <v-col cols="2" class="v-input v-input--horizontal v-input--center-affix">
         <div class="v-input__prepend">{{ item.label }}</div>
       </v-col>
@@ -134,7 +136,7 @@ function _rule(input: string, type: "ip" | "mask"): boolean | string {
         >
         </v-text-field>
       </v-col>
-      <v-col v-for="addr in item.address.toArray()" cols="1">
+      <v-col v-for="addr in item.address.toArray()" :key="addr" cols="1">
         <v-text-field :model-value="addr" :readonly="true" :clearable="false">
         </v-text-field>
       </v-col>

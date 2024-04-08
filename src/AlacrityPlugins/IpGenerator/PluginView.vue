@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { faker } from "@faker-js/faker";
-import { Ref, ref } from "vue";
 import { writeText } from "@tauri-apps/api/clipboard";
-import { useValidateCount } from "@/common";
+import { Ref, ref } from "vue";
 import { useI18n } from "vue-i18n";
+
+import { useValidateCount } from "@/common";
 
 import messages from "./locale.json";
 
@@ -38,18 +39,18 @@ async function copy() {
     <v-row>
       <v-col cols="3">
         <v-text-field
-          type="number"
           v-model="count"
+          type="number"
           :rules="[useValidateCount()]"
         >
-          <template v-slot:prepend> {{ t("count") }} </template>
+          <template #prepend> {{ t("count") }} </template>
         </v-text-field>
       </v-col>
 
       <v-col cols="4">
         <v-select v-model="version" :items="versionOptions">
-          <template v-slot:append>
-            <v-btn @click="generate" class="mr-2">
+          <template #append>
+            <v-btn class="mr-2" @click="generate">
               {{ t("plugin.generate") }}
             </v-btn>
             <v-btn @click="copy"> {{ t("plugin.copy") }} </v-btn>

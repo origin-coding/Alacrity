@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { computed, ComputedRef, reactive, ref, watch } from "vue";
 import { Faker, SexType } from "@faker-js/faker";
-import { faker as fakerEN_US } from "@faker-js/faker/locale/en_US";
-import { faker as fakerZH_CN } from "@faker-js/faker/locale/zh_CN";
-import dayjs from "dayjs";
+import { faker as fakerEnUs } from "@faker-js/faker/locale/en_US";
+import { faker as fakerZhCn } from "@faker-js/faker/locale/zh_CN";
 import { writeText } from "@tauri-apps/api/clipboard";
-
-// I18n
-import { useI18n } from "vue-i18n";
-import messages from "./locale.json";
 import { save } from "@tauri-apps/api/dialog";
 import { writeTextFile } from "@tauri-apps/api/fs";
+import dayjs from "dayjs";
+import { computed, ComputedRef, reactive, ref, watch } from "vue";
+// I18n
+import { useI18n } from "vue-i18n";
+
 import { useValidateCount } from "@/common";
+
+import messages from "./locale.json";
+
 const { t, locale } = useI18n({ messages });
 
 const faker: ComputedRef<Faker> = computed(() => {
-  return { zhHans: fakerZH_CN, en: fakerEN_US }[locale.value] || fakerEN_US;
+  return { zhHans: fakerZhCn, en: fakerEnUs }[locale.value] || fakerEnUs;
 });
 
 const result = ref("");
@@ -42,8 +44,10 @@ function generate() {
   const title = Object.keys(config.columns).filter(
     (k) => config.columns[k as keyof typeof config.columns],
   );
-  result.value = config.title ? title.join(",") + "\n" : "";
+  result.value = config.title ? `${title.join(",")}\n` : "";
 
+  /* eslint-disable */
+  // TODO 这里需要重构，避免嵌套的三元表达式
   result.value += Array.from({ length: config.lines })
     .map((_) =>
       [
@@ -104,19 +108,6 @@ const labels = reactive({
   description: t("description"),
 });
 
-watch(locale, () => {
-  Object.keys(labels).forEach((key) => {
-    labels[key as keyof typeof labels] = t(key);
-  });
-
-  for (let [index, key] of ["all", "male", "female"].entries()) {
-    options.name[index].title = t(key);
-  }
-  for (let [index, key] of ["all", "past", "future"].entries()) {
-    options.date[index].title = t(key);
-  }
-});
-
 const options = reactive({
   name: [
     { title: t("all"), value: "all" },
@@ -128,6 +119,19 @@ const options = reactive({
     { title: t("past"), value: "past" },
     { title: t("future"), value: "future" },
   ],
+});
+
+watch(locale, () => {
+  Object.keys(labels).forEach((key) => {
+    labels[key as keyof typeof labels] = t(key);
+  });
+
+  for (const [index, key] of ["all", "male", "female"].entries()) {
+    options.name[index].title = t(key);
+  }
+  for (const [index, key] of ["all", "past", "future"].entries()) {
+    options.date[index].title = t(key);
+  }
 });
 </script>
 
@@ -141,17 +145,17 @@ const options = reactive({
           :rules="[useValidateCount()]"
           :clearable="false"
         >
-          <template v-slot:prepend>{{ t("plugin.count") }}</template>
+          <template #prepend>{{ t("plugin.count") }}</template>
         </v-text-field>
       </v-col>
 
       <v-col cols="5">
-        <v-checkbox :label="t('title')" v-model="config.title">
-          <template v-slot:append>
-            <v-btn @click="generate" class="mr-2">
+        <v-checkbox v-model="config.title" :label="t('title')">
+          <template #append>
+            <v-btn class="mr-2" @click="generate">
               {{ t("plugin.generate") }}
             </v-btn>
-            <v-btn @click="copy" class="mr-2">{{ t("plugin.copy") }}</v-btn>
+            <v-btn class="mr-2" @click="copy">{{ t("plugin.copy") }}</v-btn>
             <v-btn @click="download">{{ t("plugin.download") }}</v-btn>
           </template>
         </v-checkbox>
@@ -163,20 +167,20 @@ const options = reactive({
       <template v-for="(_, key) in config.columns" :key="key">
         <v-select
           v-if="key === 'name' || key === 'date'"
-          :items="options[key]"
           v-model="config[key]"
+          :items="options[key]"
         >
-          <template v-slot:prepend>
+          <template #prepend>
             <v-checkbox-btn
-              :label="labels[key]"
               v-model="config.columns[key]"
+              :label="labels[key]"
             ></v-checkbox-btn>
           </template>
         </v-select>
         <v-checkbox
           v-else
-          :label="labels[key]"
           v-model="config.columns[key]"
+          :label="labels[key]"
         ></v-checkbox>
       </template>
     </v-row>

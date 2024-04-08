@@ -12,29 +12,30 @@ interface Locale {
 }
 
 interface PluginInfo {
-  Name: String;
+  Name: string;
   // Plugins with author "Alacrity" are officially supported.
   // Third-party plugins are not allowed to use this as author's name.
-  Author: String;
-  Email?: String;
-  Description: String;
-  Version: String;
+  Author: string;
+  Email?: string;
+  Description: string;
+  Version: string;
   // Plugin categories/tags.
-  Categories: Array<String>;
+  Categories: Array<string>;
 
   // I18n support.
-  MultiLanguage?: Boolean;
+  MultiLanguage?: boolean;
   Locale?: Locale;
 }
 
 interface Plugin extends PluginInfo {
   // Plugin initial page.
+  /* eslint-disable */
   View: Component<{}, {}>;
   // Plugin's route will be automatically assigned to `${Author}-${Name}`.
-  Route?: String;
+  Route?: string;
 }
 
-export { type PluginInfo, type Plugin };
+export { type Plugin, type PluginInfo };
 
 function processPlugin(plugin: Plugin): Plugin {
   // First, process plugin.json's route.

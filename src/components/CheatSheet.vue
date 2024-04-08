@@ -4,11 +4,13 @@ import { useI18n } from "vue-i18n";
 
 import type {
   CheatSheetData,
-  VuetifyHeaders,
   CheatSheetHeaders,
   LocalizedMessages,
+  VuetifyHeaders,
 } from "@/common";
 
+// TODO 这里需要设置默认值
+/* eslint-disable */
 const props = defineProps({
   data: Array as PropType<CheatSheetData>,
   headers: Array as PropType<CheatSheetHeaders>,
@@ -21,7 +23,7 @@ const { t, locale } = useI18n({
   fallbackWarn: false,
 });
 
-const headers: Ref<VuetifyHeaders> = ref([]);
+const tableHeaders: Ref<VuetifyHeaders> = ref([]);
 
 onMounted(() => {
   if (!props.headers) {
@@ -29,8 +31,8 @@ onMounted(() => {
   }
 
   for (const headerItem of props.headers) {
-    let title = headerItem.header.title;
-    let key = headerItem.header.key;
+    let { title } = headerItem.header;
+    let { key } = headerItem.header;
     if (headerItem.localizedHeader) {
       title = t(key);
     }
@@ -38,7 +40,7 @@ onMounted(() => {
       key = `${key}.${locale.value}`;
     }
 
-    headers.value.push({
+    tableHeaders.value.push({
       key,
       title,
       width: headerItem.header.width,
@@ -52,7 +54,7 @@ watch(locale, () => {
     return;
   }
 
-  for (let [index, item] of headers.value.entries()) {
+  for (const [index, item] of tableHeaders.value.entries()) {
     if (props.headers[index].localizedHeader) {
       item.title = t(props.headers[index].header.key);
     }
@@ -74,10 +76,10 @@ const allPages = ref(10);
       append-icon="mdi-magnify"
     ></v-text-field>
     <v-data-table
-      :items="props.data"
-      :headers="headers"
-      :search="search"
       v-model:items-per-page="allPages"
+      :items="props.data"
+      :headers="tableHeaders"
+      :search="search"
       :fixed-header="true"
       height="73vh"
     ></v-data-table>

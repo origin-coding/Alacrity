@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { urlRule } from "../utils";
+import { useI18n } from "vue-i18n";
 
 // I18n
-import { useI18n } from "vue-i18n";
 import messages from "../locale.json";
+import { urlRule } from "../utils";
+
 const { t } = useI18n({ messages });
 
 const emit = defineEmits<{

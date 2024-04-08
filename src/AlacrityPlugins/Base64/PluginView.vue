@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
 import { writeText } from "@tauri-apps/api/clipboard";
 import { open } from "@tauri-apps/api/dialog";
 import { readBinaryFile, readTextFile } from "@tauri-apps/api/fs";
+import { computed, ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { base64Decode, base64Encode } from "@/AlacrityPlugins/Base64/util";
 
 // I18n
-import { useI18n } from "vue-i18n";
 import messages from "./locale.json";
 
 const { t } = useI18n({ messages });
@@ -18,9 +18,8 @@ const binaryContent = ref<Uint8Array | null>(null);
 const encoded = computed(() => {
   if (binaryContent.value !== null) {
     return base64Encode(binaryContent.value);
-  } else {
-    return textEncoded.value;
   }
+  return textEncoded.value;
 });
 
 // Whether successfully copied result.
@@ -43,7 +42,7 @@ const errorAlert = ref(false);
 watch(textEncoded, (newValue: string) => {
   try {
     textContent.value = base64Decode(newValue);
-  } catch (e) {
+  } catch (_) {
     errorAlert.value = true;
   }
 });
@@ -112,8 +111,8 @@ function clearInput() {
       <v-col cols="12">
         <v-textarea
           :model-value="encoded"
-          @update:modelValue="(value) => (textEncoded = value)"
           rows="12"
+          @update:model-value="(value) => (textEncoded = value)"
         ></v-textarea>
       </v-col>
     </v-row>

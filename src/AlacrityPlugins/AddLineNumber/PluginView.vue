@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { reactive, Ref, ref, watch } from "vue";
+import { writeText } from "@tauri-apps/api/clipboard";
 import { open, save } from "@tauri-apps/api/dialog";
 import { readTextFile, writeTextFile } from "@tauri-apps/api/fs";
-import { writeText } from "@tauri-apps/api/clipboard";
+import { reactive, Ref, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 import messages from "./locale.json";
@@ -13,32 +13,6 @@ const input = ref("");
 const output = ref("");
 
 const showCustomize = ref(false);
-
-function addLineNumber() {
-  const lines = input.value.split("\n");
-
-  const maxLineNumber = lines.length.toString().length;
-
-  output.value = lines
-    .map((line, index) => {
-      if (line === "" && lineNumberOptions.skipEmptyLines) {
-        return "";
-      }
-
-      let lineNumber = (index + 1).toString();
-
-      if (lineNumberOptions.padding) {
-        lineNumber = lineNumber.padStart(maxLineNumber, "0");
-      }
-
-      if (lineNumberOptions.align === "beginning") {
-        return `${lineNumberOptions.prefix}${lineNumber}${lineNumberOptions.suffix}${line}`;
-      } else {
-        return `${line}${lineNumberOptions.prefix}${lineNumber}${lineNumberOptions.suffix}`;
-      }
-    })
-    .join("\n");
-}
 
 function toggleShowCustomize() {
   showCustomize.value = !showCustomize.value;
@@ -58,7 +32,7 @@ const alignOptions = ref([
 ]);
 
 watch(locale, () => {
-  for (let [index, key] of ["beginning", "end"].entries()) {
+  for (const [index, key] of ["beginning", "end"].entries()) {
     alignOptions.value[index].title = t(key);
   }
 });
@@ -70,8 +44,6 @@ const lineNumberOptions = reactive<LineNumberOptions>({
   skipEmptyLines: true,
   align: "beginning",
 });
-
-const preset: Ref<keyof typeof presetMap> = ref("parenthesis");
 
 const presetMap: Record<string, LineNumberOptions> = {
   parenthesis: {
@@ -104,6 +76,8 @@ const presetMap: Record<string, LineNumberOptions> = {
   },
 };
 
+const preset: Ref<keyof typeof presetMap> = ref("parenthesis");
+
 const presetOptions = ref([
   { value: "parenthesis", title: "(n)" },
   { value: "sharp", title: "n#" },
@@ -118,6 +92,31 @@ watch(preset, (value) => {
   lineNumberOptions.skipEmptyLines = presetMap[value].skipEmptyLines;
   lineNumberOptions.align = presetMap[value].align;
 });
+
+function addLineNumber() {
+  const lines = input.value.split("\n");
+
+  const maxLineNumber = lines.length.toString().length;
+
+  output.value = lines
+    .map((line, index) => {
+      if (line === "" && lineNumberOptions.skipEmptyLines) {
+        return "";
+      }
+
+      let lineNumber = (index + 1).toString();
+
+      if (lineNumberOptions.padding) {
+        lineNumber = lineNumber.padStart(maxLineNumber, "0");
+      }
+
+      if (lineNumberOptions.align === "beginning") {
+        return `${lineNumberOptions.prefix}${lineNumber}${lineNumberOptions.suffix}${line}`;
+      }
+      return `${line}${lineNumberOptions.prefix}${lineNumber}${lineNumberOptions.suffix}`;
+    })
+    .join("\n");
+}
 
 async function selectFile() {
   const file = await open({ multiple: false });
@@ -158,7 +157,7 @@ function clear() {
     <v-row>
       <v-col cols="2">
         <v-select v-model="preset" :items="presetOptions">
-          <template v-slot:prepend>{{ t("preset") }}</template>
+          <template #prepend>{{ t("preset") }}</template>
         </v-select>
       </v-col>
       <v-col cols="10">
@@ -177,17 +176,17 @@ function clear() {
     <v-row v-show="showCustomize">
       <v-col cols="2">
         <v-text-field v-model="lineNumberOptions.prefix" :clearable="false">
-          <template v-slot:prepend>{{ t("prefix") }}</template>
+          <template #prepend>{{ t("prefix") }}</template>
         </v-text-field>
       </v-col>
       <v-col cols="2">
         <v-text-field v-model="lineNumberOptions.suffix" :clearable="false">
-          <template v-slot:prepend>{{ t("suffix") }}</template>
+          <template #prepend>{{ t("suffix") }}</template>
         </v-text-field>
       </v-col>
       <v-col cols="3">
         <v-select v-model="lineNumberOptions.align" :items="alignOptions">
-          <template v-slot:prepend>{{ t("position") }}</template>
+          <template #prepend>{{ t("position") }}</template>
         </v-select>
       </v-col>
       <v-col cols="2">

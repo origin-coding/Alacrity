@@ -1,12 +1,11 @@
 // Plugins
 import { createPinia } from "pinia";
-import { loadFonts } from "@/plugins/webfontloader";
-import vuetify from "@/plugins/vuetify";
-import router from "@/plugins/router";
-import i18n from "@/plugins/i18n";
-
-// Types
 import type { App } from "vue";
+
+import i18n from "@/plugins/i18n";
+import router from "@/plugins/router";
+import vuetify from "@/plugins/vuetify";
+import loadFonts from "@/plugins/webfontloader";
 
 export async function registerPlugins(app: App): Promise<App> {
   await loadFonts();
@@ -17,4 +16,4 @@ export async function registerPlugins(app: App): Promise<App> {
 
 export { router };
 // Stores.
-export { usePlugins, usePluginFilter, useFavorites } from "./stores";
+export { useFavorites, usePluginFilter, usePlugins } from "./stores";

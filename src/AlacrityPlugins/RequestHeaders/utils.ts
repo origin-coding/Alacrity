@@ -1,5 +1,6 @@
 type rule = (value: string) => boolean | string;
 
+// TODO 这里改成Composable
 function baseRule(reg: RegExp, errMsg: string): rule {
   return (value: string): boolean | string => {
     // Empty strings are accepted.
@@ -18,4 +19,5 @@ const urlRule = baseRule(
   "不是有效的URL格式",
 );
 
+/* eslint-disable */
 export { urlRule };

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { reactive, ref, Ref, watch } from "vue";
+import { reactive, Ref, ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
+
 import { emailRule, phoneRule, urlRule } from "@/AlacrityPlugins/QrCode/utils";
 
 // I18n
-import { useI18n } from "vue-i18n";
 import messages from "../locale.json";
+
 const { t, locale } = useI18n({ messages });
 
 const emit = defineEmits<{
@@ -18,8 +20,8 @@ const genderOptions: Ref<Array<{ title: string; value: string }>> = ref([
 ]);
 
 watch(locale, () => {
-  for (let [index, key] of ["male", "female", "unknown"].entries()) {
-    genderOptions.value[index].title = t(`contact.${key}`)
+  for (const [index, key] of ["male", "female", "unknown"].entries()) {
+    genderOptions.value[index].title = t(`contact.${key}`);
   }
 });
 
@@ -46,7 +48,7 @@ const cardInfo = reactive<{
 });
 
 function generateCard() {
-  let cardItems: Array<string> = [
+  const cardItems: Array<string> = [
     `BEGIN:VCARD`,
     `VERSION:3.0`,
     `N:${cardInfo.name}`,
@@ -70,7 +72,10 @@ function generateCard() {
 </script>
 
 <template>
-  <v-text-field v-model="cardInfo.name" :label="t('contact.name')"></v-text-field>
+  <v-text-field
+    v-model="cardInfo.name"
+    :label="t('contact.name')"
+  ></v-text-field>
 
   <v-row>
     <v-col cols="6">
@@ -103,9 +108,18 @@ function generateCard() {
     :rules="[emailRule]"
     type="email"
   ></v-text-field>
-  <v-text-field v-model="cardInfo.company" :label="t('contact.company')"></v-text-field>
-  <v-text-field v-model="cardInfo.title" :label="t('contact.title')"></v-text-field>
-  <v-text-field v-model="cardInfo.address" :label="t('contact.address')"></v-text-field>
+  <v-text-field
+    v-model="cardInfo.company"
+    :label="t('contact.company')"
+  ></v-text-field>
+  <v-text-field
+    v-model="cardInfo.title"
+    :label="t('contact.title')"
+  ></v-text-field>
+  <v-text-field
+    v-model="cardInfo.address"
+    :label="t('contact.address')"
+  ></v-text-field>
   <v-text-field
     v-model="cardInfo.website"
     :label="t('contact.website')"

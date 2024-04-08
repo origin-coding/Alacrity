@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import QRCode from "qrcode";
-import { DefineComponent, Ref, ref, watch } from "vue";
 import { save } from "@tauri-apps/api/dialog";
 import { writeBinaryFile, writeTextFile } from "@tauri-apps/api/fs";
 import { useQRCode } from "@vueuse/integrations/useQRCode";
+import QRCode from "qrcode";
+import { DefineComponent, Ref, ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
+import EmailForm from "./components/EmailForm.vue";
+import MessageForm from "./components/MessageForm.vue";
 import TextForm from "./components/TextForm.vue";
 import UrlForm from "./components/UrlForm.vue";
-import WiFiForm from "./components/WiFiForm.vue";
-import MessageForm from "./components/MessageForm.vue";
-import EmailForm from "./components/EmailForm.vue";
 import VCardForm from "./components/VCardForm.vue";
-
+import WiFiForm from "./components/WiFiForm.vue";
 // I18n
-import { useI18n } from "vue-i18n";
 import messages from "./locale.json";
+
 const { t, locale } = useI18n({ messages });
 
 const text = ref("Hello, world!");
@@ -24,6 +24,7 @@ const qrcode = useQRCode(text, {
   type: "image/webp",
 });
 
+/* eslint-disable */
 const forms: Ref<
   Array<{
     name: string;
@@ -40,7 +41,7 @@ const forms: Ref<
 ]);
 
 watch(locale, () => {
-  for (let [index, key] of [
+  for (const [index, key] of [
     "text",
     "link",
     "wifi",
@@ -90,13 +91,17 @@ async function sageSvg() {
       <v-col cols="5">
         <v-container>
           <v-tabs v-model="currentForm" density="compact">
-            <v-tab v-for="form in forms" :value="form.name">
+            <v-tab v-for="form in forms" :key="form.name" :value="form.name">
               {{ form.title }}
             </v-tab>
           </v-tabs>
           <v-card-text>
             <v-window v-model="currentForm">
-              <v-window-item v-for="form in forms" :value="form.name">
+              <v-window-item
+                v-for="form in forms"
+                :key="form.name"
+                :value="form.name"
+              >
                 <component
                   :is="form.component"
                   @generate="(value: string) => (text = value)"

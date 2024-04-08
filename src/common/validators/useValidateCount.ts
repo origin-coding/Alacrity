@@ -1,7 +1,10 @@
 import { MaybeRefOrGetter } from "vue";
-import { useValidateNotEmpty } from "./useValidateNotEmpty";
-import { useValidateNumberRange } from "./useValidateNumberRange";
-import { useValidateInt } from "./useValidateInt";
+
+import {
+  useValidateInt,
+  useValidateNotEmpty,
+  useValidateNumberRange,
+} from "@/common";
 
 function useValidateCount(
   min: MaybeRefOrGetter<number> = 1,
@@ -27,4 +30,4 @@ function useValidateCount(
   return validateCount;
 }
 
-export { useValidateCount };
+export default useValidateCount;

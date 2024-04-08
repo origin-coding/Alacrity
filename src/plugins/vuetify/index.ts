@@ -1,16 +1,17 @@
-//Styles
+// Styles
 import "@mdi/font/css/materialdesignicons.min.css";
 import "vuetify/styles";
-import { flavors } from "@catppuccin/palette";
 
+import { flavors } from "@catppuccin/palette";
+// I18n
+import { useI18n } from "vue-i18n";
 // Components and configs.
 import { createVuetify, ThemeDefinition } from "vuetify";
 import { md2 } from "vuetify/blueprints";
-import defaults from "@/plugins/vuetify/config";
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 
-// I18n
-import { useI18n } from "vue-i18n";
+import defaults from "@/plugins/vuetify/config";
+
 import i18n from "../i18n";
 
 const lightTheme: typeof ThemeDefinition = {

@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
-import { v4 as uuidV4, validate as uuidValidate } from "uuid";
+import { writeText } from "@tauri-apps/api/clipboard";
 import { save } from "@tauri-apps/api/dialog";
 import { writeTextFile } from "@tauri-apps/api/fs";
-import { writeText } from "@tauri-apps/api/clipboard";
-
+import { v4 as uuidV4, validate as uuidValidate } from "uuid";
+import { computed, ref, watch } from "vue";
 // I18n
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const nums = ref(1);
@@ -29,7 +30,7 @@ watch(toValidate, (newValue) => {
 
 // Generate UUIDs.
 function generate(nums: number, upper: boolean) {
-  const uuidList: Array<string> = Array.from({ length: nums }, () => {})
+  const uuidList: Array<string> = Array.from({ length: nums })
     .map((_) => uuidV4())
     .map((uuid) => (upper ? uuid.toUpperCase() : uuid));
   generated.value = uuidList.join("\n");
@@ -68,14 +69,14 @@ async function copy() {
           :label="t('count')"
           class="v-col-7"
         >
-          <template v-slot:append>
+          <template #append>
             <v-btn class="mr-2" @click="generate(nums, upper)">
               {{ t("generate") }}
             </v-btn>
-            <v-btn class="mr-2" @click="download" :disabled="btnDisabled">
+            <v-btn class="mr-2" :disabled="btnDisabled" @click="download">
               {{ t("plugin.download") }}
             </v-btn>
-            <v-btn class="mr-2" @click="copy" :disabled="btnDisabled">
+            <v-btn class="mr-2" :disabled="btnDisabled" @click="copy">
               {{ t("plugin.copy") }}
             </v-btn>
             <v-checkbox-btn
@@ -85,8 +86,8 @@ async function copy() {
           </template>
         </v-text-field>
         <v-text-field
-          class="v-col-5"
           v-model="toValidate"
+          class="v-col-5"
           :label="t('validate')"
         ></v-text-field>
       </v-row>

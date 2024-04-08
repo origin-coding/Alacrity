@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import { computed, ComputedRef, Ref, ref } from "vue";
 import { Store } from "tauri-plugin-store-api";
+import { computed, ComputedRef, Ref, ref } from "vue";
 
 import { CONFIG_FILE_PATH, KEY_FAVORITES, Plugin } from "@/common";
 

@@ -1,11 +1,12 @@
-import { defineStore } from "pinia";
-import { computed, ComputedRef, ref, Ref } from "vue";
 import { useFuse } from "@vueuse/integrations/useFuse";
+import { defineStore } from "pinia";
+import { computed, ComputedRef, Ref, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { Category, Plugin } from "@/common";
-import usePlugins from "./usePlugins";
+
 import useFavorites from "./useFavorites";
-import { useI18n } from "vue-i18n";
+import usePlugins from "./usePlugins";
 
 const usePluginFilter = defineStore("pluginFilter", () => {
   const plugins = usePlugins();

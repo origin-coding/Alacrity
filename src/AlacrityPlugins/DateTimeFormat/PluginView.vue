@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { Ref, ref } from "vue";
 
-import { CheatSheet } from "@/components";
 import { CheatSheetData, CheatSheetHeaders } from "@/common";
+import CheatSheet from "@/components";
+
 import dataRaw from "./data.json";
 import messages from "./locale.json";
 

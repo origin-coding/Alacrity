@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { onMounted, Ref, ref, toRaw } from "vue";
+import "@/common";
+
+import { writeText } from "@tauri-apps/api/clipboard";
+import { open } from "@tauri-apps/api/dialog";
+import { readTextFile } from "@tauri-apps/api/fs";
 import * as monaco from "monaco-editor";
-import { minify } from "terser";
-import * as prettier from "prettier/standalone";
 import * as parserBabel from "prettier/plugins/babel";
 import * as parserEstree from "prettier/plugins/estree";
-import { open } from "@tauri-apps/api/dialog";
-import { writeText } from "@tauri-apps/api/clipboard";
-import { readTextFile } from "@tauri-apps/api/fs";
+import * as prettier from "prettier/standalone";
+import { minify } from "terser";
+import { onMounted, Ref, ref, toRaw } from "vue";
 import { useI18n } from "vue-i18n";
 
-import "@/common";
 import messages from "./locale.json";
 
 const { t } = useI18n({ messages });

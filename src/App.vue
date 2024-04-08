@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watchEffect } from "vue";
-import { useTheme } from "vuetify";
-import { useI18n } from "vue-i18n";
 import { open } from "@tauri-apps/api/shell";
 import { Store } from "tauri-plugin-store-api";
+import { computed, onMounted, ref, watchEffect } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
+import { useTheme } from "vuetify";
 
-import { usePlugins, usePluginFilter } from "@/plugins";
 import { categories, CONFIG_FILE_PATH, KEY_LOCALE, KEY_THEME } from "@/common";
+import { usePluginFilter, usePlugins } from "@/plugins";
 
 const router = useRouter();
 const theme = useTheme();
@@ -26,7 +26,7 @@ watchEffect(() => {
 const breadcrumbItems = computed(() => {
   const items = [{ title: "Alacrity", to: "/", disabled: false }];
   if (plugins.currentPlugin !== null) {
-    const currentPlugin = plugins.currentPlugin;
+    const { currentPlugin } = plugins;
     items.push({
       title: currentPlugin.Name.toString(),
       to: currentPlugin.Route!.toString(),
@@ -81,13 +81,14 @@ onMounted(async () => {
       <v-list>
         <v-list-item
           v-for="(category, key) in categories"
+          :key="key"
+          :prepend-icon="category.icon"
+          :title="t(`category.${category.locale}`)"
+          class="border-b rounded"
           @click="
             router.push('/');
             pluginFilter.setCategory(key);
           "
-          :prepend-icon="category.icon"
-          :title="t(`category.${category.locale}`)"
-          class="border-b rounded"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -105,8 +106,8 @@ onMounted(async () => {
       <v-spacer></v-spacer>
 
       <v-text-field
-        :hide-details="true"
         v-model="search"
+        :hide-details="true"
         variant="outlined"
         :placeholder="t('search')"
       ></v-text-field>
@@ -117,6 +118,7 @@ onMounted(async () => {
           <v-list>
             <v-list-item
               v-for="(value, key) of localeMapping"
+              :key="key"
               @click="setLocale(key)"
             >
               {{ value }}

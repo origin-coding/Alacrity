@@ -12,4 +12,4 @@ function useValidateNotEmpty() {
   return validateNotEmpty;
 }
 
-export { useValidateNotEmpty };
+export default useValidateNotEmpty;

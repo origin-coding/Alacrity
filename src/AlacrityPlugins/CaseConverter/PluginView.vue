@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import * as changeCase from "change-case";
+import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -37,8 +37,8 @@ function convertCase() {
   <v-container>
     <v-row>
       <v-col cols="3">
-        <v-select :items="caseOptions" v-model="selectedCase">
-          <template v-slot:append>
+        <v-select v-model="selectedCase" :items="caseOptions">
+          <template #append>
             <v-btn @click="convertCase">{{ t("plugin.convert") }}</v-btn>
           </template>
         </v-select>

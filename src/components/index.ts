@@ -1,3 +1,3 @@
 import CheatSheet from "./CheatSheet.vue";
 
-export { CheatSheet };
+export default CheatSheet;

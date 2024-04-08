@@ -17,4 +17,4 @@ function useValidateNotMoreThan(value: MaybeRefOrGetter<number>) {
   return validateNotMoreThan;
 }
 
-export { useValidateNotMoreThan };
+export default useValidateNotMoreThan;

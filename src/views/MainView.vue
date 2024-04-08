@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 import { Plugin } from "@/common";
@@ -7,8 +8,6 @@ import { useFavorites, usePluginFilter } from "@/plugins";
 const router = useRouter();
 const pluginFilter = usePluginFilter();
 const favorites = useFavorites();
-
-import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n({ useScope: "global" });
 
@@ -26,12 +25,13 @@ async function toggleFavorite(plugin: Plugin) {
     <v-row>
       <v-card
         v-for="plugin of pluginFilter.filteredPlugins"
-        @click="router.push(plugin.Route!.toString())"
+        :key="plugin.Name"
         variant="outlined"
         class="v-col-3 my-4 mx-8"
         min-height="120"
+        @click="router.push(plugin.Route!.toString())"
       >
-        <template v-slot:append>
+        <template #append>
           <!-- Stop event passing to parent. -->
           <v-icon
             :icon="
@@ -40,7 +40,7 @@ async function toggleFavorite(plugin: Plugin) {
             @click.stop="toggleFavorite(plugin)"
           ></v-icon>
         </template>
-        <template v-slot:title>
+        <template #title>
           {{
             plugin.MultiLanguage && plugin.Locale?.Name[locale]
               ? plugin.Locale!.Name[locale]

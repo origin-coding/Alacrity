@@ -1,6 +1,7 @@
 import { Plugin } from "@/common";
+
 import * as pluginInfo from "./plugin.json";
-import pluginView from "./plugin.vue";
+import pluginView from "./PluginView.vue";
 
 const plugin: Plugin = {
   ...pluginInfo,

@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import CryptoJs, { lib } from "crypto-js";
-import { computed, ref, watch } from "vue";
+import { writeText } from "@tauri-apps/api/clipboard";
 import { open } from "@tauri-apps/api/dialog";
 import { readBinaryFile } from "@tauri-apps/api/fs";
-import { writeText } from "@tauri-apps/api/clipboard";
-
+import CryptoJs, { lib } from "crypto-js";
+import { computed, ref, watch } from "vue";
 // I18n
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const formInput = ref("");
@@ -32,12 +33,6 @@ const hashAlgOptions = [
 
 const uppercase = ref(true);
 
-const result = computed(() => {
-  return fileInput.value === null
-    ? hash(formInput.value)
-    : hash(fileInput.value);
-});
-
 function hash(input: string | CryptoJs.lib.WordArray) {
   let result = hashAlg.value(input).toString(CryptoJs.enc.Hex);
   if (uppercase.value) {
@@ -45,6 +40,12 @@ function hash(input: string | CryptoJs.lib.WordArray) {
   }
   return result;
 }
+
+const result = computed(() => {
+  return fileInput.value === null
+    ? hash(formInput.value)
+    : hash(fileInput.value);
+});
 
 function uint8ArrayToWordArray(uint8Array: Uint8Array): lib.WordArray {
   const words: number[] = [];
@@ -88,8 +89,8 @@ async function copy() {
     <v-row>
       <v-col cols="4">
         <v-select v-model="hashAlg" :items="hashAlgOptions">
-          <template v-slot:prepend> {{ t("algorithm") }} </template>
-          <template v-slot:append>
+          <template #prepend> {{ t("algorithm") }} </template>
+          <template #append>
             <v-checkbox-btn
               v-model="uppercase"
               :label="t('upper')"

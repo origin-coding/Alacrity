@@ -28,4 +28,4 @@ const emailRule = baseRule(
   "不是有效地电子邮箱地址",
 );
 
-export { urlRule, phoneRule, emailRule };
+export { emailRule, phoneRule, urlRule };

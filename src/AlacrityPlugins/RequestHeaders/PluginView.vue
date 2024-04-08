@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { invoke } from "@tauri-apps/api";
-import { ref } from "vue";
 import { writeText } from "@tauri-apps/api/clipboard";
-
-import { urlRule } from "./utils";
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 // I18n
-import { useI18n } from "vue-i18n";
 import messages from "./locale.json";
+import { urlRule } from "./utils";
+
 const { t } = useI18n({ messages });
 
 const url = ref("");
@@ -29,8 +29,12 @@ const methods = [
 
 function getHeaders() {
   invoke("get_headers", { url: url.value, method: method.value })
-    .then((res) => (headers.value = res as string))
-    .catch((_) => (showError.value = true));
+    .then((res) => {
+      headers.value = res as string;
+    })
+    .catch((_) => {
+      showError.value = true;
+    });
 }
 
 const copied = ref(false);
@@ -51,8 +55,8 @@ async function copy() {
         class="v-col-5"
       ></v-text-field>
       <v-select v-model="method" :items="methods" class="v-col-5">
-        <template v-slot:append>
-          <v-btn @click="getHeaders" :disabled="url === ''" class="mr-2">
+        <template #append>
+          <v-btn :disabled="url === ''" class="mr-2" @click="getHeaders">
             {{ t("getHeaders") }}
           </v-btn>
           <v-btn @click="copy">{{ t("plugin.copy") }}</v-btn>

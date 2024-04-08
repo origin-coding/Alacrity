@@ -33,4 +33,4 @@ type NormalCategory = keyof typeof normalCategories;
 // type Category = keyof typeof categories;
 type Category = InternalCategory | NormalCategory;
 
-export { type InternalCategory, type NormalCategory, type Category };
+export { type Category, type InternalCategory, type NormalCategory };

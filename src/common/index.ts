@@ -1,32 +1,29 @@
-export { type Plugin, processPlugin } from "./plugin";
-
-export { type Category, categories } from "./category";
-
-// Stores
-export {
-  CONFIG_FILE_PATH,
-  KEY_LOCALE,
-  KEY_FAVORITES,
-  KEY_THEME,
-} from "./config";
-
-export type {
-  CheatSheetData,
-  VuetifyHeaders,
-  CheatSheetHeaders,
-} from "./cheat-sheet";
-
-import locales from "./locale";
-export type { locales };
-export type { LocalizedMessages } from "./locale";
-
 import "./monaco";
 
+import locales from "./locale";
+
+export { categories, type Category } from "./category";
+export { type Plugin, processPlugin } from "./plugin";
+
+// Stores
+export type {
+  CheatSheetData,
+  CheatSheetHeaders,
+  VuetifyHeaders,
+} from "./cheat-sheet";
+export {
+  CONFIG_FILE_PATH,
+  KEY_FAVORITES,
+  KEY_LOCALE,
+  KEY_THEME,
+} from "./config";
+export type { locales };
+export type { LocalizedMessages } from "./locale";
 export {
   useValidateCount,
   useValidateInt,
-  useValidateNotLessThan,
   useValidateNotEmpty,
-  useValidateNumberRange,
+  useValidateNotLessThan,
   useValidateNotMoreThan,
+  useValidateNumberRange,
 } from "./validators";

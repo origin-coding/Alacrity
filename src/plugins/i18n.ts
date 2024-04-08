@@ -1,5 +1,4 @@
 import { createI18n } from "vue-i18n";
-
 import { en as enVuetify, zhHans as zhHansVuetify } from "vuetify/locale";
 
 import en from "@/locale/en.json";

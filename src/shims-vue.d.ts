@@ -1,3 +1,4 @@
+/* eslint-disable */
 // noinspection JSUnusedGlobalSymbols
 
 import "vite/client";

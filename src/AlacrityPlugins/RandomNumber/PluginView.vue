@@ -1,15 +1,16 @@
 <script setup lang="ts">
+import { faker } from "@faker-js/faker";
 import { reactive, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { faker } from "@faker-js/faker";
 
-import messages from "./locale.json";
 import {
   useValidateCount,
   useValidateNotEmpty,
   useValidateNotLessThan,
   useValidateNotMoreThan,
 } from "@/common";
+
+import messages from "./locale.json";
 
 const { t, locale } = useI18n({ messages });
 
@@ -25,11 +26,15 @@ const orderOptions = ref([
 ]);
 
 watch(locale, () => {
-  for (let [index, key] of ["int", "float"].entries()) {
+  for (const [index, key] of ["int", "float"].entries()) {
     kindOptions.value[index].title = t(key);
   }
 
-  for (let [index, key] of ["unordered", "ascending", "descending"].entries()) {
+  for (const [index, key] of [
+    "unordered",
+    "ascending",
+    "descending",
+  ].entries()) {
     orderOptions.value[index].title = t(key);
   }
 });
@@ -115,7 +120,7 @@ function generate() {
             useValidateNotMoreThan(randomOptions.max),
           ]"
         >
-          <template v-slot:prepend>{{ t("min") }}</template>
+          <template #prepend>{{ t("min") }}</template>
         </v-text-field>
       </v-col>
       <v-col cols="2">
@@ -128,7 +133,7 @@ function generate() {
             useValidateNotLessThan(randomOptions.min),
           ]"
         >
-          <template v-slot:prepend>{{ t("max") }}</template>
+          <template #prepend>{{ t("max") }}</template>
         </v-text-field>
       </v-col>
       <v-col cols="2">
@@ -138,7 +143,7 @@ function generate() {
           type="number"
           :rules="[useValidateCount()]"
         >
-          <template v-slot:prepend>{{ t("count") }}</template>
+          <template #prepend>{{ t("count") }}</template>
         </v-text-field>
       </v-col>
       <v-col cols="2">
@@ -154,22 +159,22 @@ function generate() {
     <v-row>
       <v-col cols="3">
         <v-select v-model="randomOptions.kind" :items="kindOptions">
-          <template v-slot:prepend>{{ t("type") }}</template>
+          <template #prepend>{{ t("type") }}</template>
         </v-select>
       </v-col>
       <v-col cols="3">
         <v-select v-model="randomOptions.order" :items="orderOptions">
-          <template v-slot:prepend>{{ t("order") }}</template>
+          <template #prepend>{{ t("order") }}</template>
         </v-select>
       </v-col>
       <v-col cols="3">
         <v-text-field v-model="randomOptions.separator">
-          <template v-slot:prepend>{{ t("separator") }}</template>
+          <template #prepend>{{ t("separator") }}</template>
         </v-text-field>
       </v-col>
       <v-col cols="3">
         <v-select v-model="randomOptions.precision" :items="precisionOptions">
-          <template v-slot:prepend>{{ t("precision") }}</template>
+          <template #prepend>{{ t("precision") }}</template>
         </v-select>
       </v-col>
     </v-row>

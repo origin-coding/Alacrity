@@ -12,4 +12,4 @@ const KEY_LOCALE = "locale";
 const KEY_FAVORITES = "favorites";
 const KEY_THEME = "theme";
 
-export { KEY_LOCALE, KEY_FAVORITES, KEY_THEME };
+export { KEY_FAVORITES, KEY_LOCALE, KEY_THEME };

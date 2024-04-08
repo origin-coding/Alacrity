@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { reactive } from "vue";
-import { phoneRule } from "../utils";
+import { useI18n } from "vue-i18n";
 
 // I18n
-import { useI18n } from "vue-i18n";
 import messages from "../locale.json";
+import { phoneRule } from "../utils";
+
 const { t } = useI18n({ messages });
 
 const emit = defineEmits<{
@@ -32,8 +33,11 @@ function generateMessage() {
     :rules="[phoneRule]"
     type="tel"
   ></v-text-field>
-  <v-textarea v-model="message.message" :label="t('message.content')"></v-textarea>
-  <v-btn @click="generateMessage" type="submit">{{ t("generate") }}</v-btn>
+  <v-textarea
+    v-model="message.message"
+    :label="t('message.content')"
+  ></v-textarea>
+  <v-btn type="submit" @click="generateMessage">{{ t("generate") }}</v-btn>
 </template>
 
 <style scoped></style>

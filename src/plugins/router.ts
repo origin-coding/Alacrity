@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const mainRouteName: string = "Main";
 
@@ -6,7 +6,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: mainRouteName,
-    component: () => import("@/views/main.vue"),
+    component: () => import("@/views/MainView.vue"),
   },
 ];
 

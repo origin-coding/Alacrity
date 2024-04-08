@@ -2,7 +2,8 @@
 import { Ref, ref } from "vue";
 
 import { CheatSheetData, CheatSheetHeaders } from "@/common";
-import { CheatSheet } from "@/components";
+import CheatSheet from "@/components";
+
 import dataRaw from "./data.json";
 import messages from "./locale.json";
 

@@ -1,6 +1,7 @@
 import { MaybeRefOrGetter } from "vue";
-import { useValidateNotLessThan } from "./useValidateNotLessThan";
-import { useValidateNotMoreThan } from "./useValidateNotMoreThan";
+
+import useValidateNotLessThan from "./useValidateNotLessThan";
+import useValidateNotMoreThan from "./useValidateNotMoreThan";
 
 function useValidateNumberRange(
   min: MaybeRefOrGetter<number>,
@@ -22,4 +23,4 @@ function useValidateNumberRange(
   return validateNumberRange;
 }
 
-export { useValidateNumberRange };
+export default useValidateNumberRange;

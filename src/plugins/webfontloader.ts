@@ -1,4 +1,4 @@
-export async function loadFonts() {
+export default async function loadFonts() {
   // @ts-ignore
   const webFontLoader = await import("webfontloader");
 

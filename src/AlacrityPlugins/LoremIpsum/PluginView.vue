@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { faker } from "@faker-js/faker/locale/en_US";
-import { Ref, ref, watch } from "vue";
 import { LoremModule } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/en_US";
+import { writeText } from "@tauri-apps/api/clipboard";
+import { Ref, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
-import messages from "./locale.json";
-import { writeText } from "@tauri-apps/api/clipboard";
 import { useValidateCount } from "@/common";
+
+import messages from "./locale.json";
 
 const { t, locale } = useI18n({ messages });
 
@@ -44,7 +45,7 @@ async function copy() {
 }
 
 watch(locale, () => {
-  for (let [index, key] of [
+  for (const [index, key] of [
     "paragraphs",
     "paragraph",
     "sentences",
@@ -64,23 +65,23 @@ watch(locale, () => {
     <v-row>
       <v-col cols="3">
         <v-select v-model="loremType" :items="loremOptions">
-          <template v-slot:prepend>{{ t("generate.type") }}</template>
+          <template #prepend>{{ t("generate.type") }}</template>
         </v-select>
       </v-col>
 
       <v-col cols="4">
         <v-text-field
-          type="number"
           v-model="count"
+          type="number"
           :clearable="false"
           :rules="[useValidateCount()]"
         >
-          <template v-slot:prepend>
+          <template #prepend>
             {{ t("plugin.count") }}
           </template>
 
-          <template v-slot:append>
-            <v-btn @click="generate" class="mr-2">
+          <template #append>
+            <v-btn class="mr-2" @click="generate">
               {{ t("plugin.generate") }}
             </v-btn>
             <v-btn @click="copy">{{ t("plugin.copy") }}</v-btn>

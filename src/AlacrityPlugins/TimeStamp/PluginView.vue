@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useTimestamp } from "@vueuse/core";
-import { computed, Ref, ref, watch } from "vue";
 import dayjs from "dayjs";
+import { computed, Ref, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 import messages from "./locale.json";
@@ -69,11 +69,11 @@ const labelFormats: Ref<Array<{ label: string; formats: Array<string> }>> = ref(
 );
 
 watch(locale, () => {
-  for (let [index, key] of ["second", "millisecond"].entries()) {
+  for (const [index, key] of ["second", "millisecond"].entries()) {
     typeOptions.value[index].title = t(key);
   }
 
-  for (let [index, key] of [
+  for (const [index, key] of [
     "develop",
     "chinese",
     "english",
@@ -95,7 +95,7 @@ watch(locale, () => {
         class="v-col-3"
       ></v-text-field>
       <v-select v-model="convertType" :items="typeOptions" class="v-col-3">
-        <template v-slot:append>
+        <template #append>
           <v-btn @click="convert">{{ t("convert") }}</v-btn>
         </template>
       </v-select>
@@ -112,7 +112,7 @@ watch(locale, () => {
         :clearable="false"
         class="v-col-3"
       >
-        <template v-slot:append>
+        <template #append>
           <v-btn @click="toggleUpdate">{{
             isActive ? t("pause") : t("resume")
           }}</v-btn>
@@ -133,7 +133,7 @@ watch(locale, () => {
           :class="index === 0 ? 'v-col-6' : 'v-col-3'"
           :clearable="false"
         >
-          <template v-slot:prepend v-if="index === 0">
+          <template v-if="index === 0" #prepend>
             {{ labelFormat.label }}
           </template>
         </v-text-field>

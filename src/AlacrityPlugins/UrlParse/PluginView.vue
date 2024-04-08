@@ -1,20 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-
 import { useI18n } from "vue-i18n";
+
 import messages from "./locale.json";
+
 const { t } = useI18n({ messages });
 
 const inputUrl = ref("");
 
 // Static method: URL.canParse is not supported in Chrome-based browsers, so we write one.
 function canParse(url: string): boolean {
-  try {
-    new URL(url);
-    return true;
-  } catch (e) {
-    return false;
-  }
+  return URL.canParse(url);
 }
 
 const url = computed(() => {
@@ -44,7 +40,7 @@ const hash = computed(() => url.value.hash);
   <v-container>
     <v-row class="ma-0">
       <v-text-field v-model="inputUrl" class="v-col-10">
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("input") }}</div>
         </template>
       </v-text-field>
@@ -59,7 +55,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("protocol") }}</div>
         </template>
       </v-text-field>
@@ -69,7 +65,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("port") }}</div>
         </template>
       </v-text-field>
@@ -81,7 +77,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("host") }}</div>
         </template>
       </v-text-field>
@@ -91,7 +87,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("hostname") }}</div>
         </template>
       </v-text-field>
@@ -103,7 +99,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("origin") }}</div>
         </template>
       </v-text-field>
@@ -115,7 +111,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("path") }}</div>
         </template>
       </v-text-field>
@@ -127,7 +123,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("search") }}</div>
         </template>
       </v-text-field>
@@ -139,7 +135,7 @@ const hash = computed(() => url.value.hash);
         :clearable="false"
         :readonly="true"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <div class="font-weight-bold">{{ t("hash") }}</div>
         </template>
       </v-text-field>

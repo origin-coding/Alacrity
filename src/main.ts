@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 
-import AppView from "./App.vue";
-
 import { registerPlugins, useFavorites, usePlugins } from "@/plugins";
+
+import AppView from "./App.vue";
 
 let app = createApp(AppView);
 
