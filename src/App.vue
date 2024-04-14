@@ -6,7 +6,7 @@ import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { useTheme } from "vuetify";
 
-import { categories, CONFIG_FILE_PATH, KEY_LOCALE, KEY_THEME } from "@/common";
+import { categories, CONFIG_FILE_PATH, KEY_LOCALE } from "@/common";
 import { usePluginFilter, usePlugins } from "@/plugins";
 
 const router = useRouter();
@@ -38,11 +38,11 @@ const breadcrumbItems = computed(() => {
 });
 
 async function toggleTheme() {
-  theme.global.name.value =
-    theme.global.name.value === "darkTheme" ? "lightTheme" : "darkTheme";
-
-  await store.value.set(KEY_THEME, theme.global.name.value);
-  await store.value.save();
+  // theme.global.name.value =
+  //   theme.global.name.value === "darkTheme" ? "lightTheme" : "darkTheme";
+  //
+  // await store.value.set(KEY_THEME, theme.global.name.value);
+  // await store.value.save();
 }
 
 async function openRepository() {
@@ -63,9 +63,9 @@ onMounted(async () => {
   const localeConfig = await store.value.get<string>(KEY_LOCALE);
   locale.value = localeConfig || "zhHans";
 
-  // Init theme.
-  const themeConfig = await store.value.get<string>(KEY_THEME);
-  theme.global.name.value = themeConfig || "lightTheme";
+  // // Init theme.
+  // const themeConfig = await store.value.get<string>(KEY_THEME);
+  // theme.global.name.value = themeConfig || "lightTheme";
 
   await store.value.save();
 });
