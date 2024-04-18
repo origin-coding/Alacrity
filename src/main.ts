@@ -1,3 +1,5 @@
+import "virtual:uno.css";
+
 import { createApp } from "vue";
 
 import { registerPlugins, useFavorites, usePlugins } from "@/plugins";
