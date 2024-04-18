@@ -1,22 +1,13 @@
+// noinspection JSUnusedGlobalSymbols
+
 import vue from "@vitejs/plugin-vue";
 import UnoCSS from "unocss/vite";
 import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
-import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 // https://vitejs.dev/config/
-// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
-  plugins: [
-    vue({
-      template: { transformAssetUrls },
-    }),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-    vuetify({
-      autoImport: true,
-    }),
-    UnoCSS(),
-  ],
+  plugins: [vue(), UnoCSS()],
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   // prevent vite from obscuring rust errors
   clearScreen: false,

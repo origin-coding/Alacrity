@@ -4,13 +4,13 @@ import { Store } from "tauri-plugin-store-api";
 import { computed, onMounted, ref, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
-import { useTheme } from "vuetify";
 
 import { categories, CONFIG_FILE_PATH, KEY_LOCALE } from "@/common";
 import { usePluginFilter, usePlugins } from "@/plugins";
+import NavBar from "@/components/NavBar.vue";
+import SideBar from "@/components/SideBar.vue";
 
 const router = useRouter();
-const theme = useTheme();
 
 const plugins = usePlugins();
 const pluginFilter = usePluginFilter();
@@ -69,75 +69,54 @@ onMounted(async () => {
 
   await store.value.save();
 });
+
+const collapse = ref(false);
 </script>
 
 <template>
-  <v-app class="text-custom_text">
-    <v-navigation-drawer
-      :expand-on-hover="true"
-      :rail="!expandDrawer"
-      class="rounded-lg border-b"
-    >
-      <v-list>
-        <v-list-item
-          v-for="(category, key) in categories"
-          :key="key"
-          :prepend-icon="category.icon"
-          :title="t(`category.${category.locale}`)"
-          class="border-b rounded"
-          @click="
-            router.push('/');
-            pluginFilter.setCategory(key);
-          "
-        ></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar :flat="true" class="rounded-lg border-b">
-      <v-app-bar-nav-icon @click="expandDrawer = !expandDrawer">
-      </v-app-bar-nav-icon>
-      <v-app-bar-title>
-        <v-breadcrumbs
-          :items="breadcrumbItems"
-          @click="pluginFilter.setCategory('All')"
-        ></v-breadcrumbs>
-      </v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-text-field
-        v-model="search"
-        :hide-details="true"
-        variant="outlined"
-        :placeholder="t('search')"
-      ></v-text-field>
-
-      <v-btn prepend-icon="mdi-translate" append-icon="mdi-menu-down">
-        {{ localeMapping[locale as keyof typeof localeMapping] }}
-        <v-menu activator="parent">
-          <v-list>
-            <v-list-item
-              v-for="(value, key) of localeMapping"
-              :key="key"
-              @click="setLocale(key)"
-            >
-              {{ value }}
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-btn>
-      <v-btn :icon="true" @click="toggleTheme">
-        <v-icon>mdi-theme-light-dark</v-icon>
-      </v-btn>
-      <v-btn :icon="true" @click="openRepository">
-        <v-icon>mdi-github</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-  </v-app>
+  <t-layout>
+    <t-aside>
+      <t-menu theme="light" value="dashboard">
+        <template #logo>
+          <img
+            width="136"
+            class="logo"
+            src="https://www.tencent.com/img/index/menu_logo_hover.png"
+            alt="logo"
+          />
+        </template>
+        <t-menu-item value="user-circle">
+          <template #icon>
+            <t-icon name="home" />
+          </template>
+          全部插件
+        </t-menu-item>
+        <t-divider></t-divider>
+        <t-menu-item value="play-circle">
+          <template #icon>
+            <t-icon name="play-circle" />
+          </template>
+          视频区
+        </t-menu-item>
+        <t-divider></t-divider>
+        <t-menu-item value="edit1">
+          <template #icon>
+            <t-icon name="setting" />
+          </template>
+          设置
+        </t-menu-item>
+      </t-menu>
+    </t-aside>
+    <t-layout h-100vh>
+      <t-content>
+        <div>Content</div>
+      </t-content>
+      <t-footer
+        >Copyright @ 2019-{{ new Date().getFullYear() }} Tencent. All Rights
+        Reserved</t-footer
+      >
+    </t-layout>
+  </t-layout>
 </template>
 
 <style scoped></style>
