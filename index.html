@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" h-full>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
@@ -7,25 +7,19 @@
     <title>Alacrity</title>
   </head>
 
-  <body>
+  <body h-full m-0 p-0>
     <div id="app"></div>
     <script type="module" src="./src/main.ts"></script>
   </body>
 
   <style>
-    // Hide scroll bar.
-    html {
-        height: 100%;
-    }
-
+    // Hide scrollbar
     body::-webkit-scrollbar {
         display: none;  // For Chrome, Safari and Opera.
     }
-
     body {
         -ms-overflow-style: none;  // For IE and Edge.
         scrollbar-width: none;  // For Firefox.
-        height: 100%;
     }
   </style>
 </html>
