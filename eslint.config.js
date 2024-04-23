@@ -37,20 +37,8 @@ export default [
       },
     },
     rules: {
-      // No unused vars for js and ts.
+      // No unused vars for ts.
       "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          args: "all",
-          argsIgnorePattern: "^_",
-          caughtErrors: "all",
-          caughtErrorsIgnorePattern: "^_",
-          destructuredArrayIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-          ignoreRestSiblings: true,
-        },
-      ],
-      "no-unused-vars": [
         "error",
         {
           args: "all",
