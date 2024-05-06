@@ -21,7 +21,6 @@ npm run "tauri build"
 
 # Alacrity's features
 
-![Features](./assets/features.png)
 Navigation drawer on the left side displays all categories of Alacrity's plugins.
 Click them to filter plugins by category.
 

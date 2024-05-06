@@ -21,7 +21,6 @@ npm run "tauri build"
 
 # Alacrity功能详解
 
-![Features](./assets/features.png)
 应用左侧的导航栏显示了Alacrity所有的应用类别，可以通过点击他们对应用进行筛选。
 
 应用上方的导航栏列出了常用的工具，比如搜索插件、切换语言、主题等功能。
