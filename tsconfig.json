@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -26,6 +27,5 @@
     "src/**/*.vue",
     "build/**/*.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": ["node_modules"]
 }
