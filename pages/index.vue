@@ -6,6 +6,8 @@ const router = useRouter();
 function onCLick() {
   alert("123123");
 }
+
+const { t, setLocale } = useI18n();
 </script>
 
 <template>
@@ -17,5 +19,8 @@ function onCLick() {
       Learn more about Nuxt Routing
     </a>
     <t-button @click="onCLick">Click me!</t-button>
+    <t-button @click="setLocale('en')">English</t-button>
+    <t-button @click="setLocale('zhHans')">中文</t-button>
+    <div>{{ t("a") }}</div>
   </div>
 </template>
