@@ -24,3 +24,14 @@ const { t, setLocale } = useI18n();
     <div>{{ t("a") }}</div>
   </div>
 </template>
+
+<i18n>
+{
+  "en": {
+    "something": "This is something"
+  },
+  "zhHans": {
+    "something": "这是个东西"
+  }
+}
+</i18n>
