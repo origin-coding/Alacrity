@@ -1,7 +1,9 @@
 <script setup></script>
 
 <template>
-  <NuxtPage />
+  <nuxt-layout>
+    <nuxt-page></nuxt-page>
+  </nuxt-layout>
 </template>
 
-<style scoped></style>
+<style scoped lang="less"></style>

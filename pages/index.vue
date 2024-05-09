@@ -21,7 +21,7 @@ const { t, setLocale } = useI18n();
     <t-button @click="onCLick">Click me!</t-button>
     <t-button @click="setLocale('en')">English</t-button>
     <t-button @click="setLocale('zhHans')">中文</t-button>
-    <div>{{ t("a") }}</div>
+    <div>{{ t("something") }}</div>
   </div>
 </template>
 
