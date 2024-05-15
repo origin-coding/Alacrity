@@ -1,63 +1,57 @@
 <script setup lang="ts">
+import useSideMenuGroups from "~/stores/side-menu-groups";
+import { TypeLogos } from "~/types/alacrity-plugin";
+import useAlacrityPlugins from "~/stores/alacrity-plugins";
+import useSearchInfo from "~/stores/search-info";
+
 const { t } = useI18n();
+const { groups } = useSideMenuGroups();
+const { groupedPlugins } = useAlacrityPlugins();
+const { search } = storeToRefs(useSearchInfo());
 </script>
 
 <template>
   <t-layout id="main-layout">
     <t-aside>
-      <t-menu theme="light" :value="undefined">
-        <t-menu-item value="dashboard">
-          <t-input :placeholder="t('search')"></t-input>
-        </t-menu-item>
-        <t-menu-item value="resource">
+      <t-menu theme="light" :value="undefined" :expand-mutex="true">
+        <!-- Menu headers and a divider. -->
+        <t-input :placeholder="t('search')" v-model="search" :clearable="true">
+          <template #prefix-icon>
+            <t-icon name="search"></t-icon>
+          </template>
+        </t-input>
+        <t-menu-item value="resource" :to="{ path: '/' }">
           <template #icon>
             <t-icon name="list" />
           </template>
           {{ t("allPlugins") }}
         </t-menu-item>
         <t-divider></t-divider>
-        <t-menu-item value="root">
+
+        <!-- Iterate over all groups, and show them as submenus -->
+        <t-submenu v-for="group in groups" :key="group" :value="group">
           <template #icon>
-            <t-icon name="root-list" />
+            <t-icon :name="TypeLogos[group]" />
           </template>
-          根目录
-        </t-menu-item>
-        <t-menu-item value="control-platform">
-          <template #icon>
-            <t-icon name="control-platform" />
+          <template #title>
+            {{ t(tGroupName(group)) }}
           </template>
-          调度平台
-        </t-menu-item>
-        <t-menu-item value="precise-monitor">
-          <template #icon>
-            <t-icon name="precise-monitor" />
-          </template>
-          调度平台
-        </t-menu-item>
-        <t-menu-item value="mail">
-          <template #icon>
-            <t-icon name="mail" />
-          </template>
-          消息区
-        </t-menu-item>
-        <t-menu-item value="user-circle">
-          <template #icon>
-            <t-icon name="user-circle" />
-          </template>
-          个人中心
-        </t-menu-item>
-        <t-menu-item value="play-circle">
-          <template #icon>
-            <t-icon name="play-circle" />
-          </template>
-          视频区
-        </t-menu-item>
-        <t-menu-item value="edit1">
-          <template #icon>
-            <t-icon name="edit-1" />
-          </template>
-          资源编辑
-        </t-menu-item>
+
+          <!-- Iterate over plugins in group. -->
+          <t-menu-item
+            v-for="plugin in groupedPlugins[group]"
+            :key="plugin.id"
+            :value="plugin.id"
+            :to="{ path: `/plugins/${plugin.id}` }"
+          >
+            <template #icon>
+              <t-icon :name="plugin.icon" />
+            </template>
+            {{ t(tPluginName(plugin.id)) }}
+          </t-menu-item>
+        </t-submenu>
+
+        <!-- Menu item for settings. -->
         <template #operations>
           <t-menu-item value="edit1">
             <template #icon>
@@ -68,6 +62,8 @@ const { t } = useI18n();
         </template>
       </t-menu>
     </t-aside>
+
+    <!-- Main content. -->
     <t-layout>
       <t-content>
         <slot></slot>
