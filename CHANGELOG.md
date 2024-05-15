@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.0.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.7.0...alacrity-v2.0.0) (2024-05-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Alacrity:** 3. Introduce Nuxt for routing, plugin and auto-imports.
+
+### Features
+
+* add i18n config ([6f29026](https://github.com/origin-coding/Alacrity/commit/6f29026b01ca2390d197310a8e9f3bed142deb51))
+* add i18n messages ([648f3a9](https://github.com/origin-coding/Alacrity/commit/648f3a9e8cb7f5ab08a9cacf6d6e98d766e90263))
+* add stores for plugin, config and searching ([3a6248e](https://github.com/origin-coding/Alacrity/commit/3a6248ef77bb7768d1f6b41099a7269354aa0b06))
+* add type definitions ([4f70329](https://github.com/origin-coding/Alacrity/commit/4f70329c5d3a28893891f34d1fbc2a9c7382fd3b))
+* add util functions ([5932717](https://github.com/origin-coding/Alacrity/commit/59327173739dca922fbe0a0a95efeb2fb53c8d90))
+* **Alacrity:** create first plugin and upgrade Alacrity ([95b99fe](https://github.com/origin-coding/Alacrity/commit/95b99fe11f26b99e6ac8911f4eee4d83f5b3f92e))
+* implement application layout ([92a3a82](https://github.com/origin-coding/Alacrity/commit/92a3a82f6ff9a7edda0a81593d57afba83519526))
+* introduce Element Plus ([905fe89](https://github.com/origin-coding/Alacrity/commit/905fe896c76ff4ee5d6b4d0d8bcb8b2c360db920))
+* introduce eslint and prettier ([b215e56](https://github.com/origin-coding/Alacrity/commit/b215e56b4895fc7ba05b832cb4f4a8fc528df299))
+* migrate to nuxt ([e056bc4](https://github.com/origin-coding/Alacrity/commit/e056bc4f99e356246f08e81121e5d352985aa88c))
+* re-introduce vue-i18n ([3e9c7f6](https://github.com/origin-coding/Alacrity/commit/3e9c7f6c69e62bc170670b1352986d3c2545926c))
+* stop using custom theme ([da9a6a5](https://github.com/origin-coding/Alacrity/commit/da9a6a55b33b39294d7abdfba9e891ec2fab2b5d))
+* stop using ElementPlus, introduce TDesign ([f3179df](https://github.com/origin-coding/Alacrity/commit/f3179df3a9a57b5951dcfc92ac95bdf0c4f2b8b3))
+* upgrade ESLint, introduce UnoCSS ([7c62aae](https://github.com/origin-coding/Alacrity/commit/7c62aae0e245754531a48c0a1c7374ddc5e26bd4))
+* use UnoCSS's style ([ca3c2d6](https://github.com/origin-coding/Alacrity/commit/ca3c2d6ce3c1a5185fdb23697c421363efe45fe4))
+
+
+### Bug Fixes
+
+* fix bugs caused by Tauri and Nuxt, introduce @pinia/nuxt ([3278fb4](https://github.com/origin-coding/Alacrity/commit/3278fb4cb9a76d309f27563379d19799a0bbc65e))
+
 ## [1.7.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.6.0...alacrity-v1.7.0) (2024-01-07)
 
 
