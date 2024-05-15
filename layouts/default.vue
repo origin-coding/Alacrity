@@ -42,7 +42,7 @@ const { search } = storeToRefs(useSearchInfo());
             v-for="plugin in groupedPlugins[group]"
             :key="plugin.id"
             :value="plugin.id"
-            :to="{ path: `/plugins/${plugin.id}` }"
+            :to="{ path: getPluginRoute(plugin.id) }"
           >
             <template #icon>
               <t-icon :name="plugin.icon" />

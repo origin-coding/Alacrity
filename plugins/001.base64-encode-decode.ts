@@ -2,7 +2,6 @@
 
 import { AlacrityPluginType } from "~/types/alacrity-plugin";
 import useAlacrityPlugins from "~/stores/alacrity-plugins";
-import GetPluginId from "~/utils/get-plugin-id";
 
 export default defineNuxtPlugin({
   name: "Base64 Encode Decode",
@@ -11,7 +10,7 @@ export default defineNuxtPlugin({
     const { addPlugin } = useAlacrityPlugins();
 
     addPlugin({
-      id: GetPluginId(import.meta.url),
+      id: "base64-encode-decode",
       type: AlacrityPluginType.encode,
       icon: "braces",
     });
