@@ -3,6 +3,7 @@
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
+  css: ["~/assets/index.less"],
   modules: [
     "@nuxt/eslint",
     "@unocss/nuxt",
