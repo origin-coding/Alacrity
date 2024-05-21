@@ -1,9 +1,5 @@
-#![cfg_attr(
-all(not(debug_assertions), target_os = "windows"),
-windows_subsystem = "windows"
-)]
+#![cfg_attr(all(not(debug_assertions), target_os = "windows"), windows_subsystem = "windows")]
 
-mod alacrity_plugins;
 mod config;
 
 use std::path::Path;
@@ -12,8 +8,7 @@ use serde_json::json;
 use tauri::{Manager, api::path::app_config_dir, Wry};
 use tauri_plugin_store::{StoreCollection, with_store};
 
-use crate::alacrity_plugins::get_headers;
-use crate::config::{CONFIG_FILE_NAME, KEY_LOCALE, get_current_locale, KEY_FAVORITES, KEY_THEME};
+use crate::config::{CONFIG_FILE, KEY_LOCALE, KEY_FAVORITE, KEY_THEME, DefaultConfig, KEY_DISABLED};
 
 #[derive(Clone, Serialize)]
 struct Payload {
@@ -27,23 +22,24 @@ fn main() {
             app.emit_all("single-instance", Payload { args, cwd }).unwrap()
         }))
         .plugin(tauri_plugin_store::Builder::default().build())
-        .invoke_handler(tauri::generate_handler![get_headers])
         .setup(|app| {
             let config_dir_path = app_config_dir(app.config().as_ref())
                 .expect("Config dir unavailable!");
-            let config_file_path = config_dir_path.join(Path::new(CONFIG_FILE_NAME));
+            let config_file_path = config_dir_path.join(Path::new(CONFIG_FILE));
             if config_file_path.exists() { return Ok(()); }
 
+            let default_config: DefaultConfig = DefaultConfig::default();
             let stores = app.state::<StoreCollection<Wry>>();
             with_store(app.app_handle(), stores, config_file_path, |store| {
-                store.insert(KEY_LOCALE.into(), json!(get_current_locale()))?;
-                store.insert(KEY_FAVORITES.into(), json!([]))?;
-                store.insert(KEY_THEME.into(), json!("lightTheme"))?;
+                store.insert(KEY_LOCALE.into(), json!(default_config.locale))?;
+                store.insert(KEY_THEME.into(), json!(default_config.theme))?;
+                store.insert(KEY_FAVORITE.into(), json!(default_config.favorite))?;
+                store.insert(KEY_DISABLED.into(), json!(default_config.disabled))?;
                 store.save()
             }).expect("Unable to init configuration file!");
 
             Ok(())
         })
         .run(tauri::generate_context!())
-        .expect("error while running tauri application");
+        .expect("Error when running tauri application!");
 }

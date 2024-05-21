@@ -1,18 +1,29 @@
+use std::string::ToString;
+
 // Configuration filename.
-pub const CONFIG_FILE_NAME: &str = "settings.dat";
+pub const CONFIG_FILE: &str = "settings.json";
 
 // Keys defined in configuration.
+pub const KEY_FAVORITE: &str = "favorite";
+pub const KEY_DISABLED: &str = "disabled";
 pub const KEY_LOCALE: &str = "locale";
-pub const KEY_FAVORITES: &str = "favorites";
 pub const KEY_THEME: &str = "theme";
 
+// Default values.
+pub struct DefaultConfig {
+    pub locale: String,
+    pub theme: String,
+    pub disabled: Vec<String>,
+    pub favorite: Vec<String>,
+}
 
-use sys_locale::get_locale;
-
-pub fn get_current_locale() -> &'static str {
-    return match get_locale().expect("Unable to get current system locale!").as_str() {
-        "zh-CN" => "zhHans",
-        "en-US" => "en",
-        _ => "zhHans"
-    };
+impl Default for DefaultConfig {
+    fn default() -> Self {
+        DefaultConfig {
+            locale: "".to_string(),
+            theme: "".to_string(),
+            disabled: Vec::new(),
+            favorite: Vec::new(),
+        }
+    }
 }
