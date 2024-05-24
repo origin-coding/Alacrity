@@ -5,21 +5,15 @@ export enum AlacrityPluginType {
 
 // Logo for each plugin type.
 type AlacrityPluginTypeLogo = {
-  [type in AlacrityPluginType]: string;
+  readonly [type in AlacrityPluginType]: string;
 };
 export const TypeLogos: AlacrityPluginTypeLogo = {
   hash: "fingerprint-3",
   encode: "calculator-1",
 };
 
-export interface AlacrityPluginMeta {
+export interface AlacrityPlugin {
   id: string;
   type: AlacrityPluginType;
   icon: string;
-}
-
-export interface AlacrityPlugin extends AlacrityPluginMeta {
-  route: string;
-  enabled: boolean;
-  favorite: boolean;
 }
