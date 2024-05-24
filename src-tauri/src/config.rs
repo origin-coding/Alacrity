@@ -20,8 +20,8 @@ pub struct DefaultConfig {
 impl Default for DefaultConfig {
     fn default() -> Self {
         DefaultConfig {
-            locale: "".to_string(),
-            theme: "".to_string(),
+            locale: "zhHans".to_string(),
+            theme: "dark".to_string(),
             disabled: Vec::new(),
             favorite: Vec::new(),
         }
