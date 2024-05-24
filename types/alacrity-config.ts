@@ -20,4 +20,4 @@ export interface AlacrityConfig {
 // Config file.
 const CONFIG_FILE_DIR = await appConfigDir();
 const CONFIG_FILE_NAME = "settings.json";
-export const CONFIG_FILE: string = `${CONFIG_FILE_DIR}/${CONFIG_FILE_NAME}`;
+export const CONFIG_FILE: string = `${CONFIG_FILE_DIR}${CONFIG_FILE_NAME}`;
