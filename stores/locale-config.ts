@@ -17,9 +17,9 @@ const useLocaleConfig = defineStore("locale", () => {
 
   async function setLocale(localeConfig: AlacrityConfig["locale"]) {
     locale.value = localeConfig;
+    i18nLocale.value = locale.value;
     await store.set(Keys.locale, locale.value);
     await store.save();
-    i18nLocale.value = locale.value;
   }
 
   return { locale, setLocale };

@@ -1,6 +1,7 @@
 import type { Ref } from "vue";
 import { type AlacrityConfig, Keys } from "~/types/alacrity-config";
 import useTauriStore from "~/stores/tauri-store";
+import type { AlacrityThemeType } from "~/types/alacrity-theme";
 
 const useThemeConfig = defineStore("theme", () => {
   const theme: Ref<AlacrityConfig["theme"]> = ref("light");
@@ -20,7 +21,14 @@ const useThemeConfig = defineStore("theme", () => {
     document.documentElement.setAttribute("theme-mode", theme.value);
   }
 
-  return { theme, toggleTheme };
+  async function setTheme(themeVal: AlacrityThemeType) {
+    theme.value = themeVal;
+    document.documentElement.setAttribute("theme-mode", theme.value);
+    await store.set(Keys.theme, theme.value);
+    await store.save();
+  }
+
+  return { theme, toggleTheme, setTheme };
 });
 
 export default useThemeConfig;

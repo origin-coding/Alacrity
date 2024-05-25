@@ -1,5 +1,6 @@
 import { appConfigDir } from "@tauri-apps/api/path";
-import type { AlacrityLocales } from "~/types/alacrity-locale";
+import type { AlacrityLocaleType } from "~/types/alacrity-locale";
+import type { AlacrityThemeType } from "~/types/alacrity-theme";
 
 // Config keys.
 export const Keys = {
@@ -13,8 +14,8 @@ export const Keys = {
 export interface AlacrityConfig {
   [Keys.favorite]: Set<string>;
   [Keys.disabled]: Set<string>;
-  [Keys.theme]: "light" | "dark";
-  [Keys.locale]: keyof typeof AlacrityLocales;
+  [Keys.theme]: AlacrityThemeType;
+  [Keys.locale]: AlacrityLocaleType;
 }
 
 // Config file.

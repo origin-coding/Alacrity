@@ -1,5 +1,5 @@
 import type { i18nField, SearchInfo } from "~/types/search-info";
-import { AlacrityLocales } from "~/types/alacrity-locale";
+import { type AlacrityLocaleType, AlacrityLocaleList } from "~/types/alacrity-locale";
 import { useFuse } from "@vueuse/integrations/useFuse";
 import type { MaybeRefOrGetter, Ref } from "vue";
 import useLocaleConfig from "~/stores/locale-config";
@@ -24,10 +24,9 @@ const useSearchInfo = defineStore("search-info", () => {
     const name = {} as i18nField;
     const description = {} as i18nField;
 
-    let locale: keyof typeof AlacrityLocales;
-    for (locale in AlacrityLocales) {
-      name[locale] = "";
-      description[locale] = "";
+    for (const locale in AlacrityLocaleList) {
+      name[locale as AlacrityLocaleType] = "";
+      description[locale as AlacrityLocaleType] = "";
     }
 
     // Add these fields.
@@ -48,20 +47,22 @@ const useSearchInfo = defineStore("search-info", () => {
     const { t, locale: currentLocale } = useI18n();
 
     searchInfos.value.forEach((searchInfo) => {
-      let locale: keyof typeof AlacrityLocales;
-      for (locale in AlacrityLocales) {
+      for (const locale in AlacrityLocaleList) {
         // Switch vue-i18n's locale to each locale values.
         currentLocale.value = locale;
-        searchInfo.name[locale] = t(tPluginName(searchInfo.id));
-        searchInfo.description[locale] = t(tPluginDescription(searchInfo.id));
+        searchInfo.name[locale as AlacrityLocaleType] = t(
+          tPluginName(searchInfo.id),
+        );
+        searchInfo.description[locale as AlacrityLocaleType] = t(
+          tPluginDescription(searchInfo.id),
+        );
       }
       // Restore vue-i18n's locale from config.
       currentLocale.value = localeConfig;
     });
 
     // Init keys for searching.
-    let locale: keyof typeof AlacrityLocales;
-    for (locale in AlacrityLocales) {
+    for (const locale in AlacrityLocaleList) {
       searchKeys.value.push(`name.${locale}`);
       searchKeys.value.push(`description.${locale}`);
     }

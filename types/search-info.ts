@@ -1,7 +1,8 @@
-import type { AlacrityLocales } from "~/types/alacrity-locale";
+import type { AlacrityLocaleType } from "~/types/alacrity-locale";
 
 export type i18nField = {
-  [locale in AlacrityLocales]: string;
+  // key is AlacrityLocaleType, value is string
+  [key in AlacrityLocaleType]: string;
 };
 
 export interface SearchInfo {
