@@ -1,11 +1,14 @@
 import type { i18nField, SearchInfo } from "~/types/search-info";
-import { type AlacrityLocaleType, AlacrityLocaleList } from "~/types/alacrity-locale";
+import {
+  type AlacrityLocaleType,
+  AlacrityLocaleList,
+} from "~/types/alacrity-locale";
 import { useFuse } from "@vueuse/integrations/useFuse";
 import type { MaybeRefOrGetter, Ref } from "vue";
-import useLocaleConfig from "~/stores/locale-config";
+import useLocaleStore from "~/stores/locale-store";
 import { tPluginDescription, tPluginName } from "#build/imports";
 
-const useSearchInfo = defineStore("search-info", () => {
+const useSearchStore = defineStore("search-info", () => {
   const searchInfos = ref<Set<SearchInfo>>(new Set<SearchInfo>());
   const searchKeys: Ref<Array<string>> = ref([]);
   const search = ref<string>("");
@@ -43,7 +46,7 @@ const useSearchInfo = defineStore("search-info", () => {
 
   function initSearchInfo() {
     // Cannot be put directly inside composable, so we put it here.
-    const { locale: localeConfig } = useLocaleConfig();
+    const localeConfig = useLocaleStore();
     const { t, locale: currentLocale } = useI18n();
 
     searchInfos.value.forEach((searchInfo) => {
@@ -58,7 +61,7 @@ const useSearchInfo = defineStore("search-info", () => {
         );
       }
       // Restore vue-i18n's locale from config.
-      currentLocale.value = localeConfig;
+      currentLocale.value = localeConfig.locale;
     });
 
     // Init keys for searching.
@@ -71,4 +74,4 @@ const useSearchInfo = defineStore("search-info", () => {
   return { addSearchInfo, initSearchInfo, searchResults, search, searchInfos };
 });
 
-export default useSearchInfo;
+export default useSearchStore;

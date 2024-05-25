@@ -3,14 +3,14 @@ import type { AlacrityConfig } from "~/types/alacrity-config";
 import useTauriStore from "~/stores/tauri-store";
 import { Keys } from "~/types/alacrity-config";
 
-const useFavoriteConfig = defineStore("favorite", () => {
+const useFavoriteStore = defineStore("favorite", () => {
   const favorite: Ref<AlacrityConfig["favorite"]> = ref(new Set<string>());
 
-  const { store } = useTauriStore();
+  const tauriStore = useTauriStore();
 
   onMounted(async () => {
     // JSON cannot represent a Set, so we store it as an array.
-    const favoriteConfig = await store.get<Array<string>>(Keys.favorite);
+    const favoriteConfig = await tauriStore.store.get<Array<string>>(Keys.favorite);
     favorite.value =
       favoriteConfig !== null ? new Set(favoriteConfig) : new Set<string>();
   });
@@ -27,11 +27,11 @@ const useFavoriteConfig = defineStore("favorite", () => {
       favorite.value.add(id);
     }
 
-    await store.set(Keys.favorite, Array.from(favorite.value));
-    await store.save();
+    await tauriStore.store.set(Keys.favorite, Array.from(favorite.value));
+    await tauriStore.store.save();
   }
 
   return { isFavorite, toggleFavorite };
 });
 
-export default useFavoriteConfig;
+export default useFavoriteStore;

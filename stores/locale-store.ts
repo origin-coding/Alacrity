@@ -3,26 +3,29 @@ import type { AlacrityConfig } from "~/types/alacrity-config";
 import useTauriStore from "~/stores/tauri-store";
 import { Keys } from "~/types/alacrity-config";
 
-const useLocaleConfig = defineStore("locale", () => {
+const useLocaleStore = defineStore("locale", () => {
   const locale: Ref<AlacrityConfig["locale"]> = ref("en");
   const { locale: i18nLocale } = useI18n();
 
-  const { store } = useTauriStore();
+  const tauriStore = useTauriStore();
 
-  onMounted(async () => {
-    const localeConfig = await store.get<AlacrityConfig["locale"]>(Keys.locale);
-    locale.value = localeConfig || "en";
-    i18nLocale.value = locale.value;
+  onMounted(() => {
+    tauriStore.store
+      .get<AlacrityConfig["locale"]>(Keys.locale)
+      .then((value) => {
+        locale.value = value || "en";
+        i18nLocale.value = locale.value;
+      });
   });
 
   async function setLocale(localeConfig: AlacrityConfig["locale"]) {
     locale.value = localeConfig;
     i18nLocale.value = locale.value;
-    await store.set(Keys.locale, locale.value);
-    await store.save();
+    await tauriStore.store.set(Keys.locale, locale.value);
+    await tauriStore.store.save();
   }
 
   return { locale, setLocale };
 });
 
-export default useLocaleConfig;
+export default useLocaleStore;

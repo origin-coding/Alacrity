@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 import { type AlacrityPlugin } from "~/types/alacrity-plugin";
-import useSearchInfo from "~/stores/search-info";
+import useSearchStore from "~/stores/search-store";
 import type { MaybeRefOrGetter } from "vue";
 
-const useAlacrityPlugins = defineStore("plugins", () => {
-  const { addSearchInfo } = useSearchInfo();
+const usePluginsStore = defineStore("plugins", () => {
+  const searchStore = useSearchStore();
 
   const plugins = ref<Set<AlacrityPlugin>>(new Set<AlacrityPlugin>());
 
@@ -16,10 +16,10 @@ const useAlacrityPlugins = defineStore("plugins", () => {
   function addPlugin(plugin: MaybeRefOrGetter<AlacrityPlugin>): void {
     plugin = toValue(plugin);
     plugins.value.add(plugin);
-    addSearchInfo(plugin.id);
+    searchStore.addSearchInfo(plugin.id);
   }
 
   return { groupedPlugins, addPlugin };
 });
 
-export default useAlacrityPlugins;
+export default usePluginsStore;

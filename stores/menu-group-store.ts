@@ -1,6 +1,6 @@
 import { AlacrityPluginType } from "~/types/alacrity-plugin";
 
-const useSideMenuGroups = defineStore("side-menu-groups", () => {
+const useMenuGroupStore = defineStore("side-menu-groups", () => {
   const groups = ref<Array<keyof typeof AlacrityPluginType>>([]);
 
   onMounted(() => {
@@ -13,4 +13,4 @@ const useSideMenuGroups = defineStore("side-menu-groups", () => {
   return { groups };
 });
 
-export default useSideMenuGroups;
+export default useMenuGroupStore;
