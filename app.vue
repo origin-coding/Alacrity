@@ -2,6 +2,7 @@
 import useSearchInfo from "~/stores/search-info";
 import { LocaleMappings } from "~/types/alacrity-locale";
 import useThemeConfig from "~/stores/theme-config";
+import useLocaleConfig from "~/stores/locale-config";
 
 const { initSearchInfo } = useSearchInfo();
 initSearchInfo();
@@ -10,9 +11,9 @@ initSearchInfo();
 const { theme } = useThemeConfig();
 console.log(theme);
 
-const { locale } = useI18n();
+const { locale } = storeToRefs(useLocaleConfig());
 const globalConfig = computed(() => {
-  return LocaleMappings[locale.value];
+  return LocaleMappings[locale];
 });
 </script>
 
