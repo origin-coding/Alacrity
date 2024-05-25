@@ -53,7 +53,7 @@ const { search } = storeToRefs(useSearchInfo());
 
         <!-- Menu item for settings. -->
         <template #operations>
-          <t-menu-item value="edit1">
+          <t-menu-item value="edit1" :to="{ path: '/settings' }">
             <template #icon>
               <t-icon name="setting" />
             </template>
@@ -65,7 +65,7 @@ const { search } = storeToRefs(useSearchInfo());
 
     <!-- Main content. -->
     <t-layout>
-      <t-content>
+      <t-content m-3>
         <slot></slot>
       </t-content>
     </t-layout>
