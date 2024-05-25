@@ -1,20 +1,27 @@
 <script setup>
 import useSearchInfo from "~/stores/search-info";
-import useAlacrityConfig from "~/stores/alacrity-config";
+import { LocaleMappings } from "~/types/alacrity-locale";
+import useThemeConfig from "~/stores/theme-config";
 
-// These init functions are supposed to be called only once.
-// They were supposed to be called on onMounted lifecycle, but not allowed by Nuxt.
 const { initSearchInfo } = useSearchInfo();
 initSearchInfo();
 
-const { initConfig } = useAlacrityConfig();
-await initConfig();
+// Manually init theme so that it won't change after refreshing.
+const { theme } = useThemeConfig();
+console.log(theme);
+
+const { locale } = useI18n();
+const globalConfig = computed(() => {
+  return LocaleMappings[locale.value];
+});
 </script>
 
 <template>
-  <nuxt-layout>
-    <nuxt-page></nuxt-page>
-  </nuxt-layout>
+  <t-config-provider :globalConfig="globalConfig">
+    <nuxt-layout>
+      <nuxt-page></nuxt-page>
+    </nuxt-layout>
+  </t-config-provider>
 </template>
 
 <style scoped lang="less"></style>
