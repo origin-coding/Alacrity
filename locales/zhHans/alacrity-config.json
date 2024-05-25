@@ -1,0 +1,13 @@
+{
+  "settings": "应用设置",
+  "theme": "主题",
+  "locale": "语言",
+  "themes": {
+    "light": "浅色",
+    "dark": "深色"
+  },
+  "locales": {
+    "en": "英文",
+    "zhHans": "简体中文"
+  }
+}

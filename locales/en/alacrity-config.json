@@ -1,0 +1,13 @@
+{
+  "settings": "Settings",
+  "theme": "Theme",
+  "locale": "Locale",
+  "themes": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "locales": {
+    "en": "English",
+    "zhHans": "Simplified Chinese"
+  }
+}
