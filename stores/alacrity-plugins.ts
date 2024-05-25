@@ -1,42 +1,25 @@
 import { defineStore } from "pinia";
-import {
-  type AlacrityPlugin,
-  type AlacrityPluginMeta,
-} from "~/types/alacrity-plugin";
-import useAlacrityConfig from "~/stores/alacrity-config";
+import { type AlacrityPlugin } from "~/types/alacrity-plugin";
 import useSearchInfo from "~/stores/search-info";
 import type { MaybeRefOrGetter } from "vue";
 
-const useAlacrityPlugins = defineStore("alacrity-plugins", () => {
-  const { isInFavorite, isDisabled } = useAlacrityConfig();
+const useAlacrityPlugins = defineStore("plugins", () => {
   const { addSearchInfo } = useSearchInfo();
 
   const plugins = ref<Set<AlacrityPlugin>>(new Set<AlacrityPlugin>());
 
+  // Group plugins by type, used in side menu.
   const groupedPlugins = computed(() => {
     return Object.groupBy(plugins.value, (plugin) => plugin.type);
   });
 
-  function fromPluginMeta(
-    meta: MaybeRefOrGetter<AlacrityPluginMeta>,
-  ): AlacrityPlugin {
-    const metaValue = toValue(meta);
-
-    return {
-      ...metaValue,
-      route: getPluginRoute(metaValue.id),
-      favorite: isInFavorite(metaValue.id),
-      enabled: !isDisabled(metaValue.id),
-    };
-  }
-
-  function addPlugin(pluginMeta: MaybeRefOrGetter<AlacrityPluginMeta>): void {
-    const plugin = fromPluginMeta(pluginMeta);
+  function addPlugin(plugin: MaybeRefOrGetter<AlacrityPlugin>): void {
+    plugin = toValue(plugin);
     plugins.value.add(plugin);
-    addSearchInfo(plugin);
+    addSearchInfo(plugin.id);
   }
 
-  return { plugins, groupedPlugins, addPlugin };
+  return { groupedPlugins, addPlugin };
 });
 
 export default useAlacrityPlugins;
