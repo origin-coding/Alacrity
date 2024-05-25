@@ -9,13 +9,12 @@ const useLocaleStore = defineStore("locale", () => {
 
   const tauriStore = useTauriStore();
 
-  onMounted(() => {
-    tauriStore.store
-      .get<AlacrityConfig["locale"]>(Keys.locale)
-      .then((value) => {
-        locale.value = value || "en";
-        i18nLocale.value = locale.value;
-      });
+  onMounted(async () => {
+    const value = await tauriStore.store.get<AlacrityConfig["locale"]>(
+      Keys.locale,
+    );
+    locale.value = value || "en";
+    i18nLocale.value = locale.value;
   });
 
   async function setLocale(localeConfig: AlacrityConfig["locale"]) {
