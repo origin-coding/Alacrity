@@ -1,24 +1,42 @@
-<script setup>
-import useSearchInfo from "~/stores/search-info";
+<script setup lang="ts">
+import useSearchStore from "~/stores/search-store";
+import useThemeStore from "~/stores/theme-store";
+import TConfigProvider from "tdesign-vue-next/esm/config-provider";
 import { LocaleMappings } from "~/types/alacrity-locale";
-import useThemeConfig from "~/stores/theme-config";
-import useLocaleConfig from "~/stores/locale-config";
-
-const { initSearchInfo } = useSearchInfo();
-initSearchInfo();
+import useLocaleStore from "~/stores/locale-store";
 
 // Manually init theme so that it won't change after refreshing.
-const { theme } = useThemeConfig();
-console.log(theme);
+const searchStore = useSearchStore();
+searchStore.initSearchInfo();
+console.log(useThemeStore().theme);
 
-const { locale } = storeToRefs(useLocaleConfig());
-const globalConfig = computed(() => {
-  return LocaleMappings[locale];
-});
+// Disable refreshing to prevent TDesign's global config missing.
+const disableRefresh = () => {
+  document.addEventListener("keydown", function (event) {
+    // Prevent F5 or Ctrl+R (Windows/Linux) and Command+R (Mac) from refreshing the page
+    // Also, Ctrl+Shift+R is included.
+    if (
+      event.key === "F5" ||
+      (event.ctrlKey && event.key === "r") ||
+      (event.metaKey && event.key === "r") ||
+      (event.ctrlKey && event.key === "R")
+    ) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+  });
+};
+
+if (import.meta.env.PROD) {
+  disableRefresh();
+}
 </script>
 
 <template>
-  <t-config-provider :globalConfig="globalConfig">
+  <t-config-provider :global-config="LocaleMappings[useLocaleStore().locale]">
     <nuxt-layout>
       <nuxt-page></nuxt-page>
     </nuxt-layout>
