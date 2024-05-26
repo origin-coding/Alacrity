@@ -3,16 +3,16 @@ import {
   type AlacrityThemeType,
   AlacrityThemeList,
 } from "~/types/alacrity-theme";
-import useThemeConfig from "~/stores/theme-config";
-import useLocaleConfig from "~/stores/locale-config";
+import useThemeStore from "~/stores/theme-store";
+import useLocaleStore from "~/stores/locale-store";
 import {
   AlacrityLocaleList,
   type AlacrityLocaleType,
 } from "~/types/alacrity-locale";
 
 const { t } = useI18n();
-const { theme, setTheme } = toRefs(useThemeConfig());
-const { locale, setLocale } = toRefs(useLocaleConfig());
+const { theme, setTheme } = toRefs(useThemeStore());
+const { locale, setLocale } = toRefs(useLocaleStore());
 </script>
 
 <template>
