@@ -3,8 +3,8 @@ import {
   type AlacrityThemeType,
   AlacrityThemeList,
 } from "~/types/alacrity-theme";
-import useThemeStore from "~/stores/theme-store";
-import useLocaleStore from "~/stores/locale-store";
+import useThemeStore from "~/stores/theme";
+import useLocaleStore from "~/stores/locale";
 import {
   AlacrityLocaleList,
   type AlacrityLocaleType,

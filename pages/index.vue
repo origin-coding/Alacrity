@@ -1,26 +1,20 @@
 <script setup lang="ts">
-import useSearchInfo from "~/stores/search-info";
-
-const route = useRoute();
-const { t, setLocale } = useI18n();
-
-const { searchResults } = storeToRefs(useSearchInfo());
-
-watchEffect(() => {
-  // searchPlugins(search);
-  console.log(searchResults.value.length);
-});
+const { t } = useI18n();
 </script>
 
 <template>
-  <div>
-    <p>Current route: {{ route.path }}</p>
-    <t-button @click="setLocale('en')">English</t-button>
-    <t-button @click="setLocale('zhHans')">中文</t-button>
-    <div>{{ t("plugin-names.base64-encode-decode") }}</div>
-  </div>
+  <alacrity-page :title="t('all')">
+    <plugin-card-list :id-list="['base64-encode-decode']"></plugin-card-list>
+  </alacrity-page>
 </template>
 
 <i18n>
-
+{
+  "en": {
+    "all": "All plugins"
+  },
+  "zhHans": {
+    "all": "全部插件"
+  }
+}
 </i18n>

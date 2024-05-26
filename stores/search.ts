@@ -5,7 +5,7 @@ import {
 } from "~/types/alacrity-locale";
 import { useFuse } from "@vueuse/integrations/useFuse";
 import type { MaybeRefOrGetter, Ref } from "vue";
-import useLocaleStore from "~/stores/locale-store";
+import useLocaleStore from "~/stores/locale";
 import { tPluginDescription, tPluginName } from "#build/imports";
 
 const useSearchStore = defineStore("search-info", () => {

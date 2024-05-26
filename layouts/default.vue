@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import useMenuGroupStore from "~/stores/menu-group-store";
+import useMenuGroupStore from "~/stores/menu-group";
 import { TypeLogos } from "~/types/alacrity-plugin";
-import usePluginsStore from "~/stores/plugins-store";
-import useSearchStore from "~/stores/search-store";
+import usePluginsStore from "~/stores/plugins";
+import useSearchStore from "~/stores/search";
 
 const { t } = useI18n();
 const menuGroupStore = useMenuGroupStore();

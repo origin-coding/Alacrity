@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import useSearchStore from "~/stores/search-store";
-import useThemeStore from "~/stores/theme-store";
+import useSearchStore from "~/stores/search";
+import useThemeStore from "~/stores/theme";
 import TConfigProvider from "tdesign-vue-next/esm/config-provider";
 import { LocaleMappings } from "~/types/alacrity-locale";
-import useLocaleStore from "~/stores/locale-store";
+import useLocaleStore from "~/stores/locale";
 
-// Manually init theme so that it won't change after refreshing.
+// Manually init search info.
 const searchStore = useSearchStore();
 searchStore.initSearchInfo();
-console.log(useThemeStore().theme);
+
+// Use this store to force update theme.
+useThemeStore();
 
 // Disable refreshing to prevent TDesign's global config missing.
 const disableRefresh = () => {

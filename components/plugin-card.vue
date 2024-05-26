@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import useFavoriteStore from "~/stores/favorite-store";
-import useDisabledStore from "~/stores/disabled-store";
+import useFavoriteStore from "~/stores/favorite";
+import useDisabledStore from "~/stores/disabled";
 
 const props = defineProps<{ id: string }>();
 

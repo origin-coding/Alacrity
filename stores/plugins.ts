@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { type AlacrityPlugin } from "~/types/alacrity-plugin";
-import useSearchStore from "~/stores/search-store";
+import useSearchStore from "~/stores/search";
 import type { MaybeRefOrGetter } from "vue";
 
 const usePluginsStore = defineStore("plugins", () => {
