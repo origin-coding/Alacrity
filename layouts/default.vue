@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import useSideMenuGroups from "~/stores/side-menu-groups";
+import useMenuGroupStore from "~/stores/menu-group-store";
 import { TypeLogos } from "~/types/alacrity-plugin";
-import useAlacrityPlugins from "~/stores/alacrity-plugins";
-import useSearchInfo from "~/stores/search-info";
+import usePluginsStore from "~/stores/plugins-store";
+import useSearchStore from "~/stores/search-store";
 
 const { t } = useI18n();
-const { groups } = useSideMenuGroups();
-const { groupedPlugins } = useAlacrityPlugins();
-const { search } = storeToRefs(useSearchInfo());
+const menuGroupStore = useMenuGroupStore();
+const pluginsStore = usePluginsStore();
+const { search } = storeToRefs(useSearchStore());
 </script>
 
 <template>
@@ -29,7 +29,11 @@ const { search } = storeToRefs(useSearchInfo());
         <t-divider></t-divider>
 
         <!-- Iterate over all groups, and show them as submenus -->
-        <t-submenu v-for="group in groups" :key="group" :value="group">
+        <t-submenu
+          v-for="group in menuGroupStore.groups"
+          :key="group"
+          :value="group"
+        >
           <template #icon>
             <t-icon :name="TypeLogos[group]" />
           </template>
@@ -39,7 +43,7 @@ const { search } = storeToRefs(useSearchInfo());
 
           <!-- Iterate over plugins in group. -->
           <t-menu-item
-            v-for="plugin in groupedPlugins[group]"
+            v-for="plugin in pluginsStore.groupedPlugins[group]"
             :key="plugin.id"
             :value="plugin.id"
             :to="{ path: getPluginRoute(plugin.id) }"
