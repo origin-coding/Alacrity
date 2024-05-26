@@ -68,7 +68,7 @@ const { search } = storeToRefs(useSearchStore());
     </t-aside>
 
     <!-- Main content. -->
-    <t-layout>
+    <t-layout overflow-x-hidden>
       <t-content m-3>
         <slot></slot>
       </t-content>
