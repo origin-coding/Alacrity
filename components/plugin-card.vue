@@ -37,12 +37,12 @@ const disabledStore = useDisabledStore();
         shape="circle"
       >
         <template #icon>
-          <lock-on-icon
+          <check-icon
             v-show="disabledStore.isDisabled(props.id)"
-          ></lock-on-icon>
-          <lock-off-icon
+          ></check-icon>
+          <close-icon
             v-show="!disabledStore.isDisabled(props.id)"
-          ></lock-off-icon>
+          ></close-icon>
         </template>
       </t-button>
     </template>
