@@ -17,13 +17,11 @@ const { search } = storeToRefs(useSearchStore());
         <!-- Menu headers and a divider. -->
         <t-input :placeholder="t('search')" v-model="search" :clearable="true">
           <template #prefix-icon>
-            <t-icon name="search"></t-icon>
+            <search-icon></search-icon>
           </template>
         </t-input>
         <t-menu-item value="resource" :to="{ path: '/' }">
-          <template #icon>
-            <t-icon name="list" />
-          </template>
+          <template #icon> <list-icon /> </template>
           {{ t("allPlugins") }}
         </t-menu-item>
         <t-divider></t-divider>
@@ -57,10 +55,16 @@ const { search } = storeToRefs(useSearchStore());
 
         <!-- Menu item for settings. -->
         <template #operations>
+          <t-menu-item value="resource" :to="{ path: '/favorite' }">
+            <template #icon> <star-icon /> </template>
+            {{ t("favorite") }}
+          </t-menu-item>
+          <t-menu-item value="resource" :to="{ path: '/disabled' }">
+            <template #icon> <lock-on-icon /> </template>
+            {{ t("disabled") }}
+          </t-menu-item>
           <t-menu-item value="edit1" :to="{ path: '/settings' }">
-            <template #icon>
-              <t-icon name="setting" />
-            </template>
+            <template #icon> <setting-icon /> </template>
             {{ t("settings") }}
           </t-menu-item>
         </template>
@@ -90,12 +94,16 @@ const { search } = storeToRefs(useSearchStore());
   "zhHans": {
     "search": "搜索插件",
     "allPlugins": "全部插件",
-    "settings": "应用设置"
+    "settings": "应用设置",
+    "favorite": "收藏插件",
+    "disabled": "禁用插件"
   },
   "en": {
     "search": "Search plugins",
     "allPlugins": "All plugins",
-    "settings": "Settings"
+    "settings": "Settings",
+    "favorite": "Favorite",
+    "disabled": "Disabled"
   }
 }
 </i18n>
