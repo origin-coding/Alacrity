@@ -8,12 +8,12 @@ const searchStore = useSearchStore();
 const disabledStore = useDisabledStore();
 
 const idList = computed(() =>
-  searchStore.searchResults.filter((id) => !disabledStore.isDisabled(id)),
+  searchStore.searchResults.filter((id) => disabledStore.isDisabled(id)),
 );
 </script>
 
 <template>
-  <alacrity-page :title="t('all')">
+  <alacrity-page :title="t('disabled')">
     <plugin-card-list :id-list="idList"></plugin-card-list>
   </alacrity-page>
 </template>
@@ -21,10 +21,10 @@ const idList = computed(() =>
 <i18n>
 {
   "en": {
-    "all": "All plugins"
+    "disabled": "Disabled plugins"
   },
   "zhHans": {
-    "all": "全部插件"
+    "disabled": "禁用插件"
   }
 }
 </i18n>

@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import useSearchStore from "~/stores/search";
-import useDisabledStore from "~/stores/disabled";
+import useFavoriteStore from "~/stores/favorite";
 
 const { t } = useI18n();
 
 const searchStore = useSearchStore();
-const disabledStore = useDisabledStore();
+const favoriteStore = useFavoriteStore();
 
 const idList = computed(() =>
-  searchStore.searchResults.filter((id) => !disabledStore.isDisabled(id)),
+  searchStore.searchResults.filter((id) => favoriteStore.isFavorite(id)),
 );
 </script>
 
 <template>
-  <alacrity-page :title="t('all')">
+  <alacrity-page :title="t('favorite')">
     <plugin-card-list :id-list="idList"></plugin-card-list>
   </alacrity-page>
 </template>
@@ -21,10 +21,10 @@ const idList = computed(() =>
 <i18n>
 {
   "en": {
-    "all": "All plugins"
+    "favorite": "Favorite list"
   },
   "zhHans": {
-    "all": "全部插件"
+    "favorite": "收藏插件"
   }
 }
 </i18n>
