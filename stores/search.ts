@@ -13,7 +13,7 @@ const useSearchStore = defineStore("search-info", () => {
   const searchKeys: Ref<Array<string>> = ref([]);
   const search = ref<string>("");
 
-  const searchResults = computed<Array<SearchInfo>>(() =>
+  const searchResults = computed<Array<string>>(() =>
     useFuse<SearchInfo>(search, Array.from(searchInfos.value), {
       fuseOptions: { keys: searchKeys.value, isCaseSensitive: false },
       matchAllWhenSearchEmpty: true,
