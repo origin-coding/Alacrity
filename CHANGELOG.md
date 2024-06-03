@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.1.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.0.0...alacrity-v2.1.0) (2024-06-03)
+
+
+### Features
+
+* add components for page layout and plugins ([0f4650e](https://github.com/origin-coding/Alacrity/commit/0f4650e83a25ed9648f4518071b712814c87b3e7))
+* add default values to config ([071245e](https://github.com/origin-coding/Alacrity/commit/071245e7619f67d89ee7e84958d1071c22219471))
+* add i18n messages for Alacrity's config ([31080a9](https://github.com/origin-coding/Alacrity/commit/31080a9a5fb84e788766727e75d5987d39856bb7))
+* add menu item for favorite and disabled plugins ([df6fd86](https://github.com/origin-coding/Alacrity/commit/df6fd8645d4e0410f3b425e898a938fc9eff8a16))
+* add page for default, favorite and disabled plugins ([d2e1112](https://github.com/origin-coding/Alacrity/commit/d2e1112c023c61f971e1a30f41ad118dfad3e288))
+* add settings page ([78198ea](https://github.com/origin-coding/Alacrity/commit/78198ea5a45d5183dc3dbee00863aa1b2a540d9a))
+* add util ([2f11e67](https://github.com/origin-coding/Alacrity/commit/2f11e67ca57ba9631015c857708d5e805f561e61))
+* change base64-encode-decode plugin's English name ([2a65af8](https://github.com/origin-coding/Alacrity/commit/2a65af85305c2c77c11c5dee34a34d012758ed88))
+* clean up code, re-design Alacrity's config file ([140417c](https://github.com/origin-coding/Alacrity/commit/140417ca467e13fb685ce250f1d2e4a819bf039f))
+* hide scrollbar ([36df533](https://github.com/origin-coding/Alacrity/commit/36df5339345cc567535c818f58582481431a6b67))
+* implement plugin base64-encode-decode ([2c0cdff](https://github.com/origin-coding/Alacrity/commit/2c0cdffbbf1ad16c212404d0885e34eaa1119d00))
+* introduce i18n for TDesign components; init theme on app startup ([39fa2c3](https://github.com/origin-coding/Alacrity/commit/39fa2c3d2348528cf9241367dcf47e9d74712bb0))
+* remove redundant fields ([04ec011](https://github.com/origin-coding/Alacrity/commit/04ec0114b4b510a1e6c879e1ad1fa46532e05eca))
+* remove redundant fields ([7e7bc2a](https://github.com/origin-coding/Alacrity/commit/7e7bc2affa79066151709f811f6f83e468220941))
+* split config files to avoid coupling ([bd5445f](https://github.com/origin-coding/Alacrity/commit/bd5445fa32d64d7ef2c5720a1c3be9d679a040ad))
+* **style:** add global stylesheet ([fd5588c](https://github.com/origin-coding/Alacrity/commit/fd5588c43f25d4d3e1833133528c43c2e29682b5))
+
+
+### Bug Fixes
+
+* fix config file's path ([228c23f](https://github.com/origin-coding/Alacrity/commit/228c23f05e3168c81b2df9a31d04c2082bad784f))
+* fix mismatch route url after generating static site ([84357b6](https://github.com/origin-coding/Alacrity/commit/84357b63b5a61502e095f76cb2842d32a9beb90c))
+* fix TDesign's i18n messages doesn't change on setup ([3cc6ec0](https://github.com/origin-coding/Alacrity/commit/3cc6ec05e9b8977f8eab356381433d8acc0f9322))
+* prevent refreshing in production to avoid TConfigProvider's missing message ([20ef2a7](https://github.com/origin-coding/Alacrity/commit/20ef2a7bbeadae886858dc5460bc3c02234ab077))
+
 ## [2.0.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v1.7.0...alacrity-v2.0.0) (2024-05-15)
 
 
