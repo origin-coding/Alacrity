@@ -1,3 +1,4 @@
 {
-  "base64-encode-decode": "Base64 Encoder"
+  "base64-encode-decode": "Base64 Encoder",
+  "hash-file": "Hash File"
 }

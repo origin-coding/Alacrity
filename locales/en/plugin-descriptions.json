@@ -1,3 +1,4 @@
 {
-  "base64-encode-decode": "Encode/decode string to/from base64"
+  "base64-encode-decode": "Encode/decode string to/from base64",
+  "hash-file": "Hash file with multiple algorithms"
 }

@@ -1,3 +1,4 @@
 {
-  "base64-encode-decode": "使用Base64对字符串加密或解密"
+  "base64-encode-decode": "使用Base64对字符串加密或解密",
+  "hash-file": "使用多种算法计算文件的哈希值"
 }
