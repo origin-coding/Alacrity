@@ -1,4 +1,5 @@
 {
   "base64-encode-decode": "Base64加密解密",
-  "hash-file": "文件哈希"
+  "hash-file": "文件哈希",
+  "hash-text": "文本哈希"
 }
