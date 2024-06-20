@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@catppuccin/palette": "^1.0.3",
-    "@element-plus/icons-vue": "^2.3.1",
     "@faker-js/faker": "^8.3.1",
     "@pinia/nuxt": "^0.5.1",
     "@tauri-apps/api": "^1.5.4",
@@ -27,7 +26,6 @@
     "change-case": "^5.3.0",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.10",
-    "element-plus": "^2.6.3",
     "fuse.js": "^7.0.0",
     "ip-address": "^9.0.5",
     "lodash": "^4.17.21",
