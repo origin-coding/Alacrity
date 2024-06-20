@@ -51,9 +51,6 @@ function makeIcon(icon: ShallowRef<Component>) {
             :value="plugin.id"
             :to="{ path: getPluginRoute(plugin.id) }"
           >
-            <template #icon>
-              <component :is="plugin.icon"></component>
-            </template>
             {{ t(tPluginName(plugin.id)) }}
           </t-menu-item>
         </t-submenu>

@@ -24,5 +24,4 @@ export const TypeLogos: AlacrityPluginTypeLogo = {
 export interface AlacrityPlugin {
   id: string;
   type: AlacrityPluginType;
-  icon: ShallowRef<Component>;
 }
