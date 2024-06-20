@@ -2,6 +2,7 @@
 
 import { AlacrityPluginType } from "~/types/alacrity-plugin";
 import usePluginsStore from "~/stores/plugins";
+import { FingerprintIcon } from "tdesign-icons-vue-next";
 
 export default defineNuxtPlugin({
   name: "Hash File",
@@ -12,7 +13,7 @@ export default defineNuxtPlugin({
     addPlugin({
       id: "hash-file",
       type: AlacrityPluginType.hash,
-      icon: "fingerprint",
+      icon: shallowRef(FingerprintIcon),
     });
   },
 });

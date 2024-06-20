@@ -3,11 +3,16 @@ import useMenuGroupStore from "~/stores/menu-group";
 import { TypeLogos } from "~/types/alacrity-plugin";
 import usePluginsStore from "~/stores/plugins";
 import useSearchStore from "~/stores/search";
+import type { Component, ShallowRef } from "vue";
 
 const { t } = useI18n();
 const menuGroupStore = useMenuGroupStore();
 const pluginsStore = usePluginsStore();
 const { search } = storeToRefs(useSearchStore());
+
+function makeIcon(icon: ShallowRef<Component>) {
+  return icon.value;
+}
 </script>
 
 <template>
@@ -33,7 +38,7 @@ const { search } = storeToRefs(useSearchStore());
           :value="group"
         >
           <template #icon>
-            <t-icon :name="TypeLogos[group]" />
+            <component :is="TypeLogos[group].value"></component>
           </template>
           <template #title>
             {{ t(tGroupName(group)) }}
@@ -47,7 +52,7 @@ const { search } = storeToRefs(useSearchStore());
             :to="{ path: getPluginRoute(plugin.id) }"
           >
             <template #icon>
-              <t-icon :name="plugin.icon" />
+              <component :is="plugin.icon"></component>
             </template>
             {{ t(tPluginName(plugin.id)) }}
           </t-menu-item>
