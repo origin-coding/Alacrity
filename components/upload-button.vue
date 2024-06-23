@@ -3,7 +3,7 @@ import { open, type OpenDialogOptions } from "@tauri-apps/api/dialog";
 
 const { t } = useI18n();
 
-const props = defineProps<{ options?: OpenDialogOptions }>();
+const props = defineProps<{ options?: OpenDialogOptions; compact?: boolean }>();
 const emit = defineEmits<{ confirmed: [null | string | string[]] }>();
 
 async function upload() {
@@ -14,10 +14,10 @@ async function upload() {
 
 <template>
   <t-button theme="primary" @click="upload">
-    <template #icon>
+    <template #icon v-if="!props.compact">
       <cloud-upload-icon></cloud-upload-icon>
     </template>
-    {{ t("upload") }}
+    {{ t(!props.compact ? "upload" : "upload-compact") }}
   </t-button>
 </template>
 
@@ -26,10 +26,12 @@ async function upload() {
 <i18n>
 {
   "en": {
-    "upload": "Upload"
+    "upload": "Upload",
+    "upload-compact": "Upload"
   },
   "zhHans": {
-    "upload": "上传文件"
+    "upload": "上传文件",
+    "upload-compact": "上传"
   }
 }
 </i18n>
