@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.2.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.1.0...alacrity-v2.2.0) (2024-06-24)
+
+
+### Features
+
+* add i18n message for new group web ([ffb02e1](https://github.com/origin-coding/Alacrity/commit/ffb02e141a8172ba2ec41fd15febd5fe01517d6b))
+* implement plugin hash-file ([fd5bd17](https://github.com/origin-coding/Alacrity/commit/fd5bd172c1340d5a44aebbec3ed8fa84ad90627b))
+* implement plugin hash-text ([6a7b8f2](https://github.com/origin-coding/Alacrity/commit/6a7b8f2f8459c45a85c8aa029a440cebf4ca5f42))
+* implement plugin local-websocket-client ([b95ebc9](https://github.com/origin-coding/Alacrity/commit/b95ebc9a47e5b752782e12c76ffda961d2dea628))
+* use icon components to avoid network request ([6b8c16a](https://github.com/origin-coding/Alacrity/commit/6b8c16a79003b7e98c44ce8b3c5865f64f3636c8))
+
 ## [2.1.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.0.0...alacrity-v2.1.0) (2024-06-03)
 
 
