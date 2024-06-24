@@ -1,5 +1,6 @@
 {
   "base64-encode-decode": "Encode/decode string to/from base64",
   "hash-file": "Hash file with multiple algorithms",
-  "hash-text": "Hash text with multiple algorithms"
+  "hash-text": "Hash text with multiple algorithms",
+  "local-websocket-client": "Local client for testing WebSocket APIs, only supports text"
 }

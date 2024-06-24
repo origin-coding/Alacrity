@@ -1,5 +1,6 @@
 {
   "base64-encode-decode": "Base64 Encoder",
   "hash-file": "Hash File",
-  "hash-text": "Hash Text"
+  "hash-text": "Hash Text",
+  "local-websocket-client": "Local WebSocket Client"
 }
