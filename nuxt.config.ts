@@ -28,4 +28,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  experimental: {
+    clientNodeCompat: true,
+  },
 });

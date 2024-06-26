@@ -12,8 +12,10 @@ import {
   lib,
 } from "crypto-js";
 import { readBinaryFile } from "@tauri-apps/api/fs";
-import { uInt8ArrayToWordArray } from "#imports";
 import { writeText } from "@tauri-apps/api/clipboard";
+// It can be successfully imported, but Typescript can't find its declaration.
+// @ts-ignore
+import { Buffer } from "node:buffer";
 
 const { t } = useI18n();
 
@@ -42,7 +44,8 @@ async function hash(path: null | string | string[]) {
   }
 
   const bytes = await readBinaryFile(path as string);
-  input.value = uInt8ArrayToWordArray(bytes);
+  // input.value = uInt8ArrayToWordArray(bytes);
+  input.value = enc.Hex.parse(Buffer.from(bytes).toString("hex"));
 }
 
 const output = computed(() => {

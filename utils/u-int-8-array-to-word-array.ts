@@ -1,5 +1,6 @@
 import { lib } from "crypto-js";
 
+// Left for backup, maybe we need to delete it in the future.
 export default function (uint8Array: Uint8Array): lib.WordArray {
   const words: number[] = [];
   for (let i = 0; i < uint8Array.length; i += 4) {
