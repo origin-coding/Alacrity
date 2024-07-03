@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { MessagePlugin } from "tdesign-vue-next";
 import dayjs from "dayjs";
-import { readText, writeText } from "@tauri-apps/api/clipboard";
 
 const { t } = useI18n();
 
@@ -46,8 +45,8 @@ function isMessageHistory(history: History): history is MessageHistory {
 type History = ConnectHistory | MessageHistory;
 
 const url = ref("");
-const request = ref<string>("");
-const response = ref<string>("");
+const { ref: request, paste, clear } = useStringOperations("");
+const { ref: response, copy } = useStringOperations("");
 const historyList = ref<History[]>([]);
 const reversedHistoryList = computed(() => historyList.value.toReversed());
 
@@ -92,28 +91,16 @@ function connectOperation() {
   }
 }
 
-// Sent message operations
-
-async function paste() {
-  request.value = (await readText()) || "";
-}
-
+// Send message
 function sendMessage() {
   send(request.value);
   historyList.value.push(buildMessageHistory(request.value, "send"));
 }
 
 // Received message and history operations
-
-async function copy() {
-  await writeText(response.value);
-}
-
 function clearHistory() {
   historyList.value = [];
 }
-
-// Helper functions
 
 function truncate(message: string) {
   if (message.length <= 80) {
@@ -138,7 +125,7 @@ function truncate(message: string) {
         :paste="true"
         :clear="true"
         @paste="paste"
-        @clear="request = ''"
+        @clear="clear"
       >
         <template #operations>
           <t-button @click="sendMessage">发送</t-button>

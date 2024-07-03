@@ -12,7 +12,6 @@ import {
   lib,
 } from "crypto-js";
 import { readBinaryFile } from "@tauri-apps/api/fs";
-import { writeText } from "@tauri-apps/api/clipboard";
 // It can be successfully imported, but Typescript can't find its declaration.
 // @ts-ignore
 import { Buffer } from "node:buffer";
@@ -48,14 +47,12 @@ async function hash(path: null | string | string[]) {
   input.value = enc.Hex.parse(Buffer.from(bytes).toString("hex"));
 }
 
-const output = computed(() => {
-  const hash = algorithms[algorithm.value](input.value).toString(enc.Hex);
-  return uppercase.value ? hash.toUpperCase() : hash;
-});
-
-async function copy() {
-  await writeText(output.value);
-}
+const { ref: output, copy } = useStringOperations(
+  computed(() => {
+    const hash = algorithms[algorithm.value](input.value).toString(enc.Hex);
+    return uppercase.value ? hash.toUpperCase() : hash;
+  }),
+);
 
 function clear() {
   input.value = lib.WordArray.create();

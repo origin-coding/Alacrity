@@ -10,7 +10,6 @@ import {
   RIPEMD160,
   enc,
 } from "crypto-js";
-import { readText, writeText } from "@tauri-apps/api/clipboard";
 
 const { t } = useI18n();
 
@@ -31,24 +30,14 @@ const algorithm = ref<Algorithms>("MD5");
 
 const uppercase = ref(false);
 
-const input = ref("");
+const { ref: input, clear, paste } = useStringOperations("");
 
-const output = computed(() => {
-  const hash = algorithms[algorithm.value](input.value).toString(enc.Hex);
-  return uppercase.value ? hash.toUpperCase() : hash;
-});
-
-async function copy() {
-  await writeText(output.value);
-}
-
-function clear() {
-  input.value = "";
-}
-
-async function paste() {
-  input.value = (await readText()) || "";
-}
+const { ref: output, copy } = useStringOperations(
+  computed(() => {
+    const hash = algorithms[algorithm.value](input.value).toString(enc.Hex);
+    return uppercase.value ? hash.toUpperCase() : hash;
+  }),
+);
 </script>
 
 <template>

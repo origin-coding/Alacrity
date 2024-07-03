@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MessagePlugin } from "tdesign-vue-next";
-import { readText, writeText } from "@tauri-apps/api/clipboard";
 import OptionLayout from "~/components/option-layout.vue";
+import UseStringOperations from "~/composables/use-string-operations";
 
 const { t } = useI18n();
 
@@ -12,32 +12,22 @@ enum Base64Options {
 
 const base64Option = ref<Base64Options>(Base64Options.encode);
 
-const input = ref("");
+const { ref: input, paste, clear } = UseStringOperations("");
 
-const output = computed(() => {
-  if (base64Option.value === Base64Options.decode) {
-    try {
-      return atob(input.value);
-    } catch (e) {
-      MessagePlugin.error(t("error"));
-      return "";
+const { ref: output, copy } = UseStringOperations(
+  computed(() => {
+    if (base64Option.value === Base64Options.decode) {
+      try {
+        return atob(input.value);
+      } catch (e) {
+        MessagePlugin.error(t("error"));
+        return "";
+      }
+    } else {
+      return btoa(input.value);
     }
-  } else {
-    return btoa(input.value);
-  }
-});
-
-function clear() {
-  input.value = "";
-}
-
-async function paste() {
-  input.value = (await readText()) ?? "";
-}
-
-async function copy() {
-  await writeText(output.value);
-}
+  }),
+);
 </script>
 
 <template>
