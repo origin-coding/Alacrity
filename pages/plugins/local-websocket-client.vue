@@ -45,8 +45,8 @@ function isMessageHistory(history: History): history is MessageHistory {
 type History = ConnectHistory | MessageHistory;
 
 const url = ref("");
-const { ref: request, paste, clear } = useStringOperations("");
-const { ref: response, copy } = useStringOperations("");
+const { ref: request, paste, clear } = useStringOperations();
+const { ref: response, copy } = useStringOperations();
 const historyList = ref<History[]>([]);
 const reversedHistoryList = computed(() => historyList.value.toReversed());
 

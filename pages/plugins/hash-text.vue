@@ -30,7 +30,7 @@ const algorithm = ref<Algorithms>("MD5");
 
 const uppercase = ref(false);
 
-const { ref: input, clear, paste } = useStringOperations("");
+const { ref: input, clear, paste } = useStringOperations();
 
 const { ref: output, copy } = useStringOperations(
   computed(() => {

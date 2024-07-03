@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { MessagePlugin } from "tdesign-vue-next";
 import OptionLayout from "~/components/option-layout.vue";
-import UseStringOperations from "~/composables/use-string-operations";
 
 const { t } = useI18n();
 
@@ -12,9 +11,9 @@ enum Base64Options {
 
 const base64Option = ref<Base64Options>(Base64Options.encode);
 
-const { ref: input, paste, clear } = UseStringOperations("");
+const { ref: input, paste, clear } = useStringOperations();
 
-const { ref: output, copy } = UseStringOperations(
+const { ref: output, copy } = useStringOperations(
   computed(() => {
     if (base64Option.value === Base64Options.decode) {
       try {
