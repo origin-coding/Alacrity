@@ -2,5 +2,6 @@
   "base64-encode-decode": "使用Base64对字符串加密或解密",
   "hash-file": "使用多种算法计算文件的哈希值",
   "hash-text": "使用多种算法计算文本的哈希值",
-  "local-websocket-client": "使用本地客户端对WebSocket接口进行测试，只支持文本"
+  "local-websocket-client": "使用本地客户端对WebSocket接口进行测试，只支持文本",
+  "uuid-generator": "生成多种版本的UUID"
 }
