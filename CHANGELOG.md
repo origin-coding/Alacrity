@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.2.0...alacrity-v2.3.0) (2024-07-08)
+
+
+### Features
+
+* write new plugin uuid-generator ([38dd7c3](https://github.com/origin-coding/Alacrity/commit/38dd7c3f63cd1caf2c4e9eebf198e02a85f175f2))
+
 ## [2.2.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.1.0...alacrity-v2.2.0) (2024-06-24)
 
 
