@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.3.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.2.0...alacrity-v2.3.0) (2024-07-13)
+
+
+### Features
+
+* add new system theme preference ([178e723](https://github.com/origin-coding/Alacrity/commit/178e723fb3e86ae54765874627266b86f2359557))
+* add plugin git-cheat-sheet ([794b1ba](https://github.com/origin-coding/Alacrity/commit/794b1ba804836c354e0cea473fc25757565afcdd))
+* write new plugin uuid-generator ([38dd7c3](https://github.com/origin-coding/Alacrity/commit/38dd7c3f63cd1caf2c4e9eebf198e02a85f175f2))
+
+
+### Bug Fixes
+
+* fix 404 Not Found when generating static contents ([e935535](https://github.com/origin-coding/Alacrity/commit/e935535647382b01b711465c064b92c2d0ecc2bc))
+
 ## [2.2.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.1.0...alacrity-v2.2.0) (2024-06-24)
 
 
