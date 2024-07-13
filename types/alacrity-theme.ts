@@ -2,6 +2,7 @@
 export const AlacrityThemes = {
   light: "light",
   dark: "dark",
+  system: "system",
 } as const;
 
 // Exported theme type.
