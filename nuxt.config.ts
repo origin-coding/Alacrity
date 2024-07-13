@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     },
   },
   experimental: {
+    // To use Node's API, such as Buffer, etc.
     clientNodeCompat: true,
   },
   content: {
