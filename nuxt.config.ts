@@ -44,7 +44,7 @@ export default defineNuxtConfig({
     },
     respectPathCase: true,
     experimental: {
-      clientDB: true,
+      clientDB: true,  // If not set, contents are Not Found after generating static files.
     },
   },
   // Nuxt content's code highlight works only when <html> has a class called light/dark, without any suffix.
