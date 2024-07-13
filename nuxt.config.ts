@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
+    "@nuxt/image",
+    "@nuxt/content",
+    "@nuxtjs/color-mode",
   ],
   tdesign: {
     resolveIcons: true,
@@ -30,5 +33,18 @@ export default defineNuxtConfig({
   },
   experimental: {
     clientNodeCompat: true,
+  },
+  content: {
+    highlight: {
+      theme: {
+        light: "light-plus",
+        dark: "dark-plus",
+        default: "dark-plus",
+      },
+    },
+  },
+  // Nuxt content's code highlight works only when <html> has a class called light/dark, without any suffix.
+  colorMode: {
+    classSuffix: "",
   },
 });
