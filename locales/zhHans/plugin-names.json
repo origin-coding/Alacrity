@@ -3,5 +3,6 @@
   "hash-file": "文件哈希",
   "hash-text": "文本哈希",
   "local-websocket-client": "本地WebSocket客户端",
-  "uuid-generator": "UUID生成器"
+  "uuid-generator": "UUID生成器",
+  "git-cheat-sheet": "Git命令速查"
 }

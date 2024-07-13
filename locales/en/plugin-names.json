@@ -3,5 +3,6 @@
   "hash-file": "Hash File",
   "hash-text": "Hash Text",
   "local-websocket-client": "Local WebSocket Client",
-  "uuid-generator": "UUID Generator"
+  "uuid-generator": "UUID Generator",
+  "git-cheat-sheet": "Git Cheat Sheet"
 }

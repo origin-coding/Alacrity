@@ -4,7 +4,8 @@
   "locale": "Locale",
   "themes": {
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "system": "System"
   },
   "locales": {
     "en": "English",
