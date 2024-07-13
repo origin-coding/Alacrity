@@ -42,6 +42,7 @@ export default defineNuxtConfig({
         default: "dark-plus",
       },
     },
+    respectPathCase: true,
   },
   // Nuxt content's code highlight works only when <html> has a class called light/dark, without any suffix.
   colorMode: {
