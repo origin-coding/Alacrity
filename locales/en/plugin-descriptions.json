@@ -4,5 +4,6 @@
   "hash-text": "Hash text with multiple algorithms",
   "local-websocket-client": "Local client for testing WebSocket APIs, only supports text",
   "uuid-generator": "Generate UUID with multiple versions",
-  "git-cheat-sheet": "Common used Git commands."
+  "git-cheat-sheet": "Common used Git commands",
+  "http-status-code": "HTTP status code list"
 }

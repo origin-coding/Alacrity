@@ -4,5 +4,6 @@
   "hash-text": "文本哈希",
   "local-websocket-client": "本地WebSocket客户端",
   "uuid-generator": "UUID生成器",
-  "git-cheat-sheet": "Git命令速查"
+  "git-cheat-sheet": "Git命令速查",
+  "http-status-code": "HTTP状态码"
 }
