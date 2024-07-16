@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.3.0...alacrity-v2.4.0) (2024-07-16)
+
+
+### Features
+
+* add hyphen and uppercase options to uuid-generator; refactor code, move callback to return value ([141b611](https://github.com/origin-coding/Alacrity/commit/141b611944618ed39990ce4d71e5657e2ebbc38e))
+* add plugin http-status-code ([bdbcfa0](https://github.com/origin-coding/Alacrity/commit/bdbcfa0320e51702fc3702bc80fc42310d18419b))
+
 ## [2.3.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.2.0...alacrity-v2.3.0) (2024-07-13)
 
 
