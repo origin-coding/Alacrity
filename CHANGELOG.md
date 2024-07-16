@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.4.0...alacrity-v2.5.0) (2024-07-16)
+
+
+### Features
+
+* add tooltip for plugin card's options ([f99eaf2](https://github.com/origin-coding/Alacrity/commit/f99eaf26908bf6ac66e70b4dea25c98d1b32b77e))
+
 ## [2.4.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.3.0...alacrity-v2.4.0) (2024-07-16)
 
 
