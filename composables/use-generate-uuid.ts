@@ -1,5 +1,6 @@
 import type { MaybeRefOrGetter } from "vue";
 import * as uuidLib from "uuid";
+import type { EventHookOn } from "@vueuse/core";
 
 // Create an array from GenerationVersions
 export const uuidVersions = [
@@ -16,40 +17,45 @@ export const uuidVersions = [
 export type UuidVersions = (typeof uuidVersions)[number];
 
 export interface UseGenerateUuidOptions {
-  count: MaybeRefOrGetter<number>;
-  version: MaybeRefOrGetter<UuidVersions>;
-  namespace: MaybeRefOrGetter<string | null>;
-  name: MaybeRefOrGetter<string | null>;
-  onSuccess: (uuidArray: string[]) => void;
-  onError: (status: GenerationStatus) => void;
+  count: number;
+  version: UuidVersions;
+  namespace: string;
+  name: string;
+  hyphen: boolean;
+  uppercase: boolean;
 }
 
 export type GenerationStatus =
   | "SUCCESS" // Everything is good.
   | "INVALID_COUNT" // Count is beyond range.
   | "MISSING_NAMESPACE" // Namespace is required for version 3 and 5.
-  | "INVALID_NAMESPACE" // Namespace is not a valid UUID.
-  | "MISSING_NAME"; // Name is required for version 3 and 5.
+  | "INVALID_NAMESPACE"; // Namespace is not a valid UUID.
+
+export type GenerationError = Exclude<GenerationStatus, "SUCCESS">;
 
 export interface UseGenerateUuidReturn {
   generate: () => void;
+  onError: EventHookOn<GenerationError>;
+  onSuccess: EventHookOn<string[]>;
 }
 
 // noinspection JSUnusedGlobalSymbols
 export default function useGenerateUuid(
-  options: UseGenerateUuidOptions,
+  options: MaybeRefOrGetter<UseGenerateUuidOptions>,
 ): UseGenerateUuidReturn {
-  const data = ref<string[]>([]);
+  const generateError = createEventHook<GenerationError>();
+  const generateSuccess = createEventHook<string[]>();
 
   const status = computed<GenerationStatus>(() => {
-    const count = toValue(options.count);
-    if (count < 0) {
+    const optionsRaw = toValue(options);
+
+    if (optionsRaw.count < 0) {
       return "INVALID_COUNT";
     }
 
-    const version = toValue(options.version);
+    const version = optionsRaw.version;
     if (version === "v3" || version === "v5") {
-      const namespace = toValue(options.namespace);
+      const namespace = optionsRaw.namespace;
       if (!namespace) {
         return "MISSING_NAMESPACE";
       }
@@ -57,42 +63,46 @@ export default function useGenerateUuid(
       if (!uuidLib.validate(namespace)) {
         return "INVALID_NAMESPACE";
       }
-
-      if (!toValue(options.name)) {
-        return "MISSING_NAME";
-      }
     }
 
     return "SUCCESS";
   });
 
-  function generate() {
+  async function generate() {
+    const optionsRaw = toValue(options);
+
     if (status.value !== "SUCCESS") {
-      options.onError(status.value);
+      await generateError.trigger(status.value);
       return;
     }
 
-    data.value = Array.from({ length: toValue(options.count) }).map((_) => {
-      const version = toValue(options.version);
+    const data = Array.from({ length: optionsRaw.count }).map((_) => {
+      const version = optionsRaw.version;
+      let uuid: string;
 
       if (version === "NIL") {
-        return uuidLib.NIL;
+        uuid = uuidLib.NIL;
+      } else if (version === "v3" || version === "v5") {
+        uuid = uuidLib[version](optionsRaw.name!, optionsRaw.namespace!);
+      } else if (version === "v1" || version === "v4" || version === "v6") {
+        uuid = uuidLib[version]();
+      } else {
+        uuid = uuidLib[version]();
       }
 
-      if (version === "v3" || version === "v5") {
-        return uuidLib[version](
-          toValue(options.name)!,
-          toValue(options.namespace)!,
-        );
+      if (optionsRaw.uppercase) {
+        uuid = uuid.toUpperCase();
       }
 
-      if (version === "v1" || version === "v4" || version === "v6") {
-        return uuidLib[version]();
+      if (!optionsRaw.hyphen) {
+        uuid = uuid.replaceAll("-", "");
       }
-      return uuidLib[version]();
+
+      return uuid;
     });
-    options.onSuccess(data.value);
+
+    await generateSuccess.trigger(data);
   }
 
-  return { generate };
+  return { generate, onError: generateError.on, onSuccess: generateSuccess.on };
 }
