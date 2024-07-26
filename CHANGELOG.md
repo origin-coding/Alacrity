@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.1](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.5.0...alacrity-v2.5.1) (2024-07-26)
+
+
+### Bug Fixes
+
+* fix losing pagination information after building ([3c1fceb](https://github.com/origin-coding/Alacrity/commit/3c1fceb7d7dfea6e436fa87f79060c1c24b3b0f5))
+
 ## [2.5.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.4.0...alacrity-v2.5.0) (2024-07-26)
 
 
