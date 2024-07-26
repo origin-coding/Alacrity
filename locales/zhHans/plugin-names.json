@@ -5,5 +5,6 @@
   "local-websocket-client": "本地WebSocket客户端",
   "uuid-generator": "UUID生成器",
   "git-cheat-sheet": "Git命令速查",
-  "http-status-code": "HTTP状态码"
+  "http-status-code": "HTTP状态码",
+  "password-strength": "密码强度检验"
 }
