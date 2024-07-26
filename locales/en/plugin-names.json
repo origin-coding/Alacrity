@@ -6,5 +6,6 @@
   "uuid-generator": "UUID Generator",
   "git-cheat-sheet": "Git Cheat Sheet",
   "http-status-code": "HTTP Status Code",
-  "password-strength": "Password Strength"
+  "password-strength": "Password Strength",
+  "uuid-validator": "UUID Validator"
 }

@@ -6,5 +6,6 @@
   "uuid-generator": "Generate UUID with multiple versions",
   "git-cheat-sheet": "Common used Git commands",
   "http-status-code": "HTTP status code list",
-  "password-strength": "Test password strength and estimate cracking attempts"
+  "password-strength": "Test password strength and estimate cracking attempts",
+  "uuid-validator": "Validate UUID and analyze relevant information"
 }
