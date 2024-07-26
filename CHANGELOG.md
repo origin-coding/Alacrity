@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.5.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.4.0...alacrity-v2.5.0) (2024-07-26)
+
+
+### Features
+
+* add plugin password-strength ([4a9490d](https://github.com/origin-coding/Alacrity/commit/4a9490d9e57916c1a40fd14faee65eb2b3ac07f8))
+* add plugin uuid-validator ([43db7d8](https://github.com/origin-coding/Alacrity/commit/43db7d813ca291fbadd07fb044da859096a3e59e))
+* add tooltip for plugin card's options ([f99eaf2](https://github.com/origin-coding/Alacrity/commit/f99eaf26908bf6ac66e70b4dea25c98d1b32b77e))
+
 ## [2.4.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.3.0...alacrity-v2.4.0) (2024-07-16)
 
 
