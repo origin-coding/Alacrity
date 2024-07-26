@@ -29,12 +29,14 @@ const columns = computed<TableProps["columns"]>(() => {
   ];
 });
 
-const pagination: TableProps["pagination"] = {
-  defaultCurrent: 1,
-  defaultPageSize: 10,
-  // pageSizeOptions: [10],
-  total: data.value.length,
-};
+const pagination = computed<TableProps["pagination"]>(() => {
+  return {
+    defaultCurrent: 1,
+    defaultPageSize: 10,
+    // pageSizeOptions: [10],
+    total: data.value.length,
+  };
+});
 </script>
 
 <template>
