@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.5.2](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.5.1...alacrity-v2.5.2) (2024-07-28)
+
+
+### Bug Fixes
+
+* add divider between option cards ([73db539](https://github.com/origin-coding/Alacrity/commit/73db5396ffefafeb7883841868af825f2fc430f9))
+* add responsive layout to plugin card list ([c9991d3](https://github.com/origin-coding/Alacrity/commit/c9991d3b7a1a93ebe859c2d3db8d7efeab5ab314))
+* improve page layout for settings ([baf072f](https://github.com/origin-coding/Alacrity/commit/baf072fb967a8ca2d06d113a7710b2767ba145fe))
+
 ## [2.5.1](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.5.0...alacrity-v2.5.1) (2024-07-26)
 
 
