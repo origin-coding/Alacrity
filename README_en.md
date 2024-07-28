@@ -1,4 +1,4 @@
-# Alacrity：开发者工具箱
+# Alacrity: Developers' toolbox
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/origin-coding/Alacrity)
 ![GitHub Release Date](https://img.shields.io/github/release-date/origin-coding/Alacrity)
