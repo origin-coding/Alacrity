@@ -120,6 +120,7 @@ function truncate(message: string) {
       </t-form-item>
       <t-button @click="connectOperation">{{ t(buttonI18nKey) }}</t-button>
     </option-layout>
+    <t-divider></t-divider>
     <t-space direction="horizontal" w-full>
       <input-output-layout
         :paste="true"
@@ -148,8 +149,9 @@ function truncate(message: string) {
         ></t-textarea>
       </input-output-layout>
     </t-space>
+    <t-divider></t-divider>
     <input-output-layout :clear="true" @clear="clearHistory">
-      <t-list h-40vh>
+      <t-list h-25vh>
         <t-list-item v-for="history in reversedHistoryList" :key="history.time">
           <t-row w-full>
             <t-col :span="2"> {{ history.time }}</t-col>

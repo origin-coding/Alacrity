@@ -75,6 +75,7 @@ const { t } = useI18n();
       </t-form-item>
       <t-button @click="generate">{{ t("generate") }}</t-button>
     </option-layout>
+    <t-divider></t-divider>
     <option-layout v-show="version3Or5">
       <t-form-item :label="t('options.namespace')">
         <t-input v-model="options.namespace"></t-input>
