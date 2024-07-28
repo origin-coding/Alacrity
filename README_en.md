@@ -1,89 +1,51 @@
-# Alacrity: developer's toolbox.
+# Alacrity：开发者工具箱
 
-[English](./README_en.md) [中文](./README.md)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/origin-coding/Alacrity)
+![GitHub Release Date](https://img.shields.io/github/release-date/origin-coding/Alacrity)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/origin-coding/Alacrity/total)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/origin-coding/Alacrity/create-release.yml)
+![GitHub License](https://img.shields.io/github/license/origin-coding/alacrity)
 
-# Clone & Run
+[中文](./README.md)
 
-```shell
-git clone https://github.com/origin-coding/Alacrity.git
-cd Alacrity
+# Introduction
 
-yarn install
-npm run "tauri dev"
-```
+My personal project, used to implement some common used development tools, also used to learn relevant technologies.
 
-# Build from source
+## Features
 
-```shell
-yarn install
-npm run "tauri build"
-```
+1. Plugins suitable for lots of situations, such as Base64, UUID, WebSocket, etc。
+2. Switching between Chinese and English, and change themes between light and dark.
 
-# Alacrity's features
+## Download & install
 
-Navigation drawer on the left side displays all categories of Alacrity's plugins.
-Click them to filter plugins by category.
+You can download installer for Alacrity from [GitHub Release](https://github.com/origin-coding/Alacrity/releases/latest)
+page.
+After installation, double click the shortcut on desktop to use Alacrity.
 
-Some useful utils are listed on top of Alacrity, such as searching plugins, changing locales and themes.
+# Local development
 
-At main part of Alacrity's window are plugins, you can use them by clicking the card.
-You can also add them to your favorite list by clicking the star icon on top right.
+## Required environments
 
-# Plugins provided
+1. Node.js, and a package manager, yarn is recommended.
+2. Rust development environment, maybe need to configure a source.
 
-1. Encrypt: provide data encryption/decryption support, including Base64, etc.
-2. Hash: provide data hash support, including MD5, etc.
-3. CheatSheet: provide cheat sheet for development, including HTTP response code, etc.
-4. Format: provide format support, including JavaScript format, etc.
-5. Generator: provide generator support, including QR code generator, data generator, etc.
-6. Validator: provide validator support, including UUID validator, etc.
-7. Converter: provide converter support, including timestamp converter, etc.
-8. Parser: provide parser support, including URL parser, User Agent parser, etc.
+## Development process
 
-# To-do
+1. Clone repository: `git clone https://github.com/origin-coding/Alacrity.git`
+2. Run `yarn install` to install dependencies.
+3. Manually delete directory: **node_modules/micromark/node_modules** . This directory uses **Common JS module
+   specification**, which causes crash during development, but does not influence the build process, so it's free to
+   delete.
+4. Run `yarn run tauri dev` to run Alacrity for development. Note: Alacrity is configured as a singleton application,
+   which means there is only one application instance at the same time, so you need to close other Alacrity windows
+   during development.
+5. Run `yarn run tauri build` to build Alacrity.
 
-1. [ ] Multi-language support: translate more plugins.
-2. [ ] More plugins: provide 20-30 plugins before 2024.03.
-3. [ ] Theme support: change Alacrity's theme to [Catppuccino](https://github.com/catppuccin).
-4. [ ] Icon support: change icon from Tauri's icon to Alacrity's icon.
+# Powered by
 
-# Directory structure
-
-## Alacrity's plugin directory structure
-
-All plugins are located in `src/AlacrityPlugins` folder, each plugin is a folder, and the folder's name is the plugin's
-name.
-
-The directory structure of the folder is as follows:
-
-1. plugin.json: plugin's config file, contains plugin's name, description, author, version, category, etc.
-2. plugin.vue: plugin's main logic, contains plugin's UI and logic.
-3. index.ts: plugin's entry file, make Alacrity discover the plugin.
-4. locale.json: plugin's locale file.
-5. data.json: for cheat sheet plugins, provide data file for displaying data.
-
-## Alacrity's API
-
-### Predefined components
-
-1. CheatSheet.vue: Used to build cheat-sheet plugins in Alacrity.
-
-### Predefined localized translation
-
-Predefined localized translations are located in `src/locales` folder, with name of `${locale}.json`. Including the
-following translations:
-
-1. $vuetify: Vuetify's localized translations.
-2. plugin: common used localized translations, including "Clear", "Copy", etc.
-
-### Predefined types
-
-Predefined type support are located in `src/common` folder, including the following types:
-
-1. Cheat Sheet: located in `src/common/cheat-sheet.ts` file, including CheatSheetHeader, etc. For controlling Cheat Sheet
-   component's behavior.
-2. Monaco Editor: located in `src/common/monato.ts` file, for importing Monaco Editor's type.
-3. Plugin and Category: located in `src/common/plugin.ts` and `src/common/category.ts` files, including Plugin,
-   PluginCategory, etc. Used for controlling plugins' behavior.
-4. Configurations: located in `src/common/config.ts` file, including common used configuration options.
-5. PluginSchema.json: Specify plugin information's format.
+- [Tauri](https://tauri.app) : Frontend cross-platform development framework.
+- [Vue](https://vuejs.org) and [Nuxt](https://nuxt.com) : Frontend framework, and uses Nuxt for features like content
+  rendering, auto routing, etc.
+- [TDesign](https://tdesign.tencent.com/) : Component library from Tencent.
+- [GitHub Actions](https://docs.github.com/en/actions) : Provides CI/CD features like auto building and auto releasing.
