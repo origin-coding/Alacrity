@@ -7,5 +7,6 @@
   "git-cheat-sheet": "Git Cheat Sheet",
   "http-status-code": "HTTP Status Code",
   "password-strength": "Password Strength",
-  "uuid-validator": "UUID Validator"
+  "uuid-validator": "UUID Validator",
+  "qrcode-generator": "QR Code Generator"
 }

@@ -7,5 +7,6 @@
   "git-cheat-sheet": "Git常用命令",
   "http-status-code": "HTTP状态码列表",
   "password-strength": "检测密码强度并预估爆破次数",
-  "uuid-validator": "验证UUID是否合法，并分析相关信息"
+  "uuid-validator": "验证UUID是否合法，并分析相关信息",
+  "qrcode-generator": "生成多种用途的二维码"
 }
