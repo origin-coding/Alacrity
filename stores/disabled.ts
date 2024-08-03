@@ -8,11 +8,8 @@ const useDisabledStore = defineStore("disabled", () => {
 
   const tauriStore = useTauriStore();
 
-  onMounted(async () => {
-    // JSON cannot represent a Set, so we store it as an array.
-    const disabledConfig = await tauriStore.store.get<Array<string>>(Keys.disabled);
-    disabled.value =
-      disabledConfig !== null ? new Set(disabledConfig) : new Set<string>();
+  tauriStore.store.get<Array<string>>(Keys.disabled).then((value) => {
+    disabled.value = value !== null ? new Set(value) : new Set<string>();
   });
 
   type isDisabledType = (id: string) => boolean;

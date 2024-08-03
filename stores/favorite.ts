@@ -8,11 +8,8 @@ const useFavoriteStore = defineStore("favorite", () => {
 
   const tauriStore = useTauriStore();
 
-  onMounted(async () => {
-    // JSON cannot represent a Set, so we store it as an array.
-    const favoriteConfig = await tauriStore.store.get<Array<string>>(Keys.favorite);
-    favorite.value =
-      favoriteConfig !== null ? new Set(favoriteConfig) : new Set<string>();
+  tauriStore.store.get<Array<string>>(Keys.favorite).then((value) => {
+    favorite.value = value !== null ? new Set(value) : new Set<string>();
   });
 
   type isFavoriteType = (id: string) => boolean;
