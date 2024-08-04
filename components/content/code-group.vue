@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const slots = useSlots();
 
+/* eslint-disable */
 function transformSlot(slot: any, index: number) {
   if (typeof slot.type === "symbol") {
     return slot.children?.map(transformSlot);

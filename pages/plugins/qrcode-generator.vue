@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import {
-  generateType,
-  type GenerateType,
-} from "~/composables/use-generate-qrcode";
-import { useQRCode } from "@vueuse/integrations/useQRCode";
-import QRCode from "qrcode";
 import { save } from "@tauri-apps/api/dialog";
 import { writeBinaryFile, writeTextFile } from "@tauri-apps/api/fs";
+import { useQRCode } from "@vueuse/integrations/useQRCode";
+import QRCode from "qrcode";
 import { MessagePlugin } from "tdesign-vue-next";
+
+import {
+  type GenerateType,
+  generateType,
+} from "~/composables/use-generate-qrcode";
 
 const { t } = useI18n();
 const { bus } = useGenerateQrcode();
@@ -82,10 +83,10 @@ async function saveImage() {
       <t-form-item :label="t('option.type')">
         <t-select v-model="type">
           <t-option
-            v-for="type in generateType"
-            :key="type"
-            :label="t(`type.${type}`)"
-            :value="type"
+            v-for="typeOption in generateType"
+            :key="typeOption"
+            :label="t(`type.${typeOption}`)"
+            :value="typeOption"
           ></t-option>
         </t-select>
       </t-form-item>
@@ -93,10 +94,10 @@ async function saveImage() {
       <t-form-item :label="t('option.image')">
         <t-select v-model="imageType">
           <t-option
-            v-for="type in imageTypeList"
-            :key="type"
-            :label="type"
-            :value="type"
+            v-for="imageTypeOption in imageTypeList"
+            :key="imageTypeOption"
+            :label="imageTypeOption"
+            :value="imageTypeOption"
           >
           </t-option>
         </t-select>

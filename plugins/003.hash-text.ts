@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { AlacrityPluginType } from "~/types/alacrity-plugin";
 import usePluginsStore from "~/stores/plugins";
+import { AlacrityPluginType } from "~/types/alacrity-plugin";
 
 export default defineNuxtPlugin({
   name: "Hash Text",

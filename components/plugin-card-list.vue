@@ -5,7 +5,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <t-row :gutter="[12, 26]" w-full v-if="props.idList.length !== 0">
+  <t-row v-if="props.idList.length !== 0" :gutter="[12, 26]" w-full>
     <t-col
       v-for="id in props.idList"
       :key="id"
@@ -19,7 +19,7 @@ const { t } = useI18n();
   </t-row>
 
   <!-- When list is empty, show this prompt -->
-  <div class="result-success" v-else>
+  <div v-else class="result-success">
     <filter-clear-icon class="result-success-icon"></filter-clear-icon>
     <div class="result-success-title">{{ t("empty") }}</div>
   </div>

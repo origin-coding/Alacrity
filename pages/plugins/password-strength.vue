@@ -3,7 +3,7 @@ import { zxcvbnAsync, type ZxcvbnResult } from "@zxcvbn-ts/core";
 
 const { t } = useI18n();
 
-let result = ref<ZxcvbnResult | null>(null);
+const result = ref<ZxcvbnResult | null>(null);
 const password = ref("");
 
 const useZxcvbn = async () => {
@@ -27,7 +27,7 @@ watch(password, useZxcvbnDebounced);
     <plugin-name></plugin-name>
     <option-layout>
       <t-form-item :label="t('password')" w-full>
-        <t-input :clearable="true" v-model="password"></t-input>
+        <t-input v-model="password" :clearable="true"></t-input>
       </t-form-item>
     </option-layout>
     <t-divider></t-divider>

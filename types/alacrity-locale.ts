@@ -1,6 +1,5 @@
-import { type GlobalConfigProvider } from "tdesign-vue-next";
 import merge from "lodash/merge";
-
+import { type GlobalConfigProvider } from "tdesign-vue-next";
 import en_US from "tdesign-vue-next/es/locale/en_US";
 import zh_CN from "tdesign-vue-next/es/locale/zh_CN";
 

@@ -12,7 +12,7 @@
     "tauri dev": "tauri dev",
     "tauri build": "tauri build",
     "commit": "cz",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "format": "prettier --write ."
   },
   "dependencies": {

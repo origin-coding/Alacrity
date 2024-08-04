@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import useFavoriteStore from "~/stores/favorite";
 import useDisabledStore from "~/stores/disabled";
+import useFavoriteStore from "~/stores/favorite";
 
 const props = defineProps<{ id: string }>();
 
@@ -28,17 +28,17 @@ const addOrRemoveTooltip = computed(() => {
 
 <template>
   <t-card
-    @click="router.push(getPluginRoute(props.id))"
     :title="t(tPluginName(props.id))"
     h-40
+    @click="router.push(getPluginRoute(props.id))"
   >
     <template #actions>
       <!-- Favorite -->
       <t-tooltip :content="addOrRemoveTooltip">
         <t-button
-          @click.stop="favoriteStore.toggleFavorite(props.id)"
           variant="text"
           shape="circle"
+          @click.stop="favoriteStore.toggleFavorite(props.id)"
         >
           <template #icon>
             <remove-icon
@@ -51,9 +51,9 @@ const addOrRemoveTooltip = computed(() => {
       <!-- Disabled -->
       <t-tooltip :content="disableOrEnableTooltip">
         <t-button
-          @click.stop="disabledStore.toggleDisabled(props.id)"
           variant="text"
           shape="circle"
+          @click.stop="disabledStore.toggleDisabled(props.id)"
         >
           <template #icon>
             <check-icon

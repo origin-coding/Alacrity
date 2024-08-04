@@ -12,7 +12,7 @@ const name = computed(() => {
 </script>
 
 <template>
-  <div prose text-lg>{{ name }}</div>
+  <div text-lg prose>{{ name }}</div>
 </template>
 
 <style scoped lang="less"></style>

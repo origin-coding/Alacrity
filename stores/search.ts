@@ -1,12 +1,13 @@
-import type { i18nField, SearchInfo } from "~/types/search-info";
-import {
-  type AlacrityLocaleType,
-  AlacrityLocaleList,
-} from "~/types/alacrity-locale";
 import { useFuse } from "@vueuse/integrations/useFuse";
 import type { MaybeRefOrGetter, Ref } from "vue";
-import useLocaleStore from "~/stores/locale";
+
 import { tPluginDescription, tPluginName } from "#build/imports";
+import useLocaleStore from "~/stores/locale";
+import {
+  AlacrityLocaleList,
+  type AlacrityLocaleType,
+} from "~/types/alacrity-locale";
+import type { i18nField, SearchInfo } from "~/types/search-info";
 
 const useSearchStore = defineStore("search-info", () => {
   const searchInfos = ref<Set<SearchInfo>>(new Set<SearchInfo>());

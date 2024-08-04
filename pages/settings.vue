@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { AlacrityThemeList } from "~/types/alacrity-theme";
-import { AlacrityLocaleList } from "~/types/alacrity-locale";
-import useThemeStore from "~/stores/theme";
-import useLocaleStore from "~/stores/locale";
 import { getVersion } from "@tauri-apps/api/app";
 import { open } from "@tauri-apps/api/shell";
+
+import useLocaleStore from "~/stores/locale";
+import useThemeStore from "~/stores/theme";
+import { AlacrityLocaleList } from "~/types/alacrity-locale";
+import { AlacrityThemeList } from "~/types/alacrity-theme";
 
 const { t } = useI18n();
 const themeStore = useThemeStore();
@@ -18,15 +19,15 @@ async function clickRepository() {
 
 <template>
   <t-space direction="vertical" w-full>
-    <div prose text-lg>{{ t("alacrity-config.settings") }}</div>
+    <div text-lg prose>{{ t("alacrity-config.settings") }}</div>
     <t-card w-full :title="t('basic')">
       <t-form :colon="true" layout="inline">
         <t-form-item :label="t('alacrity-config.theme')">
           <t-select v-model="themeStore.theme">
             <t-option
               v-for="theme in AlacrityThemeList"
-              :value="theme"
               :key="theme"
+              :value="theme"
               :label="t(`alacrity-config.themes.${theme}`)"
             >
               {{ t(`alacrity-config.themes.${theme}`) }}
@@ -37,8 +38,8 @@ async function clickRepository() {
           <t-select v-model="localeStore.locale">
             <t-option
               v-for="locale in AlacrityLocaleList"
-              :value="locale"
               :key="locale"
+              :value="locale"
               :label="t(`alacrity-config.locales.${locale}`)"
             >
               {{ t(`alacrity-config.locales.${locale}`) }}

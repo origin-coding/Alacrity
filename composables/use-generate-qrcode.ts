@@ -11,7 +11,7 @@ export const generateType = [
 export type GenerateType = (typeof generateType)[number];
 
 export default function () {
-  const bus = useEventBus<GenerateType, void>("qrcode-bus");
+  const bus = useEventBus<GenerateType, unknown>("qrcode-bus");
 
   return { bus };
 }

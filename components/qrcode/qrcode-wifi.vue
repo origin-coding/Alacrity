@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormInstanceFunctions, FormProps } from "tdesign-vue-next";
+
 import { type GenerateType } from "~/composables/use-generate-qrcode";
 
 const props = defineProps<{
@@ -70,10 +71,10 @@ bus.on(async (event) => {
     <t-form-item :label="t('data.type')" name="type">
       <t-select v-model="data.type">
         <t-option
-          v-for="type in wifiTypes"
-          :value="type"
-          :key="type"
-          :label="type"
+          v-for="typeOption in wifiTypes"
+          :key="typeOption"
+          :value="typeOption"
+          :label="typeOption"
         ></t-option>
       </t-select>
     </t-form-item>

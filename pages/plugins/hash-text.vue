@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import {
+  enc,
   MD5,
-  SHA3,
+  RIPEMD160,
   SHA1,
+  SHA3,
   SHA224,
   SHA256,
   SHA384,
   SHA512,
-  RIPEMD160,
-  enc,
 } from "crypto-js";
 
 const { t } = useI18n();
@@ -61,8 +61,8 @@ const { ref: output, copy } = useStringOperations(
     <t-space direction="horizontal" w-full>
       <input-output-layout
         :clear="true"
-        @clear="clear"
         :paste="true"
+        @clear="clear"
         @paste="paste"
       >
         <t-textarea

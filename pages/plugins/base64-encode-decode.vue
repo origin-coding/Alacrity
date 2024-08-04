@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { MessagePlugin } from "tdesign-vue-next";
+
 import OptionLayout from "~/components/option-layout.vue";
 
 const { t } = useI18n();

@@ -1,10 +1,10 @@
-import type { Component, ShallowRef } from "vue";
 import {
   Calculator1Icon,
   Fingerprint3Icon,
   InternetIcon,
   StickyNoteIcon,
 } from "tdesign-icons-vue-next";
+import type { Component, ShallowRef } from "vue";
 
 export enum AlacrityPluginType {
   hash = "hash",

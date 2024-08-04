@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import useSearchStore from "~/stores/search";
 import useDisabledStore from "~/stores/disabled";
+import useSearchStore from "~/stores/search";
 
 const { t } = useI18n();
 

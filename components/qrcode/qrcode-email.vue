@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormInstanceFunctions, FormProps } from "tdesign-vue-next";
+
 import { type GenerateType } from "~/composables/use-generate-qrcode";
 
 const { t } = useI18n();
@@ -53,12 +54,12 @@ bus.on(async (event) => {
 
 <template>
   <t-form
+    v-if="props.type === 'email'"
     ref="form"
     :rules
     :data
     :colon="true"
     layout="inline"
-    v-if="props.type === 'email'"
   >
     <!-- Input for email address -->
     <t-form-item :label="t('data.address')" name="address" class="w-50%">

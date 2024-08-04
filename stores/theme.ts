@@ -1,6 +1,7 @@
 import type { Ref } from "vue";
-import { type AlacrityConfig, Keys } from "~/types/alacrity-config";
+
 import useTauriStore from "~/stores/tauri-store";
+import { type AlacrityConfig, Keys } from "~/types/alacrity-config";
 
 const useThemeStore = defineStore("theme", () => {
   const theme: Ref<AlacrityConfig["theme"]> = ref("light");

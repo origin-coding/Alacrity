@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormInstanceFunctions, FormProps } from "tdesign-vue-next";
+
 import { type GenerateType } from "~/composables/use-generate-qrcode";
 
 const props = defineProps<{

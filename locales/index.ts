@@ -1,5 +1,5 @@
-import type { VueMessageType } from "vue-i18n";
 import type { LocaleMessage } from "@intlify/core-base";
+import type { VueMessageType } from "vue-i18n";
 
 const imports = import.meta.glob("./**/*.ts", { eager: true });
 
@@ -10,7 +10,7 @@ function getDirectory(path: string) {
 const messages: { [x: string]: LocaleMessage<VueMessageType> } = {};
 
 Object.entries(imports).forEach(([path, module]) => {
-  module = (module as any).default;
+  module = (module as { default: unknown }).default;
   messages[getDirectory(path)] = module as LocaleMessage<VueMessageType>;
 });
 

@@ -14,7 +14,7 @@ async function upload() {
 
 <template>
   <t-button theme="primary" @click="upload">
-    <template #icon v-if="!props.compact">
+    <template v-if="!props.compact" #icon>
       <cloud-upload-icon></cloud-upload-icon>
     </template>
     {{ t(!props.compact ? "upload" : "upload-compact") }}

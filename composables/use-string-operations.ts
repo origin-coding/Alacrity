@@ -1,5 +1,5 @@
-import type { MaybeRef } from "vue";
 import { readText, writeText } from "@tauri-apps/api/clipboard";
+import type { MaybeRef } from "vue";
 
 export default function (initialValue: MaybeRef<string> = "") {
   const ref = toRef(initialValue);

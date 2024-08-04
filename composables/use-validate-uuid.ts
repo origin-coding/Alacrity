@@ -1,5 +1,5 @@
-import type { MaybeRefOrGetter, Ref } from "vue";
 import * as uuidLib from "uuid";
+import type { MaybeRefOrGetter, Ref } from "vue";
 
 export interface UseValidateUuidReturn {
   valid: Ref<boolean>;

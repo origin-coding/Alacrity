@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import queryTableData from "~/composables/query-table-data";
 import type { TableProps } from "tdesign-vue-next";
+
+import queryTableData from "~/composables/query-table-data";
 
 const { t } = useI18n();
 
@@ -42,7 +43,7 @@ const pagination = computed<TableProps["pagination"]>(() => {
 <template>
   <t-space direction="vertical" w-full>
     <plugin-name></plugin-name>
-    <t-table :data :rowKey :columns :pagination></t-table>
+    <t-table :data :row-key :columns :pagination></t-table>
   </t-space>
 </template>
 

@@ -1,12 +1,12 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { matcherPwnedFactory } from "@zxcvbn-ts/matcher-pwned";
 import { type OptionsType, zxcvbnOptions } from "@zxcvbn-ts/core";
 import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
 import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+import { matcherPwnedFactory } from "@zxcvbn-ts/matcher-pwned";
 
-import { AlacrityPluginType } from "~/types/alacrity-plugin";
 import usePluginsStore from "~/stores/plugins";
+import { AlacrityPluginType } from "~/types/alacrity-plugin";
 
 export default defineNuxtPlugin({
   name: "Password Strength",

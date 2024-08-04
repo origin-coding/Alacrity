@@ -1,6 +1,6 @@
-import type { MaybeRefOrGetter } from "vue";
-import * as uuidLib from "uuid";
 import type { EventHookOn } from "@vueuse/core";
+import * as uuidLib from "uuid";
+import type { MaybeRefOrGetter } from "vue";
 
 // Create an array from GenerationVersions
 export const uuidVersions = [

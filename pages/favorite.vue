@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import useSearchStore from "~/stores/search";
 import useFavoriteStore from "~/stores/favorite";
+import useSearchStore from "~/stores/search";
 
 const { t } = useI18n();
 

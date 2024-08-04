@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import useMenuGroupStore from "~/stores/menu-group";
-import { TypeLogos } from "~/types/alacrity-plugin";
 import usePluginsStore from "~/stores/plugins";
 import useSearchStore from "~/stores/search";
+import { TypeLogos } from "~/types/alacrity-plugin";
 
 const { t } = useI18n();
 const menuGroupStore = useMenuGroupStore();
@@ -15,7 +15,7 @@ const { search } = storeToRefs(useSearchStore());
     <t-aside>
       <t-menu theme="light" :value="undefined" :expand-mutex="true">
         <!-- Menu headers and a divider. -->
-        <t-input :placeholder="t('search')" v-model="search" :clearable="true">
+        <t-input v-model="search" :placeholder="t('search')" :clearable="true">
           <template #prefix-icon>
             <search-icon></search-icon>
           </template>

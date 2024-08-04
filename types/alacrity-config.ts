@@ -1,4 +1,5 @@
 import { appConfigDir } from "@tauri-apps/api/path";
+
 import type { AlacrityLocaleType } from "~/types/alacrity-locale";
 import type { AlacrityThemeType } from "~/types/alacrity-theme";
 

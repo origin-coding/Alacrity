@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { MessagePlugin } from "tdesign-vue-next";
+
 import {
   type UseGenerateUuidOptions,
   uuidVersions,
 } from "~/composables/use-generate-uuid";
-import { MessagePlugin } from "tdesign-vue-next";
 
 // const count = ref(10);
 // const version = ref<UuidVersions>("v4");
@@ -48,7 +49,7 @@ const { t } = useI18n();
         <t-input-number
           v-model="options.count"
           :step="1"
-          :decimalPlaces="0"
+          :decimal-places="0"
           :min="1"
           :max="100"
         ></t-input-number>

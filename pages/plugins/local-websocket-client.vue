@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MessagePlugin } from "tdesign-vue-next";
 import dayjs from "dayjs";
+import { MessagePlugin } from "tdesign-vue-next";
 
 const { t } = useI18n();
 

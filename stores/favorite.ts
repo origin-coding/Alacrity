@@ -1,6 +1,7 @@
 import type { ComputedRef, Ref } from "vue";
-import type { AlacrityConfig } from "~/types/alacrity-config";
+
 import useTauriStore from "~/stores/tauri-store";
+import type { AlacrityConfig } from "~/types/alacrity-config";
 import { Keys } from "~/types/alacrity-config";
 
 const useFavoriteStore = defineStore("favorite", () => {

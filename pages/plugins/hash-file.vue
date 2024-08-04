@@ -1,20 +1,21 @@
 <script setup lang="ts">
+// It can be successfully imported, but Typescript can't find its declaration.
+// @ts-ignore
+import { Buffer } from "node:buffer";
+
+import { readBinaryFile } from "@tauri-apps/api/fs";
 import {
+  enc,
+  lib,
   MD5,
-  SHA3,
+  RIPEMD160,
   SHA1,
+  SHA3,
   SHA224,
   SHA256,
   SHA384,
   SHA512,
-  RIPEMD160,
-  enc,
-  lib,
 } from "crypto-js";
-import { readBinaryFile } from "@tauri-apps/api/fs";
-// It can be successfully imported, but Typescript can't find its declaration.
-// @ts-ignore
-import { Buffer } from "node:buffer";
 
 const { t } = useI18n();
 
@@ -65,8 +66,8 @@ function clear() {
     <option-layout>
       <t-form-item :label="t('select')">
         <upload-button
-          @confirmed="hash"
           :options="{ multiple: false }"
+          @confirmed="hash"
         ></upload-button>
       </t-form-item>
       <t-form-item :label="t('algorithm')">

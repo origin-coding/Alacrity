@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import TConfigProvider from "tdesign-vue-next/esm/config-provider";
+
+import useLocaleStore from "~/stores/locale";
 import useSearchStore from "~/stores/search";
 import useThemeStore from "~/stores/theme";
-import TConfigProvider from "tdesign-vue-next/esm/config-provider";
 import { LocaleMappings } from "~/types/alacrity-locale";
-import useLocaleStore from "~/stores/locale";
 
 // Manually init search info.
 const searchStore = useSearchStore();
