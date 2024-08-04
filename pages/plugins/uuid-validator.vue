@@ -10,7 +10,7 @@ const { valid, version } = useValidateUuid(uuid);
   <t-space direction="vertical" w-full>
     <plugin-name></plugin-name>
     <option-layout>
-      <t-form-item label="UUID"  w-full>
+      <t-form-item label="UUID" w-full>
         <t-input v-model="uuid" :clearable="true"></t-input>
       </t-form-item>
     </option-layout>

@@ -67,7 +67,7 @@ git reset HEAD~N --head  # 撤销最近N次提交，并且撤回修改
 ```bash [demo.bash]
 git rm <filename>  # 删除某个文件
 git rm -f <filename>  # 删除某个文件，并放弃暂存区的修改
-git mv <filename> <newfilename>  # 移动或重命名文件 
+git mv <filename> <newfilename>  # 移动或重命名文件
 ```
 
 ::

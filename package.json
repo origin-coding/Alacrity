@@ -13,7 +13,7 @@
     "tauri build": "tauri build",
     "commit": "cz",
     "lint": "eslint .",
-    "format": "prettier --write src/"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",

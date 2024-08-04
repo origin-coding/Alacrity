@@ -7,3 +7,8 @@ dist
 !.vscode/extensions.json
 .idea
 
+# Project files
+public
+.output
+.nuxt
+src-tauri

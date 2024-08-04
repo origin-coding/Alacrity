@@ -56,8 +56,12 @@ const addOrRemoveTooltip = computed(() => {
           shape="circle"
         >
           <template #icon>
-            <check-icon v-show="disabledStore.isDisabled(props.id)"></check-icon>
-            <close-icon v-show="!disabledStore.isDisabled(props.id)"></close-icon>
+            <check-icon
+              v-show="disabledStore.isDisabled(props.id)"
+            ></check-icon>
+            <close-icon
+              v-show="!disabledStore.isDisabled(props.id)"
+            ></close-icon>
           </template>
         </t-button>
       </t-tooltip>

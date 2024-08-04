@@ -67,7 +67,7 @@ Move or remove files.
 ```bash [demo.bash]
 git rm <filename>  # Remove a file
 git rm -f <filename>  # Remove a file and discard staged changes
-git mv <filename> <newfilename>  # Move or rename a file 
+git mv <filename> <newfilename>  # Move or rename a file
 ```
 
 ::
