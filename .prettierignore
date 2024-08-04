@@ -12,3 +12,6 @@ public
 .output
 .nuxt
 src-tauri
+
+# Husky
+.husky

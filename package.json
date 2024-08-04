@@ -13,7 +13,9 @@
     "tauri build": "tauri build",
     "commit": "cz",
     "lint": "eslint . --fix",
-    "format": "prettier --write ."
+    "lint:lint-staged": "lint-staged",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -89,7 +91,9 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-vue": "^9.26.0",
     "eslint-plugin-vue-scoped-css": "^2.8.1",
+    "husky": "^9.1.4",
     "less": "^4.2.0",
+    "lint-staged": "^15.2.8",
     "typescript": "^5.5.2",
     "typescript-eslint": "^7.14.1",
     "unocss": "^0.61.0",
@@ -101,5 +105,11 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*": [
+      "yarn run lint",
+      "yarn run format"
+    ]
   }
 }

@@ -13,7 +13,15 @@ export default withNuxt(
   pluginPrettier,
   {
     // Global ignores.
-    ignores: ["src-tauri/**/*.js", "dist/**/*.js"],
+    ignores: [
+      "src-tauri/**/*.js",
+      "dist/**/*.js",
+      ".husky/**/*.*",
+      "node_modules/**/*.*",
+      ".nuxt/**/*.*",
+      "public/**/*.*",
+      ".output/**/*.*",
+    ],
   },
   {
     plugins: {
