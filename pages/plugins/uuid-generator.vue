@@ -76,7 +76,6 @@ const { t } = useI18n();
       </t-form-item>
       <t-button @click="generate">{{ t("generate") }}</t-button>
     </option-layout>
-    <t-divider></t-divider>
     <option-layout v-show="version3Or5">
       <t-form-item :label="t('options.namespace')">
         <t-input v-model="options.namespace"></t-input>
@@ -85,11 +84,12 @@ const { t } = useI18n();
         <t-input v-model="options.name"></t-input>
       </t-form-item>
     </option-layout>
+    <t-divider></t-divider>
     <input-output-layout :copy="true" @copy="copy">
       <t-textarea
         v-model="output"
         :readonly="true"
-        :autosize="{ minRows: 20, maxRows: 20 }"
+        :autosize="{ minRows: 10, maxRows: 10 }"
       ></t-textarea>
     </input-output-layout>
   </t-space>
