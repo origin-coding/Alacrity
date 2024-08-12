@@ -1,6 +1,11 @@
 // TDesign's background color
 body {
   background-color: var(--td-bg-color-page);
+
+  // Temporarily fix TDesign's bug, see: https://github.com/Tencent/tdesign-vue-next/issues/4472.
+  textarea {
+    display: none;
+  }
 }
 
 // Hide scroll bar.
@@ -8,6 +13,7 @@ body {
 *::-webkit-scrollbar {
   display: none;
 }
+
 // For IE, Edge and Firefox
 * {
   -ms-overflow-style: none; // IE and Edge
