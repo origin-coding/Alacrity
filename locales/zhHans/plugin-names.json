@@ -8,5 +8,7 @@
   "http-status-code": "HTTP状态码",
   "password-strength": "密码强度检验",
   "uuid-validator": "UUID验证",
-  "qrcode-generator": "二维码生成"
+  "qrcode-generator": "二维码生成",
+  "url-parser": "URL解析",
+  "case-converter": "大小写转换"
 }

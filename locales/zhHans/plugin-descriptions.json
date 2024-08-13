@@ -8,5 +8,7 @@
   "http-status-code": "HTTP状态码列表",
   "password-strength": "检测密码强度并预估爆破次数",
   "uuid-validator": "验证UUID是否合法，并分析相关信息",
-  "qrcode-generator": "生成多种用途的二维码"
+  "qrcode-generator": "生成多种用途的二维码",
+  "url-parser": "解析URL，获取相关信息",
+  "case-converter": "将字符串转换为多种大小写格式"
 }

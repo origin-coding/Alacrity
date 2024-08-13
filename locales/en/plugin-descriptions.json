@@ -8,5 +8,7 @@
   "http-status-code": "HTTP status code list",
   "password-strength": "Test password strength and estimate cracking attempts",
   "uuid-validator": "Validate UUID and analyze relevant information",
-  "qrcode-generator": "Generate QR codes for multiple purposes"
+  "qrcode-generator": "Generate QR codes for multiple purposes",
+  "url-parser": "Parse URL and display relevant information",
+  "case-converter": "Convert string to multiple cases"
 }
