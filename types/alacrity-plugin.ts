@@ -3,6 +3,7 @@ import {
   Fingerprint3Icon,
   InternetIcon,
   StickyNoteIcon,
+  SwapIcon,
 } from "tdesign-icons-vue-next";
 import type { Component, ShallowRef } from "vue";
 
@@ -11,6 +12,7 @@ export enum AlacrityPluginType {
   encode = "encode",
   web = "web",
   cheat = "cheat",
+  converter = "converter",
 }
 
 // Logo for each plugin type.
@@ -22,6 +24,7 @@ export const TypeLogos: AlacrityPluginTypeLogo = {
   encode: shallowRef(Calculator1Icon),
   web: shallowRef(InternetIcon),
   cheat: shallowRef(StickyNoteIcon),
+  converter: shallowRef(SwapIcon),
 };
 
 export interface AlacrityPlugin {
