@@ -2,18 +2,16 @@
 
 ## [2.6.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.5.2...alacrity-v2.6.0) (2024-08-11)
 
-
 ### Features
 
-* add hint content when there is no plugin found ([1494e8a](https://github.com/origin-coding/Alacrity/commit/1494e8a570891bc31513e359c44b4e538f3a5379))
-* add plugin qrcode-generator ([4972800](https://github.com/origin-coding/Alacrity/commit/497280004b16bee5022baf183dffbd1838e6773c))
-
+- add hint content when there is no plugin found ([1494e8a](https://github.com/origin-coding/Alacrity/commit/1494e8a570891bc31513e359c44b4e538f3a5379))
+- add plugin qrcode-generator ([4972800](https://github.com/origin-coding/Alacrity/commit/497280004b16bee5022baf183dffbd1838e6773c))
 
 ### Bug Fixes
 
-* fix incorrect language in README_en.md ([c522a1c](https://github.com/origin-coding/Alacrity/commit/c522a1cad0370a88f13ad6472ede4f3d767ab883))
-* fix locale error when refreshing page, and users can now refresh in production mode ([4b4bcfc](https://github.com/origin-coding/Alacrity/commit/4b4bcfc6dc28cc75cc6048e7f701c2361142345d))
-* fix wrong layout for V3/V5 options ([1f16a85](https://github.com/origin-coding/Alacrity/commit/1f16a853d4d80ee8089f7b2007a9f44cb6c36a71))
+- fix incorrect language in README_en.md ([c522a1c](https://github.com/origin-coding/Alacrity/commit/c522a1cad0370a88f13ad6472ede4f3d767ab883))
+- fix locale error when refreshing page, and users can now refresh in production mode ([4b4bcfc](https://github.com/origin-coding/Alacrity/commit/4b4bcfc6dc28cc75cc6048e7f701c2361142345d))
+- fix wrong layout for V3/V5 options ([1f16a85](https://github.com/origin-coding/Alacrity/commit/1f16a853d4d80ee8089f7b2007a9f44cb6c36a71))
 
 ## [2.5.2](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.5.1...alacrity-v2.5.2) (2024-07-28)
 
