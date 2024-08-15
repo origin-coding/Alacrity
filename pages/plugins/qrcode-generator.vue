@@ -22,7 +22,7 @@ const type = ref<GenerateType>("text");
 const DEFAULT_RAW_VALUE = "Hello, world!";
 const text = ref(DEFAULT_RAW_VALUE);
 const image = useQRCode(text, {
-  scale: 75,
+  scale: 30,
   type: "image/webp",
 });
 
@@ -237,7 +237,7 @@ async function saveImage() {
       "wifi": "WiFi Connection",
       "url": "URL",
       "message": "Send Message",
-      "email": "Send Email",
+      "email": "Send Email"
     },
     "option": {
       "type": "QRCode For",
@@ -257,7 +257,7 @@ async function saveImage() {
       "wifi": "连接WiFi",
       "url": "链接",
       "message": "发送短信",
-      "email": "发送邮件",
+      "email": "发送邮件"
     },
     "option": {
       "type": "二维码用途",
