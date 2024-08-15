@@ -77,8 +77,24 @@ const { t } = useI18n();
       <t-button @click="generate">{{ t("generate") }}</t-button>
     </option-layout>
     <option-layout v-show="version3Or5">
-      <t-form-item :label="t('options.namespace')">
+      <t-form-item :label="t('options.namespace')" w-30vw>
         <t-input v-model="options.namespace"></t-input>
+      </t-form-item>
+      <t-form-item :label="t('options.default-namespace')">
+        <t-radio-group v-model="options.namespace">
+          <t-radio-button value="6ba7b810-9dad-11d1-80b4-00c04fd430c8">
+            DNS
+          </t-radio-button>
+          <t-radio-button value="6ba7b811-9dad-11d1-80b4-00c04fd430c8">
+            URL
+          </t-radio-button>
+          <t-radio-button value="6ba7b812-9dad-11d1-80b4-00c04fd430c8">
+            OID
+          </t-radio-button>
+          <t-radio-button value="6ba7b814-9dad-11d1-80b4-00c04fd430c8">
+            X500
+          </t-radio-button>
+        </t-radio-group>
       </t-form-item>
       <t-form-item :label="t('options.name')">
         <t-input v-model="options.name"></t-input>
@@ -107,7 +123,8 @@ const { t } = useI18n();
       "namespace": "Namespace",
       "name": "Name",
       "hyphen": "Hyphen",
-      "uppercase": "Uppercase"
+      "uppercase": "Uppercase",
+      "default-namespace": "Default"
     },
     "error": {
       "MISSING_NAMESPACE": "Missing namespace!",
@@ -122,7 +139,8 @@ const { t } = useI18n();
       "namespace": "命名空间",
       "name": "名称",
       "hyphen": "连字符",
-      "uppercase": "大写"
+      "uppercase": "大写",
+      "default-namespace": "默认"
     },
     "error": {
       "MISSING_NAMESPACE": "缺少命名空间！",
