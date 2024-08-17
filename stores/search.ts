@@ -28,7 +28,7 @@ const useSearchStore = defineStore("search-info", () => {
     const name = {} as i18nField;
     const description = {} as i18nField;
 
-    for (const locale in AlacrityLocaleList) {
+    for (const locale of AlacrityLocaleList) {
       name[locale as AlacrityLocaleType] = "";
       description[locale as AlacrityLocaleType] = "";
     }
@@ -51,7 +51,7 @@ const useSearchStore = defineStore("search-info", () => {
     const { t, locale: currentLocale } = useI18n();
 
     searchInfos.value.forEach((searchInfo) => {
-      for (const locale in AlacrityLocaleList) {
+      for (const locale of AlacrityLocaleList) {
         // Switch vue-i18n's locale to each locale values.
         currentLocale.value = locale;
         searchInfo.name[locale as AlacrityLocaleType] = t(
@@ -66,7 +66,7 @@ const useSearchStore = defineStore("search-info", () => {
     });
 
     // Init keys for searching.
-    for (const locale in AlacrityLocaleList) {
+    for (const locale of AlacrityLocaleList) {
       searchKeys.value.push(`name.${locale}`);
       searchKeys.value.push(`description.${locale}`);
     }
