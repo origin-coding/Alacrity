@@ -10,6 +10,19 @@ const disabledStore = useDisabledStore();
 const idList = computed(() =>
   searchStore.searchResults.filter((id) => !disabledStore.isDisabled(id)),
 );
+
+// There a bug with TDesign Vue Next when handling blur event.
+// See: https://github.com/Tencent/tdesign-vue-next/issues/4472
+// So this is a workaround, I can guarantee there is no Textarea element rendered in main page.
+definePageMeta({
+  middleware: [
+    function () {
+      document.querySelectorAll("body textarea").forEach((textarea) => {
+        textarea.remove();
+      });
+    },
+  ],
+});
 </script>
 
 <template>
