@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.7.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.6.0...alacrity-v2.7.0) (2024-08-17)
+
+
+### Features
+
+* add default value for namespace; widen option.namespace's input ([dd0cc9d](https://github.com/origin-coding/Alacrity/commit/dd0cc9d3f81801f84a8ac365bc8233a45933ca3c))
+* add new plugin type: converters ([723b18a](https://github.com/origin-coding/Alacrity/commit/723b18a3da79c3cfc5497115c90bbe0045f858f4))
+* introduce plugin case-converter ([b7ade06](https://github.com/origin-coding/Alacrity/commit/b7ade061cb824d7366ea4772c4b2e24f64401ff5))
+* introduce plugin url-parser ([bb26f44](https://github.com/origin-coding/Alacrity/commit/bb26f44ca1919740e06d877d3f3c4b12c295d85b))
+
+
+### Bug Fixes
+
+* fix error when trying to fix a previous bug of TDesign's textarea ([c505e4a](https://github.com/origin-coding/Alacrity/commit/c505e4a85547d897c1155c4619135ee0de43fa75))
+* fix lagging when generating QR Code ([31426c4](https://github.com/origin-coding/Alacrity/commit/31426c4cbda305e0d6fbc5fffda1caf69edab666))
+* fix wrong search result ([4d5b098](https://github.com/origin-coding/Alacrity/commit/4d5b098dfd0ab431a4364924d189319ce838abf0))
+* patch for TDesign's bug ([f8f5c9f](https://github.com/origin-coding/Alacrity/commit/f8f5c9f94d2a3c356ca155352a9662783c1335d6))
+
 ## [2.6.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.5.2...alacrity-v2.6.0) (2024-08-11)
 
 ### Features
