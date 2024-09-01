@@ -19,7 +19,7 @@ const { ref: output, copy } = useStringOperations(
     if (base64Option.value === Base64Options.decode) {
       try {
         return atob(input.value);
-      } catch (e) {
+      } catch (_) {
         MessagePlugin.error(t("error"));
         return "";
       }
