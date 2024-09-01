@@ -21,6 +21,8 @@ export default withNuxt(
       ".nuxt/**/*.*",
       "public/**/*.*",
       ".output/**/*.*",
+      "yarn.lock",
+      "package.json",
     ],
   },
   {
@@ -42,6 +44,19 @@ export default withNuxt(
       // Simple import sort.
       "simple-import-sort/imports": "warn",
       "simple-import-sort/exports": "warn",
+
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          args: "all",
+          argsIgnorePattern: "^_",
+          caughtErrors: "all",
+          caughtErrorsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
 );
