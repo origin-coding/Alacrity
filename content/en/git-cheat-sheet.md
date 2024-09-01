@@ -17,7 +17,7 @@ Initialize a git repository or clone from remote server.
 
 ```bash [demo.bash]
 git init  # Init locally
-git clone <url> [direcroty]  # Init from remote server
+git clone url [direcroty]  # Init from remote server
 ```
 
 ::
@@ -30,7 +30,7 @@ Add changes to staging area.
 
 ```bash [demo.bash]
 git add .  # Add files in a directory
-git add <filename>  # Add a file
+git add filename  # Add a file
 git add *  # Use wildcard to add multiple files
 ```
 
@@ -65,9 +65,9 @@ Move or remove files.
 ::code-group
 
 ```bash [demo.bash]
-git rm <filename>  # Remove a file
-git rm -f <filename>  # Remove a file and discard staged changes
-git mv <filename> <newfilename>  # Move or rename a file
+git rm filename  # Remove a file
+git rm -f filename  # Remove a file and discard staged changes
+git mv filename newfilename  # Move or rename a file
 ```
 
 ::
@@ -79,7 +79,7 @@ Show history and status.
 ```bash [demo.bash]
 git log  # Show git commits
 git status  # Show current state of repository
-git blame <filename>  # List a file's changes
+git blame filename  # List a file's changes
 ```
 
 ::
@@ -92,10 +92,10 @@ Manage branches.
 
 ```bash [demo.bash]
 git branch  # List branches
-git branch <branchname>  # Create a branch
-git checkout <branchname>  # Checkout to a branch
-git branch -d <branchname>  # Delete a branch
-git branch -m <branchname> <new-name>  # Rename a branch
+git branch branchname  # Create a branch
+git checkout branchname  # Checkout to a branch
+git branch -d branchname  # Delete a branch
+git branch -m branchname new-name  # Rename a branch
 ```
 
 ::
@@ -105,10 +105,10 @@ Merge/rebase branches.
 ::code-group
 
 ```bash [demo.bash]
-git merge <branchname>  # Merge changes to current branch
-git merge <branch-target> <branch-source>  # Merge source to target branch
-git rebase <branchname>  # Rebase changes to current branch
-git rebase <branch-target> <branch-source>  # Rebase source to target branch
+git merge branchname  # Merge changes to current branch
+git merge branch-target branch-source  # Merge source to target branch
+git rebase branchname  # Rebase changes to current branch
+git rebase branch-target branch-source  # Rebase source to target branch
 ```
 
 ::
@@ -120,10 +120,10 @@ Manage remote repositories.
 ```bash [demo.bash]
 git remote  # List all remote repositories
 git remote -v  # List all repositories, with URL
-git remote add <name> <url>  # Add a new remote repository
-git remote rename <old-name> <new-name>  # Rename a remote repository
-git remote remote <name>  # Remove a remote repository
-git remote set-url <new-url>  # Change a repository's URL
+git remote add name url  # Add a new remote repository
+git remote rename old-name new-name  # Rename a remote repository
+git remote remote name  # Remove a remote repository
+git remote set-url new-url  # Change a repository's URL
 ```
 
 ::
@@ -137,7 +137,7 @@ git fetch  # Download changes, without doing anything
 git pull  # Download changes, and merge to local repository
 git rebase  # Download changes, and rebase onto local repository
 git push  # Upload changes
-git push -u <remote> <branch>  # Push and set remote branch as default target
+git push -u remote branch  # Push and set remote branch as default target
 ```
 
 ::
