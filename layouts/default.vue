@@ -107,7 +107,6 @@ const showSearchDialog = ref(false);
     "allPlugins": "全部插件",
     "settings": "应用设置",
     "favorite": "收藏插件",
-    "disabled": "禁用插件",
     "navigation": {
       "main": "主导航",
       "grouped": "分组插件",
@@ -119,7 +118,6 @@ const showSearchDialog = ref(false);
     "allPlugins": "All plugins",
     "settings": "Settings",
     "favorite": "Favorite",
-    "disabled": "Disabled",
     "navigation": {
       "main": "Main navigation",
       "grouped": "Grouped plugins",
