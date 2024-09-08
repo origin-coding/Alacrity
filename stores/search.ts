@@ -17,7 +17,7 @@ const useSearchStore = defineStore("search-info", () => {
   const searchResults = computed<Array<string>>(() =>
     useFuse<SearchInfo>(search, Array.from(searchInfos.value), {
       fuseOptions: { keys: searchKeys.value, isCaseSensitive: false },
-      matchAllWhenSearchEmpty: true,
+      matchAllWhenSearchEmpty: false,
     }).results.value.map((res) => res.item.id),
   );
 
