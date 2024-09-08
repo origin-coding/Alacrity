@@ -2,10 +2,7 @@
 body {
   background-color: var(--td-bg-color-page);
 
-  // Temporarily fix TDesign's bug, see: https://github.com/Tencent/tdesign-vue-next/issues/4472.
-  //textarea {
-  //  display: none;
-  //}
+  // There is a bug when using Textarea with auto-size, temporary fix is available in index.vue.
 }
 
 // Hide scroll bar.
@@ -18,4 +15,9 @@ body {
 * {
   -ms-overflow-style: none; // IE and Edge
   scrollbar-width: none; // Firefox
+}
+
+// Fix TDesign's incorrect width of sidebar when collapsed.
+aside:has(.t-is-collapsed) {
+  width: 64px !important;
 }
