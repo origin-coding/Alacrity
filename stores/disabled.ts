@@ -13,6 +13,8 @@ const useDisabledStore = defineStore("disabled", () => {
     disabled.value = value !== null ? new Set(value) : new Set<string>();
   });
 
+  const hasAnyDisabled = computed(() => disabled.value.size !== 0);
+
   type isDisabledType = (id: string) => boolean;
   const isDisabled: ComputedRef<isDisabledType> = computed(
     () => (id: string) => disabled.value.has(id),
@@ -30,7 +32,7 @@ const useDisabledStore = defineStore("disabled", () => {
     await tauriStore.store.save();
   }
 
-  return { isDisabled, toggleDisabled };
+  return { hasAnyDisabled, isDisabled, toggleDisabled };
 });
 
 export default useDisabledStore;

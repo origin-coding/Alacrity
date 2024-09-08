@@ -13,6 +13,8 @@ const useFavoriteStore = defineStore("favorite", () => {
     favorite.value = value !== null ? new Set(value) : new Set<string>();
   });
 
+  const hasAnyFavorite = computed(() => favorite.value.size !== 0);
+
   type isFavoriteType = (id: string) => boolean;
   const isFavorite: ComputedRef<isFavoriteType> = computed(
     () => (id: string) => favorite.value.has(id),
@@ -29,7 +31,7 @@ const useFavoriteStore = defineStore("favorite", () => {
     await tauriStore.store.save();
   }
 
-  return { isFavorite, toggleFavorite };
+  return { hasAnyFavorite, isFavorite, toggleFavorite };
 });
 
 export default useFavoriteStore;

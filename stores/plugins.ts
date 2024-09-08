@@ -9,6 +9,8 @@ const usePluginsStore = defineStore("plugins", () => {
 
   const plugins = ref<Set<AlacrityPlugin>>(new Set<AlacrityPlugin>());
 
+  const allPlugins = computed(() => Array.from(plugins.value));
+
   // Group plugins by type, used in side menu.
   const groupedPlugins = computed(() => {
     return Object.groupBy(plugins.value, (plugin) => plugin.type);
@@ -20,7 +22,7 @@ const usePluginsStore = defineStore("plugins", () => {
     searchStore.addSearchInfo(plugin.id);
   }
 
-  return { groupedPlugins, addPlugin };
+  return { allPlugins, groupedPlugins, addPlugin };
 });
 
 export default usePluginsStore;
