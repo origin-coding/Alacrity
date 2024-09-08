@@ -6,7 +6,6 @@ import type { AlacrityThemeType } from "~/types/alacrity-theme";
 // Config keys.
 export const Keys = {
   favorite: "favorite",
-  disabled: "disabled",
   theme: "theme",
   locale: "locale",
 } as const;
@@ -14,7 +13,6 @@ export const Keys = {
 // Config type definition.
 export interface AlacrityConfig {
   [Keys.favorite]: Set<string>;
-  [Keys.disabled]: Set<string>;
   [Keys.theme]: AlacrityThemeType;
   [Keys.locale]: AlacrityLocaleType;
 }

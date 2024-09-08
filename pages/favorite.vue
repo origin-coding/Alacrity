@@ -1,20 +1,14 @@
 <script setup lang="ts">
 import useFavoriteStore from "~/stores/favorite";
-import useSearchStore from "~/stores/search";
 
 const { t } = useI18n();
 
-const searchStore = useSearchStore();
 const favoriteStore = useFavoriteStore();
-
-const idList = computed(() =>
-  searchStore.searchResults.filter((id) => favoriteStore.isFavorite(id)),
-);
 </script>
 
 <template>
   <alacrity-page :title="t('favorite')">
-    <plugin-card-list :id-list="idList"></plugin-card-list>
+    <plugin-card-list :id-list="favoriteStore.allFavorite"></plugin-card-list>
   </alacrity-page>
 </template>
 
