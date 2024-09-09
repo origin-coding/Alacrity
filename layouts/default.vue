@@ -9,6 +9,14 @@ const pluginsStore = usePluginsStore();
 
 const collapsed = ref(false);
 const showSearchDialog = ref(false);
+
+const { ctrl_k, meta_k } = useMagicKeys();
+
+watch([ctrl_k, meta_k], ([ctrl, meta]) => {
+  if (ctrl || meta) {
+    showSearchDialog.value = true;
+  }
+});
 </script>
 
 <template>
