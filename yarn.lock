@@ -10420,7 +10420,7 @@ vue-tsc@^2.1.4:
     "@vue/language-core" "2.1.6"
     semver "^7.5.4"
 
-vue@^3.4.38, vue@^3.5.0:
+vue@^3.5.0, vue@^3.5.3:
   version "3.5.3"
   resolved "https://registry.npmmirror.com/vue/-/vue-3.5.3.tgz#1f621023b123341ab5f427e2a6d7320d0e47d72b"
   integrity sha512-xvRbd0HpuLovYbOHXRHlSBsSvmUJbo0pzbkKTApWnQGf3/cu5Z39mQeA5cZdLRVIoNf3zI6MSoOgHUT5i2jO+Q==

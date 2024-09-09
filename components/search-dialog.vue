@@ -14,6 +14,20 @@ function onResultClick(pluginId: string) {
   showDialog.value = false;
   router.push(getPluginRoute(pluginId));
 }
+
+const inputRef = useTemplateRef<HTMLDivElement>("input");
+
+watch(
+  () => showDialog.value,
+  () => {
+    if (showDialog.value) {
+      // Delay focus for 200ms to correctly focus on the input element.
+      setTimeout(() => {
+        inputRef.value?.focus();
+      }, 200);
+    }
+  },
+);
 </script>
 
 <template>
@@ -25,9 +39,11 @@ function onResultClick(pluginId: string) {
     @closed="searchStore.search = ''"
   >
     <t-input
+      ref="input"
       v-model="searchStore.search"
       :placeholder="t('placeholder')"
       :clearable="true"
+      :autofocus="true"
     ></t-input>
 
     <!-- 332px is enough for title and three elements. -->
