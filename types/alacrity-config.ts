@@ -8,6 +8,7 @@ export const Keys = {
   favorite: "favorite",
   theme: "theme",
   locale: "locale",
+  guide: "guide",
 } as const;
 
 // Config type definition.
@@ -15,6 +16,7 @@ export interface AlacrityConfig {
   [Keys.favorite]: Set<string>;
   [Keys.theme]: AlacrityThemeType;
   [Keys.locale]: AlacrityLocaleType;
+  [Keys.guide]: boolean;
 }
 
 // Config file.

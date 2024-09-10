@@ -19,6 +19,7 @@ useThemeStore();
     <nuxt-layout>
       <nuxt-page></nuxt-page>
     </nuxt-layout>
+    <introduction-guide></introduction-guide>
   </t-config-provider>
 </template>
 

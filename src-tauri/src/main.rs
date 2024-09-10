@@ -8,7 +8,7 @@ use serde_json::json;
 use tauri::{Manager, api::path::app_config_dir, Wry};
 use tauri_plugin_store::{StoreCollection, with_store};
 
-use crate::config::{CONFIG_FILE, KEY_LOCALE, KEY_FAVORITE, KEY_THEME, DefaultConfig};
+use crate::config::{CONFIG_FILE, KEY_LOCALE, KEY_FAVORITE, KEY_THEME, DefaultConfig, KEY_GUIDE};
 
 #[derive(Clone, Serialize)]
 struct Payload {
@@ -34,6 +34,7 @@ fn main() {
                 store.insert(KEY_LOCALE.into(), json!(default_config.locale))?;
                 store.insert(KEY_THEME.into(), json!(default_config.theme))?;
                 store.insert(KEY_FAVORITE.into(), json!(default_config.favorite))?;
+                store.insert(KEY_GUIDE.into(), json!(default_config.guide))?;
                 store.save()
             }).expect("Unable to init configuration file!");
 

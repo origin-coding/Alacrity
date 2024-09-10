@@ -24,7 +24,10 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
     <t-aside>
       <t-menu :value="undefined" :expand-mutex="true" :collapsed>
         <!-- All plugins and favorite plugins. -->
-        <t-menu-group :title="t('navigation.main')">
+        <t-menu-group
+          id="alacrity-main-navigation"
+          :title="t('navigation.main')"
+        >
           <t-menu-item value="plugins" :to="{ path: '/' }">
             <template #icon> <list-icon /> </template>
             {{ t("allPlugins") }}
@@ -37,7 +40,10 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
         </t-menu-group>
 
         <!-- Iterate over all groups, and show them as submenus -->
-        <t-menu-group :title="t('navigation.grouped')">
+        <t-menu-group
+          id="alacrity-grouped-plugins"
+          :title="t('navigation.grouped')"
+        >
           <t-submenu
             v-for="group in menuGroupStore.groups"
             :key="group"
@@ -64,12 +70,20 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
 
         <!-- Searching plugins and settings page. -->
         <t-menu-group :title="t('navigation.more')">
-          <t-menu-item value="search" @click="showSearchDialog = true">
+          <t-menu-item
+            id="alacrity-search-plugins"
+            value="search"
+            @click="showSearchDialog = true"
+          >
             <template #icon> <search-icon /> </template>
             {{ t("search") }}
           </t-menu-item>
 
-          <t-menu-item value="settings" :to="{ path: '/settings' }">
+          <t-menu-item
+            id="alacrity-settings"
+            value="settings"
+            :to="{ path: '/settings' }"
+          >
             <template #icon> <setting-icon /> </template>
             {{ t("settings") }}
           </t-menu-item>
@@ -78,6 +92,7 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
         <!-- Collapse side menu. -->
         <template #operations>
           <t-button
+            id="alacrity-collapse"
             variant="text"
             shape="square"
             @click="collapsed = !collapsed"

@@ -7,12 +7,14 @@ pub const CONFIG_FILE: &str = "settings.json";
 pub const KEY_FAVORITE: &str = "favorite";
 pub const KEY_LOCALE: &str = "locale";
 pub const KEY_THEME: &str = "theme";
+pub const KEY_GUIDE: &str = "guide";
 
 // Default values.
 pub struct DefaultConfig {
     pub locale: String,
     pub theme: String,
     pub favorite: Vec<String>,
+    pub guide: bool,
 }
 
 impl Default for DefaultConfig {
@@ -21,6 +23,7 @@ impl Default for DefaultConfig {
             locale: "en".to_string(),
             theme: "light".to_string(),
             favorite: Vec::new(),
+            guide: false,
         }
     }
 }
