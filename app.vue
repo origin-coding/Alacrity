@@ -15,12 +15,14 @@ useThemeStore();
 </script>
 
 <template>
-  <t-config-provider :global-config="LocaleMappings[useLocaleStore().locale]">
-    <nuxt-layout>
-      <nuxt-page></nuxt-page>
-    </nuxt-layout>
-    <introduction-guide></introduction-guide>
-  </t-config-provider>
+  <color-scheme>
+    <t-config-provider :global-config="LocaleMappings[useLocaleStore().locale]">
+      <nuxt-layout>
+        <nuxt-page></nuxt-page>
+      </nuxt-layout>
+      <introduction-guide></introduction-guide>
+    </t-config-provider>
+  </color-scheme>
 </template>
 
 <style scoped lang="less"></style>
