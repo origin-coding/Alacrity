@@ -9,18 +9,25 @@ const useThemeStore = defineStore("theme", () => {
   const colorMode = useColorMode();
 
   tauriStore.store.get<AlacrityConfig["theme"]>(Keys.theme).then((val) => {
-    val = val || "system";
-    colorMode.preference = val;
-    theme.value = val;
-    document.documentElement.setAttribute("theme-mode", colorMode.value);
+    theme.value = val || "system";
+    colorMode.preference = theme.value;
+    applyTDesignTheme();
   });
 
   watch(theme, async (value) => {
     colorMode.preference = value;
-    document.documentElement.setAttribute("theme-mode", colorMode.value);
+    applyTDesignTheme();
     await tauriStore.store.set(Keys.theme, value);
     await tauriStore.store.save();
   });
+
+  function applyTDesignTheme() {
+    const value =
+      colorMode.preference === "system"
+        ? colorMode.value
+        : colorMode.preference;
+    document.documentElement.setAttribute("theme-mode", value);
+  }
 
   return { theme };
 });
