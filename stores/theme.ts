@@ -9,14 +9,15 @@ const useThemeStore = defineStore("theme", () => {
   const colorMode = useColorMode();
 
   tauriStore.store.get<AlacrityConfig["theme"]>(Keys.theme).then((val) => {
-    colorMode.preference = val || "system";
-    theme.value = colorMode.value as AlacrityConfig["theme"];
-    document.documentElement.setAttribute("theme-mode", theme.value);
+    val = val || "system";
+    colorMode.preference = val;
+    theme.value = val;
+    document.documentElement.setAttribute("theme-mode", colorMode.value);
   });
 
   watch(theme, async (value) => {
-    document.documentElement.setAttribute("theme-mode", value);
     colorMode.preference = value;
+    document.documentElement.setAttribute("theme-mode", colorMode.value);
     await tauriStore.store.set(Keys.theme, value);
     await tauriStore.store.save();
   });
