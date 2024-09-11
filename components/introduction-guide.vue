@@ -8,12 +8,12 @@ const guideStore = useGuideStore();
 
 const current = ref(-1);
 
-// If haven't showed guide, show it.
-onMounted(() => {
-  if (!guideStore.guide) {
+// Set timeout so that it can correctly load config and find the elements.
+setTimeout(() => {
+  if (guideStore.guide === false) {
     current.value = 0;
   }
-});
+}, 200);
 
 const steps = computed<GuideProps["steps"]>(() => [
   {
