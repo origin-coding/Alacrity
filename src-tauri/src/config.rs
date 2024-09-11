@@ -8,6 +8,7 @@ pub const KEY_FAVORITE: &str = "favorite";
 pub const KEY_LOCALE: &str = "locale";
 pub const KEY_THEME: &str = "theme";
 pub const KEY_GUIDE: &str = "guide";
+pub const KEY_COLLAPSED: &str = "collapsed";
 
 // Default values.
 pub struct DefaultConfig {
@@ -15,6 +16,7 @@ pub struct DefaultConfig {
     pub theme: String,
     pub favorite: Vec<String>,
     pub guide: bool,
+    pub collapsed: bool,
 }
 
 impl Default for DefaultConfig {
@@ -24,6 +26,7 @@ impl Default for DefaultConfig {
             theme: "system".to_string(),
             favorite: Vec::new(),
             guide: false,
+            collapsed: false,
         }
     }
 }

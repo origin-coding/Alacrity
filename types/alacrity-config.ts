@@ -9,6 +9,7 @@ export const Keys = {
   theme: "theme",
   locale: "locale",
   guide: "guide",
+  collapsed: "collapsed",
 } as const;
 
 // Config type definition.
@@ -17,6 +18,7 @@ export interface AlacrityConfig {
   [Keys.theme]: AlacrityThemeType;
   [Keys.locale]: AlacrityLocaleType;
   [Keys.guide]: boolean;
+  [Keys.collapsed]: boolean;
 }
 
 // Config file.

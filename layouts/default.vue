@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import useCollapsedStore from "~/stores/collapsed";
 import useMenuGroupStore from "~/stores/menu-group";
 import usePluginsStore from "~/stores/plugins";
 import { TypeLogos } from "~/types/alacrity-plugin";
@@ -7,11 +8,16 @@ const { t } = useI18n();
 const menuGroupStore = useMenuGroupStore();
 const pluginsStore = usePluginsStore();
 
-const collapsed = ref(false);
+// Collapse when collapsed is true or window's width is no greater than 900.
+const collapsedStore = useCollapsedStore();
+const { width } = useWindowSize();
+const shouldBeCollapsed = computed(() => {
+  return collapsedStore.collapsed || width.value <= 900;
+});
+
+// Bind shortcut and controls whether to show search dialog.
 const showSearchDialog = ref(false);
-
 const { ctrl_k, meta_k } = useMagicKeys();
-
 watch([ctrl_k, meta_k], ([ctrl, meta]) => {
   if (ctrl || meta) {
     showSearchDialog.value = true;
@@ -22,19 +28,27 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
 <template>
   <t-layout id="main-layout">
     <t-aside>
-      <t-menu :value="undefined" :expand-mutex="true" :collapsed>
+      <t-menu
+        :value="undefined"
+        :expand-mutex="true"
+        :collapsed="shouldBeCollapsed"
+      >
         <!-- All plugins and favorite plugins. -->
         <t-menu-group
           id="alacrity-main-navigation"
           :title="t('navigation.main')"
         >
           <t-menu-item value="plugins" :to="{ path: '/' }">
-            <template #icon> <list-icon /> </template>
+            <template #icon>
+              <list-icon />
+            </template>
             {{ t("allPlugins") }}
           </t-menu-item>
 
           <t-menu-item value="favorite" :to="{ path: '/favorite' }">
-            <template #icon> <star-icon /> </template>
+            <template #icon>
+              <star-icon />
+            </template>
             {{ t("favorite") }}
           </t-menu-item>
         </t-menu-group>
@@ -75,7 +89,9 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
             value="search"
             @click="showSearchDialog = true"
           >
-            <template #icon> <search-icon /> </template>
+            <template #icon>
+              <search-icon />
+            </template>
             {{ t("search") }}
           </t-menu-item>
 
@@ -84,7 +100,9 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
             value="settings"
             :to="{ path: '/settings' }"
           >
-            <template #icon> <setting-icon /> </template>
+            <template #icon>
+              <setting-icon />
+            </template>
             {{ t("settings") }}
           </t-menu-item>
         </t-menu-group>
@@ -95,9 +113,11 @@ watch([ctrl_k, meta_k], ([ctrl, meta]) => {
             id="alacrity-collapse"
             variant="text"
             shape="square"
-            @click="collapsed = !collapsed"
+            @click="collapsedStore.collapsed = !collapsedStore.collapsed"
           >
-            <template #icon> <view-list-icon /> </template>
+            <template #icon>
+              <view-list-icon />
+            </template>
           </t-button>
         </template>
       </t-menu>
