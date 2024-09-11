@@ -7,10 +7,12 @@ import zh_CN from "tdesign-vue-next/es/locale/zh_CN";
 export const AlacrityLocales = {
   en: "en",
   zhHans: "zhHans",
+  system: "system",
 } as const;
 
 // Exported locale type.
 export type AlacrityLocaleType = keyof typeof AlacrityLocales;
+export type AlacrityLocaleTypeActual = Exclude<AlacrityLocaleType, "system">;
 
 // Exported locale list.
 export const AlacrityLocaleList: Array<AlacrityLocaleType> = Object.keys(
@@ -26,7 +28,7 @@ function getDefault(source: unknown): GlobalConfigProvider {
 
 // Mapping Alacrity's locale to TDesign's locale.
 export const LocaleMappings: {
-  [key in AlacrityLocaleType]: GlobalConfigProvider;
+  [key in Exclude<AlacrityLocaleType, "system">]: GlobalConfigProvider;
 } = {
   [AlacrityLocales.en]: getDefault(en_US),
   [AlacrityLocales.zhHans]: getDefault(zh_CN),

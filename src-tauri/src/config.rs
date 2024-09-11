@@ -22,7 +22,7 @@ pub struct DefaultConfig {
 impl Default for DefaultConfig {
     fn default() -> Self {
         DefaultConfig {
-            locale: "en".to_string(),
+            locale: "system".to_string(),
             theme: "system".to_string(),
             favorite: Vec::new(),
             guide: false,

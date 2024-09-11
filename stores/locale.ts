@@ -11,12 +11,12 @@ const useLocaleStore = defineStore("locale", () => {
   const tauriStore = useTauriStore();
 
   tauriStore.store.get<AlacrityConfig["locale"]>(Keys.locale).then((val) => {
-    locale.value = val || "en";
-    i18nLocale.value = locale.value;
+    locale.value = val || "system";
+    i18nLocale.value = mapLocale(locale.value);
   });
 
   watch(locale, async (value) => {
-    i18nLocale.value = value;
+    i18nLocale.value = mapLocale(locale.value);
     await tauriStore.store.set(Keys.locale, value);
     await tauriStore.store.save();
   });

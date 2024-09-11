@@ -5,10 +5,11 @@
   "themes": {
     "light": "Light",
     "dark": "Dark",
-    "system": "System"
+    "system": "System Default"
   },
   "locales": {
     "en": "English",
-    "zhHans": "Simplified Chinese"
+    "zhHans": "Simplified Chinese",
+    "system": "System Default"
   }
 }
