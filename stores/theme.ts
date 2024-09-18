@@ -22,6 +22,7 @@ const useThemeStore = defineStore("theme", () => {
   });
 
   function applyTDesignTheme() {
+    colorMode.forced = true;
     const value =
       colorMode.preference === "system"
         ? colorMode.value
