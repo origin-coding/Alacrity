@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.1](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.8.0...alacrity-v2.8.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* fix theme error ([fed06b0](https://github.com/origin-coding/Alacrity/commit/fed06b0604be6b00b866855ab979444f488499aa))
+
 ## [2.8.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.7.0...alacrity-v2.8.0) (2024-09-11)
 
 
