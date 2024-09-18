@@ -15,7 +15,7 @@
 ## 功能特性
 
 1. 适用于各种场景的多种插件，包括Base64、UUID、WebSocket等。
-2. 汉语和英语双语言，以及亮色/暗色主题切换。
+2. 汉语和英语双语言，以及亮色/暗色主题切换；在切换主题设置为系统默认时，可能需要手动刷新来使页面生效。
 
 ## 安装下载
 
@@ -33,10 +33,8 @@
 
 1. 将项目克隆到本地：`git clone https://github.com/origin-coding/Alacrity.git`
 2. 执行命令`yarn install`安装开发依赖
-3. 手动删除**node_modules/micromark/node_modules**目录。这个目录使用了**Common JS模块规范**
-   在开发过程中会导致应用崩溃，但不影响最终构建，因此可以放心删除。
-4. 执行命令`yarn run tauri dev`进行启动本地开发版本。注意：因为Alacrity被配置为单例应用，即同一时间只能有一个Alacrity示例运行，因此在开发时要关闭其他的Alacrity窗口。
-5. 执行命令`yarn run tauri build`构建应用。
+3. 执行命令`yarn run tauri dev`进行启动本地开发版本。注意：因为Alacrity被配置为单例应用，即同一时间只能有一个Alacrity示例运行，因此在开发时要关闭其他的Alacrity窗口。
+4. 执行命令`yarn run tauri build`构建应用。
 
 # 技术支持
 

@@ -15,7 +15,8 @@ My personal project, used to implement some common used development tools, also 
 ## Features
 
 1. Plugins suitable for lots of situations, such as Base64, UUID, WebSocket, etc。
-2. Switching between Chinese and English, and change themes between light and dark.
+2. Switching between Chinese and English, and change themes between light and dark; when switching theme config to
+   system default, mayby a refresh is needed to activate current theme.
 
 ## Download & install
 
@@ -34,13 +35,10 @@ After installation, double click the shortcut on desktop to use Alacrity.
 
 1. Clone repository: `git clone https://github.com/origin-coding/Alacrity.git`
 2. Run `yarn install` to install dependencies.
-3. Manually delete directory: **node_modules/micromark/node_modules** . This directory uses **Common JS module
-   specification**, which causes crash during development, but does not influence the build process, so it's free to
-   delete.
-4. Run `yarn run tauri dev` to run Alacrity for development. Note: Alacrity is configured as a singleton application,
+3. Run `yarn run tauri dev` to run Alacrity for development. Note: Alacrity is configured as a singleton application,
    which means there is only one application instance at the same time, so you need to close other Alacrity windows
    during development.
-5. Run `yarn run tauri build` to build Alacrity.
+4. Run `yarn run tauri build` to build Alacrity.
 
 # Powered by
 
