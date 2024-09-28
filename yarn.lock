@@ -9491,10 +9491,10 @@ tdesign-icons-vue-next@^0.2.4, tdesign-icons-vue-next@^0.2.6:
   dependencies:
     "@babel/runtime" "^7.16.3"
 
-tdesign-vue-next@^1.9.9:
-  version "1.9.9"
-  resolved "https://registry.npmmirror.com/tdesign-vue-next/-/tdesign-vue-next-1.9.9.tgz#25c484cb42ed7de5f7a8f42ee489172a28d70519"
-  integrity sha512-PGMnRZWXZo1wEMCVG+D3RALSS0at24tGvoYJzgbK+Zim9C0ox5WpvpxaBpf3snflVGnADcI7C7axMyUdgUhvnw==
+tdesign-vue-next@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.npmmirror.com/tdesign-vue-next/-/tdesign-vue-next-1.10.2.tgz#4ff9a80d5202dbe0fa6df74caf58e24cc2682e55"
+  integrity sha512-XTfkpZ98BvHFan1H0XdU8xcmMKl+RhPH2NYnAp8sAwQFB7aPW+e+9TnDB6Cddvxc9QuCsCjUH20iN+gf6mUapg==
   dependencies:
     "@babel/runtime" "^7.22.6"
     "@popperjs/core" "^2.11.8"

@@ -46,7 +46,7 @@
     "scule": "^1.3.0",
     "tauri-plugin-store-api": "https://github.com/tauri-apps/tauri-plugin-store#v1",
     "tdesign-icons-vue-next": "^0.2.6",
-    "tdesign-vue-next": "^1.9.9",
+    "tdesign-vue-next": "^1.10.2",
     "terser": "^5.31.6",
     "ua-parser-js": "^1.0.38",
     "uuid": "^10.0.0",
