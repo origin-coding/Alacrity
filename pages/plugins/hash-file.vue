@@ -3,7 +3,7 @@
 // @ts-ignore
 import { Buffer } from "node:buffer";
 
-import { readBinaryFile } from "@tauri-apps/api/fs";
+import { readFile } from "@tauri-apps/plugin-fs";
 import {
   enc,
   lib,
@@ -43,7 +43,7 @@ async function hash(path: null | string | string[]) {
     return;
   }
 
-  const bytes = await readBinaryFile(path as string);
+  const bytes = await readFile(path as string);
   // input.value = uInt8ArrayToWordArray(bytes);
   input.value = enc.Hex.parse(Buffer.from(bytes).toString("hex"));
 }

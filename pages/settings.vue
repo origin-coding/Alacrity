@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getVersion } from "@tauri-apps/api/app";
-import { open } from "@tauri-apps/api/shell";
+import { open } from "@tauri-apps/plugin-shell";
 
 import useLocaleStore from "~/stores/locale";
 import useThemeStore from "~/stores/theme";

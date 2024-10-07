@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { save } from "@tauri-apps/api/dialog";
-import { writeBinaryFile, writeTextFile } from "@tauri-apps/api/fs";
+import { save } from "@tauri-apps/plugin-dialog";
+import { writeFile, writeTextFile } from "@tauri-apps/plugin-fs";
 import { useQRCode } from "@vueuse/integrations/useQRCode";
 import QRCode from "qrcode";
 import { MessagePlugin } from "tdesign-vue-next";
@@ -47,7 +47,7 @@ async function saveJpegPng(fileType: Exclude<ImageType, "Svg">) {
   const element = await QRCode.toCanvas(text.value, { scale: 75, width: 300 });
   element.toBlob(async (binaryContent) => {
     const buffer = await binaryContent!.arrayBuffer();
-    await writeBinaryFile(filepath, buffer);
+    await writeFile(filepath, new Uint8Array(buffer));
   }, `image/${fileType}`);
 }
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { open, type OpenDialogOptions } from "@tauri-apps/api/dialog";
+import { open, type OpenDialogOptions } from "@tauri-apps/plugin-dialog";
 
 const { t } = useI18n();
 

@@ -1,4 +1,4 @@
-import { readText, writeText } from "@tauri-apps/api/clipboard";
+import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
 import type { MaybeRef } from "vue";
 
 export default function (initialValue: MaybeRef<string> = "") {

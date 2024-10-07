@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { readText, writeText } from "@tauri-apps/api/clipboard";
+import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
 import {
   camelCase,
   flatCase,
