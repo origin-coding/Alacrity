@@ -2,35 +2,32 @@
 
 ## [2.8.1](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.8.0...alacrity-v2.8.1) (2024-09-18)
 
-
 ### Bug Fixes
 
-* fix theme error ([fed06b0](https://github.com/origin-coding/Alacrity/commit/fed06b0604be6b00b866855ab979444f488499aa))
+- fix theme error ([fed06b0](https://github.com/origin-coding/Alacrity/commit/fed06b0604be6b00b866855ab979444f488499aa))
 
 ## [2.8.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.7.0...alacrity-v2.8.0) (2024-09-11)
 
-
 ### Features
 
-* add auto focus on input element ([b231935](https://github.com/origin-coding/Alacrity/commit/b23193570732847259410cd5eb837ea265eefbe3))
-* add configuration for collapsing side menu ([44d9fdb](https://github.com/origin-coding/Alacrity/commit/44d9fdbceb75319984df990898eee6ca6660ecca))
-* add default value for locale config ([ed1caec](https://github.com/origin-coding/Alacrity/commit/ed1caec8da9cec4612d4e6c9bb3d5becec960ad3))
-* add introduction guide for Alacrity ([b93603f](https://github.com/origin-coding/Alacrity/commit/b93603f25742a6f32c1b69c2feec3d4768e05b5f))
-* add shortcut for searching plugins ([d896a55](https://github.com/origin-coding/Alacrity/commit/d896a550fedd86bd5875edbf687ac00e1f10af7d))
-* change side menu's layout and function ([28e8ec0](https://github.com/origin-coding/Alacrity/commit/28e8ec093ff55c49d96d56753b469325272b3ae2))
-* remove disabled plugin config ([85877cc](https://github.com/origin-coding/Alacrity/commit/85877cc4b46235bc9ce914b467d27f6df1224ef4))
-
+- add auto focus on input element ([b231935](https://github.com/origin-coding/Alacrity/commit/b23193570732847259410cd5eb837ea265eefbe3))
+- add configuration for collapsing side menu ([44d9fdb](https://github.com/origin-coding/Alacrity/commit/44d9fdbceb75319984df990898eee6ca6660ecca))
+- add default value for locale config ([ed1caec](https://github.com/origin-coding/Alacrity/commit/ed1caec8da9cec4612d4e6c9bb3d5becec960ad3))
+- add introduction guide for Alacrity ([b93603f](https://github.com/origin-coding/Alacrity/commit/b93603f25742a6f32c1b69c2feec3d4768e05b5f))
+- add shortcut for searching plugins ([d896a55](https://github.com/origin-coding/Alacrity/commit/d896a550fedd86bd5875edbf687ac00e1f10af7d))
+- change side menu's layout and function ([28e8ec0](https://github.com/origin-coding/Alacrity/commit/28e8ec093ff55c49d96d56753b469325272b3ae2))
+- remove disabled plugin config ([85877cc](https://github.com/origin-coding/Alacrity/commit/85877cc4b46235bc9ce914b467d27f6df1224ef4))
 
 ### Bug Fixes
 
-* fix bug with shows empty favorite list ([ce50a3d](https://github.com/origin-coding/Alacrity/commit/ce50a3d1e2b66b315e8154e699f79eec9afc98d2))
-* fix incorrect content style ([0c288b7](https://github.com/origin-coding/Alacrity/commit/0c288b7e242a8a5c053b8df3257cb81b1fdc5881))
-* fix incorrect TDesign's theme initialization ([81a0862](https://github.com/origin-coding/Alacrity/commit/81a0862c77b60dd29ee1afbcbfbf8cfd6eed14c2))
-* fix incorrect theme then config is set to "system" ([2ffeae7](https://github.com/origin-coding/Alacrity/commit/2ffeae736f37276aca4ad274cb5a2203f010a0c0))
-* fix repeated guides after skipping or finishing guide ([29c1d33](https://github.com/origin-coding/Alacrity/commit/29c1d33f27aae3495e89d531cf931ed7c4da6b06))
-* fix wrong color mode after initial startup ([c4bf98f](https://github.com/origin-coding/Alacrity/commit/c4bf98fe29030ed83483c6df759361f0045b93c0))
-* force menu's collapsed width to 64px ([bba1b7f](https://github.com/origin-coding/Alacrity/commit/bba1b7fb39cbdd3ce49664ee4b743329cdf774a1))
-* patch for TDesign's bug ([bddf9ab](https://github.com/origin-coding/Alacrity/commit/bddf9ab6f00b81076bd381c3dd5ecc11ef3b937e))
+- fix bug with shows empty favorite list ([ce50a3d](https://github.com/origin-coding/Alacrity/commit/ce50a3d1e2b66b315e8154e699f79eec9afc98d2))
+- fix incorrect content style ([0c288b7](https://github.com/origin-coding/Alacrity/commit/0c288b7e242a8a5c053b8df3257cb81b1fdc5881))
+- fix incorrect TDesign's theme initialization ([81a0862](https://github.com/origin-coding/Alacrity/commit/81a0862c77b60dd29ee1afbcbfbf8cfd6eed14c2))
+- fix incorrect theme then config is set to "system" ([2ffeae7](https://github.com/origin-coding/Alacrity/commit/2ffeae736f37276aca4ad274cb5a2203f010a0c0))
+- fix repeated guides after skipping or finishing guide ([29c1d33](https://github.com/origin-coding/Alacrity/commit/29c1d33f27aae3495e89d531cf931ed7c4da6b06))
+- fix wrong color mode after initial startup ([c4bf98f](https://github.com/origin-coding/Alacrity/commit/c4bf98fe29030ed83483c6df759361f0045b93c0))
+- force menu's collapsed width to 64px ([bba1b7f](https://github.com/origin-coding/Alacrity/commit/bba1b7fb39cbdd3ce49664ee4b743329cdf774a1))
+- patch for TDesign's bug ([bddf9ab](https://github.com/origin-coding/Alacrity/commit/bddf9ab6f00b81076bd381c3dd5ecc11ef3b937e))
 
 ## [2.7.0](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.6.0...alacrity-v2.7.0) (2024-08-17)
 
