@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import TConfigProvider from "tdesign-vue-next/esm/config-provider";
 
+import useCollapsedStore from "~/stores/collapsed";
+import useFavoriteStore from "~/stores/favorite";
+import useGuideStore from "~/stores/guide";
+import useLocaleStore from "~/stores/locale";
 import useSearchStore from "~/stores/search";
 import useThemeStore from "~/stores/theme";
 import {
@@ -8,19 +12,23 @@ import {
   LocaleMappings,
 } from "~/types/alacrity-locale";
 
-// Manually init search info.
+// Manually initialize config on startup.
+useLocaleStore();
+useCollapsedStore();
+useGuideStore();
+useFavoriteStore();
+useThemeStore();
+
+// Initialize search information.
 const searchStore = useSearchStore();
 searchStore.initSearchInfo();
-
-// Use this store to force update theme.
-useThemeStore();
 </script>
 
 <template>
   <color-scheme>
     <t-config-provider
       :global-config="
-        LocaleMappings[useI18n().locale as unknown as AlacrityLocaleTypeActual]
+        LocaleMappings[locale as unknown as AlacrityLocaleTypeActual]
       "
     >
       <nuxt-layout>
