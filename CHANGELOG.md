@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.2](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.8.1...alacrity-v2.8.2) (2024-10-17)
+
+
+### Bug Fixes
+
+* prevent showing introduction guide after first guide ([59d9759](https://github.com/origin-coding/Alacrity/commit/59d9759a0fd2b362ff4a03a46c4aae4d09fa223d))
+
 ## [2.8.1](https://github.com/origin-coding/Alacrity/compare/alacrity-v2.8.0...alacrity-v2.8.1) (2024-09-18)
 
 ### Bug Fixes
