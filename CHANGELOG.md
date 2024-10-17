@@ -2,10 +2,9 @@
 
 ## [3.0.1](https://github.com/origin-coding/Alacrity/compare/v3.0.0...v3.0.1) (2024-10-17)
 
-
 ### Bug Fixes
 
-* fix github build script ([f8f708d](https://github.com/origin-coding/Alacrity/commit/f8f708df1f2d94da6a8e03a37939f27a965a0e6b))
+- fix github build script ([f8f708d](https://github.com/origin-coding/Alacrity/commit/f8f708df1f2d94da6a8e03a37939f27a965a0e6b))
 
 ## [3.0.0](https://github.com/origin-coding/Alacrity/compare/v2.8.2...v3.0.0) (2024-10-17)
 

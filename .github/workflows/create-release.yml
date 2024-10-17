@@ -95,16 +95,16 @@ jobs:
         run: |
           cd ${{ github.workspace }}/src-tauri/target/release/bundle/macos
           zip -r Alacrity.app.zip Alacrity.app
-          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/dmg/*.dmg --clobber --name Alacrity_${{ needs.create-release.outputs.tag-name }}_x64.dmg
-          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/macos/*.app.zip --clobber --name Alacrity_${{ needs.create-release.outputs.tag-name }}_x64.app.zip
+          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/dmg/*.dmg#Alacrity_${{ needs.create-release.outputs.tag-name }}_x64.dmg --clobber
+          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/macos/*.app.zip#Alacrity_${{ needs.create-release.outputs.tag-name }}_x64.app.zip --clobber
 
       - name: Upload artifacts(macOS arm)
         if: matrix.platform == 'macos-latest' && matrix.args == '--target aarch64-apple-darwin'
         run: |
           cd ${{ github.workspace }}/src-tauri/target/release/bundle/macos
           zip -r Alacrity.app.zip Alacrity.app
-          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/dmg/*.dmg --clobber --name Alacrity_${{ needs.create-release.outputs.tag-name }}_aarch64.dmg
-          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/macos/*.app.zip --clobber --name Alacrity_${{ needs.create-release.outputs.tag-name }}_aarch64.app.zip
+          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/dmg/*.dmg#Alacrity_${{ needs.create-release.outputs.tag-name }}_aarch64.dmg --clobber
+          gh release upload ${{ needs.create-release.outputs.tag-name }} ${{ github.workspace }}/src-tauri/target/release/bundle/macos/*.app.zip#Alacrity_${{ needs.create-release.outputs.tag-name }}_aarch64.app.zip --clobber
 
       - name: Upload artifacts(Windows)
         if: matrix.platform == 'windows-latest'
