@@ -13,7 +13,7 @@ setTimeout(() => {
   if (guideStore.guide === false) {
     current.value = 0;
   }
-}, 200);
+}, 500);
 
 const steps = computed<GuideProps["steps"]>(() => [
   {
