@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import TEmpty from "tdesign-vue-next/esm/empty";
+
 const props = defineProps<{ idList: Array<string> }>();
 
 const { t } = useI18n();
+const router = useRouter();
 </script>
 
 <template>
@@ -22,9 +25,13 @@ const { t } = useI18n();
   </t-row>
 
   <!-- When list is empty, show this prompt -->
-  <div v-else class="result-success">
-    <filter-clear-icon class="result-success-icon"></filter-clear-icon>
-    <div class="result-success-title">{{ t("empty") }}</div>
+  <!-- h-80vh justify-center content-center -->
+  <div v-else h-80vh content-center>
+    <t-empty :title="t('empty')">
+      <template #action>
+        <t-button @click="router.push('/')">{{ t("back") }}</t-button>
+      </template>
+    </t-empty>
   </div>
 </template>
 
@@ -53,10 +60,12 @@ const { t } = useI18n();
 <i18n>
 {
   "en": {
-    "empty": "No matching plugins found"
+    "empty": "No matching plugins found",
+    "back": "View all plugins"
   },
   "zhHans": {
-    "empty": "没有符合条件的插件"
+    "empty": "没有符合条件的插件",
+    "back": "查看全部插件"
   }
 }
 </i18n>
