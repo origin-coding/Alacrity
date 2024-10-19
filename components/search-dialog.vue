@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useTemplateRef } from "vue";
-
 import useSearchStore from "~/stores/search";
 
 const showDialog = defineModel<boolean>({
