@@ -1,6 +1,8 @@
+name: Build Alacrity
+
 on:
   release:
-    types: [published]
+    types: [created]
 
 jobs:
   build-alacrity:
