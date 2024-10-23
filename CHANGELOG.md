@@ -2,10 +2,9 @@
 
 ## [3.1.0](https://github.com/origin-coding/Alacrity/compare/v3.0.3...v3.1.0) (2024-10-23)
 
-
 ### Features
 
-* change empty tip to TDesign's Empty component ([93a83a7](https://github.com/origin-coding/Alacrity/commit/93a83a78a80d99840e9bd9f2daa031cf6d8cd045))
+- change empty tip to TDesign's Empty component ([93a83a7](https://github.com/origin-coding/Alacrity/commit/93a83a78a80d99840e9bd9f2daa031cf6d8cd045))
 
 ## [3.0.3](https://github.com/origin-coding/Alacrity/compare/v3.0.2...v3.0.3) (2024-10-17)
 
