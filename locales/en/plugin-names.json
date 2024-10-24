@@ -10,5 +10,6 @@
   "uuid-validator": "UUID Validator",
   "qrcode-generator": "QR Code Generator",
   "url-parser": "URL Parser",
-  "case-converter": "Case Converter"
+  "case-converter": "Case Converter",
+  "get-random-port": "Get Random Port"
 }

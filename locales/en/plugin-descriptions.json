@@ -10,5 +10,6 @@
   "uuid-validator": "Validate UUID and analyze relevant information",
   "qrcode-generator": "Generate QR codes for multiple purposes",
   "url-parser": "Parse URL and display relevant information",
-  "case-converter": "Convert string to multiple cases"
+  "case-converter": "Convert string to multiple cases",
+  "get-random-port": "Generate random port number"
 }
