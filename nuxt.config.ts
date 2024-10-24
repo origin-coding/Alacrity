@@ -59,4 +59,10 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: "",
   },
+  alias: {
+    lodash: "lodash",
+    dayjs: "dayjs",
+    "@babel": "@babel",
+    "@faker-js/faker": "@faker-js/faker",
+  },
 });
