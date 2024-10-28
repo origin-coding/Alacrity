@@ -11,5 +11,6 @@
   "qrcode-generator": "Generate QR codes for multiple purposes",
   "url-parser": "Parse URL and display relevant information",
   "case-converter": "Convert string to multiple cases",
-  "get-random-port": "Generate random port number"
+  "get-random-port": "Generate random port number",
+  "roman-converter": "Convert between Roman numerals and Arabic numerals"
 }

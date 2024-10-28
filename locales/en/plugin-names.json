@@ -11,5 +11,6 @@
   "qrcode-generator": "QR Code Generator",
   "url-parser": "URL Parser",
   "case-converter": "Case Converter",
-  "get-random-port": "Get Random Port"
+  "get-random-port": "Get Random Port",
+  "roman-converter": "Roman Numeral Conversion"
 }

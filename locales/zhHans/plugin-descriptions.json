@@ -11,5 +11,6 @@
   "qrcode-generator": "生成多种用途的二维码",
   "url-parser": "解析URL，获取相关信息",
   "case-converter": "将字符串转换为多种大小写格式",
-  "get-random-port": "生成随机端口号"
+  "get-random-port": "生成随机端口号",
+  "roman-converter": "在罗马数字和阿拉伯数字之间进行转换"
 }

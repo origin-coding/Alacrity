@@ -11,5 +11,6 @@
   "qrcode-generator": "二维码生成",
   "url-parser": "URL解析",
   "case-converter": "大小写转换",
-  "get-random-port": "随机端口号"
+  "get-random-port": "随机端口号",
+  "roman-converter": "罗马数字转换"
 }
