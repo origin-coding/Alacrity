@@ -26,7 +26,7 @@ watch(input, async (value) => {
     if (!isValidRomanSafe(value)) {
       await MessagePlugin.error(t("invalid.roman"));
     } else {
-      output.value = arabicizeSafe(value);
+      output.value = arabicizeSafe(value).toString();
     }
   }
 });
