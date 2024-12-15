@@ -1,5 +1,6 @@
 import {
   Calculator1Icon,
+  File1Icon,
   Fingerprint3Icon,
   InternetIcon,
   StickyNoteIcon,
@@ -13,6 +14,7 @@ export enum AlacrityPluginType {
   web = "web",
   cheat = "cheat",
   converter = "converter",
+  file = "file",
 }
 
 // Logo for each plugin type.
@@ -25,6 +27,7 @@ export const TypeLogos: AlacrityPluginTypeLogo = {
   web: shallowRef(InternetIcon),
   cheat: shallowRef(StickyNoteIcon),
   converter: shallowRef(SwapIcon),
+  file: shallowRef(File1Icon),
 };
 
 export interface AlacrityPlugin {
