@@ -20,7 +20,7 @@ async function generate() {
 
     <t-divider></t-divider>
 
-    <input-output-layout>
+    <input-output-layout :title="t('port')">
       <t-descriptions :colon="true">
         <t-descriptions-item :label="t('port')">
           {{ port }}

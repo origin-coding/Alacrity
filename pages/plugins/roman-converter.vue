@@ -67,8 +67,8 @@ const output = ref("");
 
     <t-divider></t-divider>
 
-    <input-output-layout :copy="true">
-      <t-input :value="output" :readonly="true"></t-input>
+    <input-output-layout :copy="true" :title="t('result')">
+      <t-input :value="output" :readonly="true" placeholder=""></t-input>
     </input-output-layout>
   </t-space>
 </template>
@@ -89,7 +89,8 @@ const output = ref("");
     "invalid": {
       "arabic": "Invalid Arabic number! Only supports integer values from 1 to 3999.",
       "numeral": "Invalid Roman number!"
-    }
+    },
+    "result": "Result"
   },
   "zhHans": {
     "label": {
@@ -103,7 +104,8 @@ const output = ref("");
     "invalid": {
       "arabic": "无效的阿拉伯数字！只支持1到3999之间的整数。",
       "roman": "无效的罗马数字！"
-    }
+    },
+    "result": "结果"
   }
 }
 </i18n>

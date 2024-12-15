@@ -71,6 +71,7 @@ async function paste() {
       <input-output-layout
         :paste="true"
         :clear="true"
+        :title="t('title.input')"
         @paste="paste"
         @clear="clear"
       >
@@ -79,7 +80,7 @@ async function paste() {
           :autosize="{ minRows: 15, maxRows: 20 }"
         ></t-textarea>
       </input-output-layout>
-      <input-output-layout :copy="true" @copy="copy">
+      <input-output-layout :copy="true" :title="t('title.output')" @copy="copy">
         <t-textarea
           v-model="output"
           :readonly="true"
@@ -107,7 +108,11 @@ async function paste() {
       "lowerFirst": "Lower First"
     },
     "case": "Case",
-    "convert": "Convert"
+    "convert": "Convert",
+    "title": {
+      "input": "Original Text",
+      "output": "Result"
+    }
   },
   "zhHans": {
     "func": {
@@ -122,7 +127,11 @@ async function paste() {
       "lowerFirst": "首字母小写"
     },
     "case": "格式",
-    "convert": "转换"
+    "convert": "转换",
+    "title": {
+      "input": "原文",
+      "output": "结果"
+    }
   }
 }
 </i18n>

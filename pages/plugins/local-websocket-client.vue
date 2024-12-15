@@ -112,7 +112,7 @@ function truncate(message: string) {
 </script>
 
 <template>
-  <t-space direction="vertical" w-full>
+  <t-space direction="vertical" h-full w-full flex>
     <plugin-name></plugin-name>
     <option-layout>
       <t-form-item :label="t('url')">
@@ -125,6 +125,7 @@ function truncate(message: string) {
       <input-output-layout
         :paste="true"
         :clear="true"
+        :title="t('title.request')"
         @paste="paste"
         @clear="clear"
       >
@@ -139,6 +140,7 @@ function truncate(message: string) {
       <input-output-layout
         :copy="true"
         :clear="true"
+        :title="t('title.response')"
         @copy="copy"
         @clear="response = ''"
       >
@@ -150,8 +152,12 @@ function truncate(message: string) {
       </input-output-layout>
     </t-space>
     <t-divider></t-divider>
-    <input-output-layout :clear="true" @clear="clearHistory">
-      <t-list h-25vh>
+    <input-output-layout
+      :clear="true"
+      :title="t('title.history')"
+      @clear="clearHistory"
+    >
+      <t-list h-20vh>
         <t-list-item v-for="history in reversedHistoryList" :key="history.time">
           <t-row w-full>
             <t-col :span="2"> {{ history.time }}</t-col>
@@ -195,6 +201,11 @@ function truncate(message: string) {
       "send": "Sent: ",
       "receive": "Received: ",
       "length": "Length: "
+    },
+    "title": {
+      "request": "Request",
+      "response": "Response",
+      "history": "History"
     }
   },
   "zhHans": {
@@ -214,6 +225,11 @@ function truncate(message: string) {
       "send": "发送：",
       "receive": "接收：",
       "length": "长度："
+    },
+    "title": {
+      "request": "请求",
+      "response": "响应",
+      "history": "历史记录"
     }
   }
 }

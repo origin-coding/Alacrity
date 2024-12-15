@@ -62,6 +62,7 @@ const { ref: output, copy } = useStringOperations(
       <input-output-layout
         :clear="true"
         :paste="true"
+        :title="t('title.raw')"
         @clear="clear"
         @paste="paste"
       >
@@ -71,7 +72,7 @@ const { ref: output, copy } = useStringOperations(
           :autosize="{ minRows: 10, maxRows: 20 }"
         ></t-textarea>
       </input-output-layout>
-      <input-output-layout :copy="true" @copy="copy">
+      <input-output-layout :copy="true" :title="t('title.hash')" @copy="copy">
         <t-textarea :value="output" :readonly="true"></t-textarea>
       </input-output-layout>
     </t-space>
@@ -84,11 +85,19 @@ const { ref: output, copy } = useStringOperations(
 {
   "en": {
     "algorithm": "Algorithm",
-    "uppercase": "Uppercase"
+    "uppercase": "Uppercase",
+    "title": {
+      "raw": "Plaintext",
+      "hash": "Hash"
+    }
   },
   "zhHans": {
     "algorithm": "哈希算法",
-    "uppercase": "是否大写"
+    "uppercase": "是否大写",
+    "title": {
+      "raw": "明文",
+      "hash": "哈希"
+    }
   }
 }
 </i18n>

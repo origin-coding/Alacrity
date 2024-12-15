@@ -101,7 +101,7 @@ const { t } = useI18n();
       </t-form-item>
     </option-layout>
     <t-divider></t-divider>
-    <input-output-layout :copy="true" @copy="copy">
+    <input-output-layout :copy="true" :title="t('title')" @copy="copy">
       <t-textarea
         v-model="output"
         :readonly="true"
@@ -129,7 +129,8 @@ const { t } = useI18n();
     "error": {
       "MISSING_NAMESPACE": "Missing namespace!",
       "INVALID_NAMESPACE": "Invalid namespace!"
-    }
+    },
+    "title": "UUID List"
   },
   "zhHans": {
     "generate": "生成",
@@ -145,7 +146,8 @@ const { t } = useI18n();
     "error": {
       "MISSING_NAMESPACE": "缺少命名空间！",
       "INVALID_NAMESPACE": "无效的命名空间！"
-    }
+    },
+    "title": "UUID列表"
   }
 }
 </i18n>

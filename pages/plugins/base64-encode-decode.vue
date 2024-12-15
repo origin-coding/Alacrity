@@ -52,6 +52,7 @@ const { ref: output, copy } = useStringOperations(
       <input-output-layout
         :paste="true"
         :clear="true"
+        :title="t('title.input')"
         @clear="clear"
         @paste="paste"
       >
@@ -60,7 +61,7 @@ const { ref: output, copy } = useStringOperations(
           :autosize="{ minRows: 10, maxRows: 20 }"
         ></t-textarea>
       </input-output-layout>
-      <input-output-layout :copy="true" @copy="copy">
+      <input-output-layout :copy="true" :title="t('title.output')" @copy="copy">
         <t-textarea
           v-model="output"
           :autosize="{ minRows: 10, maxRows: 20 }"
@@ -79,13 +80,21 @@ const { ref: output, copy } = useStringOperations(
     "option": "Option",
     "encode": "Encode",
     "decode": "Decode",
-    "error": "Invalid Base64 value!"
+    "error": "Invalid Base64 value!",
+    "title": {
+      "input": "Input",
+      "output": "Output"
+    }
   },
   "zhHans": {
     "option": "选项",
     "encode": "加密",
     "decode": "解密",
-    "error": "无效的Base64值！"
+    "error": "无效的Base64值！",
+    "title": {
+      "input": "输入",
+      "output": "输出"
+    }
   }
 }
 </i18n>

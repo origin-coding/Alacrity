@@ -84,7 +84,13 @@ function clear() {
 
     <t-divider></t-divider>
 
-    <input-output-layout :copy="true" :clear="true" @copy="copy" @clear="clear">
+    <input-output-layout
+      :copy="true"
+      :clear="true"
+      :title="t('title.result')"
+      @copy="copy"
+      @clear="clear"
+    >
       <t-textarea :value="output" :readonly="true"></t-textarea>
     </input-output-layout>
   </t-space>
@@ -97,12 +103,18 @@ function clear() {
   "en": {
     "select": "Select",
     "algorithm": "Algorithm",
-    "uppercase": "Uppercase"
+    "uppercase": "Uppercase",
+    "title": {
+      "result": "Hash Result"
+    }
   },
   "zhHans": {
     "select": "选择文件",
     "algorithm": "哈希算法",
-    "uppercase": "是否大写"
+    "uppercase": "是否大写",
+    "title": {
+      "result": "哈希结果"
+    }
   }
 }
 </i18n>
