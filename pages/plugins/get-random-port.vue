@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { faker } from "@faker-js/faker";
+import { writeText } from "@tauri-apps/plugin-clipboard-manager";
 
 const { t } = useI18n();
 
@@ -7,6 +8,10 @@ const port = ref(1024);
 
 async function generate() {
   port.value = faker.internet.port();
+}
+
+async function copy() {
+  await writeText(port.value.toString());
 }
 </script>
 
@@ -20,7 +25,7 @@ async function generate() {
 
     <t-divider></t-divider>
 
-    <input-output-layout :title="t('port')">
+    <input-output-layout :title="t('port')" :copy="true" @copy="copy">
       <t-descriptions :colon="true">
         <t-descriptions-item :label="t('port')">
           {{ port }}
