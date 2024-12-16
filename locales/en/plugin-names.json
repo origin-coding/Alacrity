@@ -12,5 +12,6 @@
   "url-parser": "URL Parser",
   "case-converter": "Case Converter",
   "get-random-port": "Get Random Port",
-  "roman-converter": "Roman Numeral Conversion"
+  "roman-converter": "Roman Numeral Conversion",
+  "parse-mime-type": "Parse MIME Type"
 }

@@ -12,5 +12,6 @@
   "url-parser": "URL解析",
   "case-converter": "大小写转换",
   "get-random-port": "随机端口号",
-  "roman-converter": "罗马数字转换"
+  "roman-converter": "罗马数字转换",
+  "parse-mime-type": "获取文件MIME类型"
 }
